@@ -1,6 +1,6 @@
 <?php
-require_once('config.php');
-use PHPMailer\PHPMailer\PHPMailer;
+    require_once('config.php');
+    require_once('mail.php');
 ?>
 
 <?php
@@ -80,22 +80,7 @@ use PHPMailer\PHPMailer\PHPMailer;
         setcookie("cartquantity", "0", 0 , "/"); //resetting l panier
         echo('merci!');
 
-        //Sending mail        
-        require_once 'assets/php-mailer/Exception.php';
-        require_once 'assets/php-mailer/PHPMailer.php';
-        require_once 'assets/php-mailer/SMTP.php';
-        
-        $mail = new PHPMailer(true);
         try {
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'sbrpara1@gmail.com';
-            $mail->Password = 'sbrsbrparapara13';
-            $mail->SMTPSecure = 'ssl';
-            $mail->Port = 465;
-
-            $mail->setFrom('sbrpara1@gmail.com');
             $mail->addAddress($email);
       
             $mail->isHTML(true);

@@ -1,12 +1,7 @@
 <?php
-  use PHPMailer\PHPMailer\PHPMailer;
-
-  require_once 'assets/php-mailer/Exception.php';
-  require_once 'assets/php-mailer/PHPMailer.php';
-  require_once 'assets/php-mailer/SMTP.php';
+  require_once('mail.php');
 
   if (! empty($_POST['name']) && ! empty($_POST['email']) && ! empty($_POST['message']) && ! empty($_POST['subject'])) {
-    $mail = new PHPMailer(true);
 
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -15,15 +10,6 @@
     $message = $_POST['message'];
 
     try {
-      $mail->isSMTP();
-      $mail->Host = 'smtp.gmail.com';
-      $mail->SMTPAuth = true;
-      $mail->Username = 'sbrpara1@gmail.com';
-      $mail->Password = 'sbrsbrparapara13';
-      $mail->SMTPSecure = 'ssl';
-      $mail->Port = 465;
-
-      $mail->setFrom('sbrpara1@gmail.com');
       $mail->addAddress('sbrpara1@gmail.com');
 
       $mail->isHTML(true);
