@@ -1,8 +1,8 @@
 <?php
 try{
-$db_user = "root";
-$db_pass = "";
-$db_name = "bd";
+$db_user = ""; //your database username
+$db_pass = ""; //your database password
+$db_name = ""; //your database name
 
 $db = new PDO('mysql:host=localhost;dbname=' . $db_name . ';charset=utf8', $db_user, $db_pass);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
