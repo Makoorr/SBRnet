@@ -91,7 +91,7 @@
   </header><!-- End Header -->
 
       <!--Section: Contact-->
-    <section class="mb-4" style="padding-top: 12%;padding-bottom: 10%;">
+    <section class="mb-4" style="padding-top: 10%;padding-bottom: 10%;">
         <div class="container" data-aos="fade-up">
         <!--Section heading-->
         <h2 class="h1-responsive font-weight-bold text-center my-4">Contactez-nous</h2>
