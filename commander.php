@@ -114,16 +114,42 @@
                                 <label for="phone">Numéro de téléphone<span>*</span></label>
                                 <input type="number" id="phone" name="phone">
                             </div>
-                            <div class="col-lg-12">
-                                <label for="ville">Ville<span>*</span></label>
-                                <input type="text" id="ville" name="ville">
+                            <div class="col-lg-3">
+                                <label for="ville">Ville<span>*</span></label><br>
+                                <select required class="form-select ville-select" aria-label="Default select example" id="ville" name="ville">
+                                    <option value= "" disabled="">Sélectionner</option>
+                                    <option value="Ariana" selected="">Ariana</option>
+                                    <option value="Beja">Béja</option>
+                                    <option value="Ben Arous">Ben Arous</option>
+                                    <option value="Bizerte">Bizerte</option>
+                                    <option value="Gabes">Gabes</option>
+                                    <option value="Gafsa">Gafsa</option>
+                                    <option value="Jendouba">Jendouba</option>
+                                    <option value="Kairouan">Kairouan</option>
+                                    <option value="Kasserine">Kasserine</option>
+                                    <option value="Kebili">Kebili</option>
+                                    <option value="La Manouba">La Manouba</option>
+                                    <option value="Le Kef">Le Kef</option>
+                                    <option value="Mahdia">Mahdia</option>
+                                    <option value="Medenine">Médenine</option>
+                                    <option value="Monastir">Monastir</option>
+                                    <option value="Nabeul">Nabeul</option>
+                                    <option value="Sfax">Sfax</option>
+                                    <option value="Sidi Bouzid">Sidi Bouzid</option>
+                                    <option value="Siliana">Siliana</option>
+                                    <option value="Sousse">Sousse</option>
+                                    <option value="Tataouine">Tataouine</option>
+                                    <option value="Tozeur">Tozeur</option>
+                                    <option value="Tunis">Tunis</option>
+                                    <option value="Zaghouan">Zaghouan</option>
+                                </select>
                             </div>
                             <div class="col-lg-6">
                                 <label for="address">Adresse<span>*</span></label>
                                 <input type="text" id="address" name="address" class="street-first">
                             </div>
-                            <div class="col-lg-6">
-                                <label for="zip">Code Postal / ZIP<span>*</span></label>
+                            <div class="col-lg-3">
+                                <label for="zip">Code Postale<span>*</span></label>
                                 <input type="number" id="zip" name="zip">
                             </div>
                             <div class="col-lg-6 status"></div>
