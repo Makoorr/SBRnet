@@ -12,12 +12,12 @@ use PHPMailer\PHPMailer\PHPMailer;
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'sbrpara1@gmail.com';
-        $mail->Password = 'sbrsbrparapara13';
+        $mail->Username = '';//your email
+        $mail->Password = '';//your password
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
 
-        $mail->setFrom('sbrpara1@gmail.com');
+        $mail->setFrom('');//your email
     }catch(Exception $e) {
         // echo('<div class="alert-error">
         //           <span>'.$e->getMessage().'</span>
