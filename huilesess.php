@@ -213,8 +213,8 @@ if(empty($e)){
                                     <a>Prix: <a id="price<?php echo($prod['idproduits']); ?>"><?php echo($prod['prix']); ?></a> DT</a>
                                     <a style="margin-left:2em">Quantité: <input type="number" min="0" max="300" id="quantity<?php echo($prod['idproduits']); ?>" style="width: 3em;border-color: #000;"></a>
                                 </div>
-                                <div style="margin-top: 0.5em;">
-                                    <a><button class="get-started-btn" onclick="ajt(<?php echo($prod['idproduits']); ?>)" style="margin-left:6em;">Ajouter dans le panier</button></a>
+                                <div class="d-flex justify-content-center" style="margin-top: 0.5em;">
+                                    <a class="h3"><button class="get-started-btn" onclick="ajt(<?php echo($prod['idproduits']); ?>)" style="margin-left:6em;width:auto;">Ajouter dans le panier</button></a>
                                 </div>
                                 <!-- <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                     <li>M/L/X/XL</li>

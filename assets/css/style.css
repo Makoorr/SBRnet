@@ -764,19 +764,22 @@ footer, footer .container .col{
 * Get Started Button 
 */
 .get-started-btn {
-  margin-left: 22px;
-  background: #24282D;
-  color: #fff;
-  border-radius: 50px;
-  padding: 8px 25px;
-  white-space: nowrap;
-  transition: 0.3s;
-  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  letter-spacing: 1px;
   display: inline-block;
+  padding: 10px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin-top: 5px;
+  border: 2px solid #fff;
+  color: #24282D;
 }
 .get-started-btn:hover {
   background: #24282D;
-  color: #fff;
+  border: 2px solid #24282D;
+  color:#ebebeb;
 }
 @media (max-width: 768px) {
   .get-started-btn {
