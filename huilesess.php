@@ -194,12 +194,12 @@ if(empty($e)){
                     <div class="col-lg-3">
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" id="img<?php echo($prod['idproduits']); ?>" src="test/templatemo_559_zay_shop/assets/img/shop_0<?php echo($prod['idproduits']);?>.jpg">
+                                <img class="card-img rounded-0 img-fluid" id="img<?php echo($prod['idproduits']); ?>" src="assets/img/<?php echo($prod['idproduits']);?>.jpg">
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
                                         <!-- <li><a class="btn btn-success text-white" href="#"><i class="far fa-heart"></i></a></li> -->
-                                        <!-- <li><a class="btn btn-success text-white mt-2 fancylight popup-btn" href="test/templatemo_559_zay_shop/assets/img/shop_01.jpg" data-fancybox-group="light"><i class="far fa-eye"></i></a></li> -->
-                                        <li><a class="btn btn-success text-white mt-2 fancylight popup-btn" style="background-color: #24282D;border-color:#24282D" href="test/templatemo_559_zay_shop/assets/img/shop_0<?php echo($prod['idproduits']); ?>.jpg" data-fancybox="gallery"><i class="far fa-eye"></i></a></li>
+                                        <!-- <li><a class="btn btn-success text-white mt-2 fancylight popup-btn" href="assets/img/.jpg" data-fancybox-group="light"><i class="far fa-eye"></i></a></li> -->
+                                        <li><a class="btn btn-success text-white mt-2 fancylight popup-btn" style="background-color: #24282D;border-color:#24282D" href="assets/img/<?php echo($prod['idproduits']); ?>.jpg" data-fancybox="gallery"><i class="far fa-eye"></i></a></li>
                                         <!-- <li><a class="btn btn-success text-white mt-2"  onclick="ajt(<?php echo($prod['idproduits']); ?>)"><i class="fas fa-cart-plus"></i></a></li> -->
                                     </ul>
                                 </div>
