@@ -84,7 +84,7 @@
     <section id="hero" class="d-flex justify-content-center align-items-center">
       <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
         <h1>100% Pure Rose<br>Huile essentielle</h1>
-        <h2>Notre gamme d'huiles essentielles de haute qualité a été triée sur le volet par nos spécialistes des parfums.</h2>
+        <h2 class="has-text-align-center has-small-font-size" id="my-all-time-favourite-scent-it-smells-divine-and-lasts-all-day-a-true-and-beautiful-rose-fragrance" style="line-height:1.5;font-style: italic;"><em style="font-size:x-large;font-weight: 300;">“Notre gamme d'huiles essentielles de haute qualité a été triée sur le volet par nos spécialistes des parfums.”</em></h2>
         <a href="huilesess.php" class="btn-get-started">Acheter Maintenant!</a>
       </div>
     </section><!-- End Hero -->
