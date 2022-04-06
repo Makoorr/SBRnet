@@ -149,7 +149,7 @@
                                 </div>
                                 <div class="order-btn">
                                     <!-- <button type="submit" class="site-btn place-btn">Place Order</button> -->
-                                    <button class="site-btn place-btn" type="button" id="checkoutbtn" onclick="validateCheckout()">Placer Votre Commande</button>
+                                    <button class="site-btn place-btn" type="button" id="checkoutbtn" onclick="validateCheckout()">Passer Votre Commande</button>
                                 </div>
                             </div>
                         </div>
