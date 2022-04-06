@@ -291,7 +291,7 @@ if(empty($e)){
     <hr style="border-top: 3px solid #bbb">
 
     <!-- ======= Footer ======= -->
-    <footer id="footer">
+    <footer id="footer" style="height: 100%;">
       <!-- Copyright -->
       <div class="container d-md-flex py-4">
 

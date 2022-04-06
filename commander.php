@@ -183,7 +183,7 @@
     <hr style="border-top: 3px solid #bbb">
 
     <!-- ======= Footer ======= -->
-    <footer id="footer">
+    <footer id="footer" style="height: 100%;">
       <!-- Copyright -->
       <div class="container d-md-flex py-4">
 
@@ -198,9 +198,6 @@
         </div>
         </div>
     </footer><!-- End Footer -->
-
-    <div id="preloader"></div>
-    <a  class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <script src="assets/vendor/purecounter/purecounter.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>

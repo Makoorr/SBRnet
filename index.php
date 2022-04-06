@@ -150,7 +150,7 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <footer id="footer" style="height: 100%;">
     <div class="footer-top" style="background-color: black;">
       <div class="container">
         <div class="row">
