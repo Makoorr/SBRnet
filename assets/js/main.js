@@ -432,7 +432,7 @@ function validateCheckout() {
       data: {nom: nom,prenom: prenom,email: email,phone: phone,ville: ville,address: address,zip: zip},
       success: function(data){
         document.querySelector('.status').innerHTML = "Envoyé!";
-        location.assign('merci.html');
+        location.assign('merci.php');
       },
       error: function(data){
         document.querySelector('.status').innerHTML = "Erreur d'envoi.";
@@ -505,7 +505,7 @@ function validateForm() {
       data: {name: name,email: email,tel: tel,subject: subject,message: message},
       success: function(data){
         document.querySelector('.status').innerHTML = "Envoyé!";
-        location.assign('merci.html');
+        location.assign('merci.php');
       },
       error: function(data){
         document.querySelector('.status').innerHTML = "Erreur d'envoi.";

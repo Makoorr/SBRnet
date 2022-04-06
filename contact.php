@@ -90,7 +90,7 @@
     </div>
   </header><!-- End Header -->
 
-      <!--Section: Contact-->
+    <!--Section: Contact-->
     <section class="mb-4" style="padding-top: 10%;padding-bottom: 10%;">
         <div class="container" data-aos="fade-up">
         <!--Section heading-->
