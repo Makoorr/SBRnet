@@ -188,7 +188,16 @@ if(empty($e)){
                         </ul> -->
                     </div>
                     <div class="col-md">
-                        <h4 style="text-align: center;">Huiles Essentielles</h4>
+                        <h4 style="text-align: center;">
+                            <?php
+                            $sql="SELECT nom_categorie FROM produits where categorie='huilesess'";
+                            $produits = $db->query($sql);
+                            foreach($produits as $prod){
+                                $nomcateg=$prod[0];
+                            }
+                            echo($nomcateg);
+                            ?>
+                        </h4>
                     </div>
                     <div class="col-md">
                         <div class="d-flex justify-content-end">
