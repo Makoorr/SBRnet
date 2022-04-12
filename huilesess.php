@@ -1,6 +1,25 @@
 <?php
 require_once('config.php');
 if(empty($e)){
+    if (isset($_GET['pageno'])) {
+        $pageno = $_GET['pageno'];
+    } else {
+        $pageno = 1;
+    }
+
+    $no_of_records_per_page = 2;
+    $offset = ($pageno-1) * $no_of_records_per_page;
+
+    $total_pages_sql = "SELECT COUNT(*) FROM produits where disponibilite=1 and categorie='huilesess';";
+    $result = $db->query($total_pages_sql);
+    foreach($result as $res){
+        $total_rows = $res[0];
+    }
+    $total_pages = ceil($total_rows / $no_of_records_per_page);
+
+    //checking the ?pageno
+    if($pageno<1 || $pageno>$total_pages)
+        header("location:./huilesess.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -175,42 +194,25 @@ if(empty($e)){
                         <div class="d-flex justify-content-end">
                             <div class="pagination">
                                 <?php
-                                    if (isset($_GET['pageno'])) {
-                                        $pageno = $_GET['pageno'];
-                                    } else {
-                                        $pageno = 1;
-                                    }
-
                                     if($pageno!=1)
                                         $prevpage=intval($pageno)-1;
                                     else
                                         $prevpage=1;
-                                    
-                                    $no_of_records_per_page = 2;
-                                    $offset = ($pageno-1) * $no_of_records_per_page;
-                                    
-                                    $total_pages_sql = "SELECT COUNT(*) FROM produits where disponibilite=1 and categorie='huilesess';";
-                                    $result = $db->query($total_pages_sql);
-                                    foreach($result as $res){
-                                        $total_rows = $res[0];
-                                    }
-                                    $total_pages = ceil($total_rows / $no_of_records_per_page);
 
                                     if($pageno<$total_pages)
                                         $nextpage=intval($pageno)+1;
                                     else
                                         $nextpage=$total_pages;
+                                    
+                                    echo("<a href='?pageno=$prevpage'>&laquo;</a>");
+                                    for ($i=1;$i<=$total_pages;$i++){
+                                        if(intval($i)===intval($pageno))
+                                            echo("<a href='?pageno=$i' class='active' value='$i'> $i </a>");
+                                        else
+                                            echo("<a href='?pageno=$i' value='$i'> $i </a>");
+                                    }
+                                    echo("<a href='?pageno=$nextpage'>&raquo;</a>");
                                 ?>
-                                    <?php
-                                        echo("<a href='?pageno=$prevpage'>&laquo;</a>");
-                                        for ($i=1;$i<=$total_pages;$i++){
-                                            if(intval($i)===intval($pageno))
-                                                echo("<a href='?pageno=$i' class='active' value='$i'> $i </a>");
-                                            else
-                                                echo("<a href='?pageno=$i' value='$i'> $i </a>");
-                                        }
-                                        echo("<a href='?pageno=$nextpage'>&raquo;</a>");
-                                    ?>
                             </div>
                         </div>
                     </div>
