@@ -155,10 +155,8 @@ if(empty($e)){
             <div class="col-sm">
                 <!-- Title -->
                 <div class="row">
-                    <h4 style="text-align: center;">Huiles Essentielles</h4>
-
-                    <!-- <div class="col-md-6">
-                        <ul class="list-inline shop-top-menu pb-3 pt-1">
+                    <div class="col-md">
+                        <!-- <ul class="list-inline shop-top-menu pb-3 pt-1">
                             <li class="list-inline-item">
                                 <a class="h3 text-dark text-decoration-none mr-3" href="#">All</a>
                             </li>
@@ -168,17 +166,25 @@ if(empty($e)){
                             <li class="list-inline-item">
                                 <a class="h3 text-dark text-decoration-none" href="#">Women's</a>
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
-                    <div class="col-md-6 pb-4">
-                        <div class="d-flex">
-                            <select class="form-control">
-                                <option>Featured</option>
-                                <option>A to Z</option>
-                                <option>Item</option>
-                            </select>
+                    <div class="col-md">
+                        <h4 style="text-align: center;">Huiles Essentielles</h4>
+                    </div>
+                    <div class="col-md">
+                        <div class="d-flex justify-content-end">
+                            <div class="pagination">
+                                <a href="#">&laquo;</a>
+                                <a class="active" href="#">1</a>
+                                <a href="#">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                                <a href="#">5</a>
+                                <a href="#">6</a>
+                                <a href="#">&raquo;</a>
+                            </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
                 <!-- End Title -->
                 <br>
