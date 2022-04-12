@@ -7,7 +7,7 @@ if(empty($e)){
         $pageno = 1;
     }
 
-    $no_of_records_per_page = 2;
+    $no_of_records_per_page = 10;
     $offset = ($pageno-1) * $no_of_records_per_page;
 
     $total_pages_sql = "SELECT COUNT(*) FROM produits where disponibilite=1 and categorie='huilesess';";
@@ -247,7 +247,7 @@ if(empty($e)){
                                 </div>
                                 
                                 <div class="w-100 list-unstyled d-flex justify-content-center mb-0">
-                                    <a>Prix: <a id="price<?php echo($prod['idproduits']); ?>"><?php echo($prod['prix']); ?></a> DT</a>
+                                    <div style="margin-top: 3px;">Prix: <a id="price<?php echo($prod['idproduits']); ?>"> <?php echo($prod['prix']); ?></a> DT</div>
                                     <a style="margin-left:2em">Quantité: <input type="number" min="0" max="300" id="quantity<?php echo($prod['idproduits']); ?>" style="width: 3em;border-color: #000;"></a>
                                 </div>
                                 <div class="w-100 d-flex justify-content-center" style="margin-top: 0.5em;">
