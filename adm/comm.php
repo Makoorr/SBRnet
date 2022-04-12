@@ -1,6 +1,6 @@
 <?php
     require_once('config.php');
-    
+
     if (isset($_GET['pageno'])) {
         $pageno = $_GET['pageno'];
     } else {
@@ -70,7 +70,7 @@
                 </thead>
                 <?php
                     $i=0;
-                    $sql="SELECT * FROM commande ORDER BY idcommande desc;";
+                    $sql="SELECT * FROM commande ORDER BY idcommande desc LIMIT $offset, $no_of_records_per_page;";
                     $commande = $db->query($sql);
 
                     foreach($commande as $comm){
