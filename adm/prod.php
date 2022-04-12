@@ -1,5 +1,21 @@
 <?php
     require_once('config.php');
+
+    if (isset($_GET['pageno'])) {
+        $pageno = $_GET['pageno'];
+    } else {
+        $pageno = 1;
+    }
+
+    $no_of_records_per_page = 25;
+    $offset = ($pageno-1) * $no_of_records_per_page;
+
+    $total_pages_sql = "SELECT COUNT(*) FROM produits;";
+    $result = $db->query($total_pages_sql);
+    foreach($result as $res){
+        $total_rows = $res[0];
+    }
+    $total_pages = ceil($total_rows / $no_of_records_per_page);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +25,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prods</title>
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -45,6 +62,26 @@
             </table>
         </div>
 
+        <div class="d-flex justify-content-end">
+            <div class="pagination">
+                <?php
+                    if($pageno!=1)
+                        $prevpage=intval($pageno)-1;
+                    else
+                        $prevpage=1;
+
+                    if($pageno<$total_pages)
+                        $nextpage=intval($pageno)+1;
+                    else
+                        $nextpage=$total_pages;
+                    
+                    echo("<a href='?pageno=$prevpage'>&laquo;</a>");
+                    echo("<a href='?pageno=$pageno' class='active' value='$pageno'> $pageno </a>");
+                    echo("<a href='?pageno=$nextpage'>&raquo;</a>");
+                ?>
+            </div>
+        </div>
+
         <div class="row">
             <table class="table table-hover">
                 <thead>
@@ -60,7 +97,7 @@
                 </thead>
                 <?php
                     $i=0;
-                    $sql="SELECT * FROM produits;";
+                    $sql="SELECT * FROM produits LIMIT $offset, $no_of_records_per_page;";
                     $produits = $db->query($sql);
 
                     foreach($produits as $prod){
