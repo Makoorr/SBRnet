@@ -61,7 +61,7 @@ if(empty($e)){
 
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.php" class="logo me-auto"><img src = "assets/img/logosbr.png" alt="" class="img-fluid"></a> -->
-        <h1 class="logo me-auto"><a href="index.php"><img src = "assets/img/logosbr.png" alt="" class="img-fluid" style="padding-top: 2px;"><span style="color: 00ffb4;font-size: large;">  SBR-Pharma</span> </a></h1>
+        <h1 class="logo me-auto"><a href="index.php"><img src = "assets/img/logosbr.png" alt="" class="img-fluid" style="padding-top: 2px;"><span style="color: 00ffb4;font-size: large;font-weight: 500 !important;">  SBR-Pharma</span> </a></h1>
 
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
@@ -229,7 +229,7 @@ if(empty($e)){
                         foreach($produits as $prod){
                     ?>
                     <div class="col-lg-3">
-                        <div class="card mb-4 product-wap rounded-0">
+                        <div class="card mb-4 product-wap rounded-0" style="border: none !important;box-shadow: none !important;">
                             <div class="card rounded-0">
                                 <img class="card-img rounded-0 img-fluid" style="height: 15em;" id="img<?php echo($prod['idproduits']); ?>" src="assets/img/<?php echo($prod['idproduits']);?>.jpg">
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
@@ -241,17 +241,17 @@ if(empty($e)){
                                     </ul>
                                 </div>
                             </div>
-                            <div class="card-body">
-                                <div class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                            <div class="card-body" style="border: none !important;">
+                                <div class="w-100 list-unstyled d-flex justify-content-center mb-0">
                                     <a  class="h3 text-decoration-none" id="name<?php echo($prod['idproduits']); ?>"><?php echo($prod['nom']); ?></a>
                                 </div>
                                 
-                                <div class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <div class="w-100 list-unstyled d-flex justify-content-center mb-0">
                                     <a>Prix: <a id="price<?php echo($prod['idproduits']); ?>"><?php echo($prod['prix']); ?></a> DT</a>
                                     <a style="margin-left:2em">Quantité: <input type="number" min="0" max="300" id="quantity<?php echo($prod['idproduits']); ?>" style="width: 3em;border-color: #000;"></a>
                                 </div>
-                                <div class="d-flex justify-content-center" style="margin-top: 0.5em;">
-                                    <a class="h3"><button class="get-started-btn" onclick="ajt(<?php echo($prod['idproduits']); ?>)" style="margin-left:6em;width:auto;">Ajouter dans le panier</button></a>
+                                <div class="w-100 d-flex justify-content-center" style="margin-top: 0.5em;">
+                                    <a class="h3"><button class="get-started-btn" onclick="ajt(<?php echo($prod['idproduits']); ?>)" style="width:auto;">Ajouter dans le panier</button></a>
                                 </div>
                                 <!-- <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                     <li>M/L/X/XL</li>
