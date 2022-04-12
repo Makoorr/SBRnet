@@ -55,6 +55,9 @@
             $idcommande=$idcom['idcommande'];
         }
 
+        //initialiazing tab elements
+        $tab="";
+
         while($s!=0){ //Ajout lel entité achat
             if(CheckCookieById($x)){
 
@@ -64,6 +67,11 @@
                 $quantityx=$_COOKIE["quantity$x"];
                 $pricex=intval($_COOKIE["price$x"])*intval($_COOKIE["quantity$x"]); //prix total (prix unitaire * quantite)
                 
+                //appending ltab
+                $tab.=" <tr style='border: 2px solid ;'>
+                            <td style='border: 1px solid;'>$namex</td><td style='border: 1px solid;'>$quantityx</td><td style='border: 1px solid;'>$prixx DT</td>
+                        </tr>";
+
                 //getting the idproduits
                 $sql = "SELECT idproduits from produits where nom='$namex' and prix='$prixx'";
                 foreach ($db->query($sql) as $idprod) {
@@ -80,6 +88,9 @@
         setcookie("cartquantity", "0", 0 , "/"); //resetting l panier
         echo('merci!');
 
+        //getting the carts' elements from the order
+        
+
         try {
             $mail->addAddress($email);
       
@@ -90,6 +101,18 @@
                             <br>
                             <div>Votre commande a été envoyé avec succès!</div>
                             <div>Nous vous appelerons sur $phone le plus tot possible pour confirmer votre demande.</div>
+                            <br>
+                            <h5>Votre Commande:</h5>
+                            <table style='border: 2px solid ;'>
+                                <tbody>
+                                    <tr style='border: 2px solid ;'>
+                                        <td style='border: 1px solid;'>Nom du produits</td>
+                                        <td style='border: 1px solid;'>Quantite</td>
+                                        <td style='border: 1px solid;'>Prix unitaire</td>
+                                    </tr>"
+                                    .$tab.
+                                "</tbody>
+                            </table>
                             <br>
                             <div>Si vous avez des questions, veuillez nous envoyer une demande <a href='http://localhost/sbrnet/contact.php'>ici</a></div>
                             <div>Cordialement,</div>

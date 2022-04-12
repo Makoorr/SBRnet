@@ -8,7 +8,7 @@ if(empty($e)){
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SBRPara</title>
+  <title>SBRPharma</title>
   <link rel = "icon" type = "image/png" href = "assets/img/iconsbr.png">
 
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet"> <!--logos-->
