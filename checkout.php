@@ -96,32 +96,36 @@
       
             $mail->isHTML(true);
             $mail->Subject = "Commande d'achat chez SBRPharma";
-            $mail->Body = "<div style='background-color: #ebebeb;display: flex;align-items: center;justify-content: center;'>
-                            <div style='background-color: white;padding: 1em;'>
-                                <a href='http://localhost/sbrnet'><img width='150' height='50' src='http://localhost/sbrnet/assets/img/logosbr(txt).png'></a>
-                                <hr>
-                                <h2 style='font-family: Arial, Helvetica, sans-serif;font-size: 18px;'>Merci d'avoir fait confiance à SBRPharma!</h2>
-                                <p>Bonjour Mr/Mme $nom</p>
-                                <p>Votre commande a été envoyé avec succès! <br>
-                                Nous vous appelerons sur $phone le plus tôt possible pour confirmer votre demande.</p>
-                                <br>
-                                <p style='font-family: Arial, Helvetica, sans-serif;font-size: 14px;font-weight: 600;'>Votre Commande:</p>
-                                <table style='border: 2px solid ;'>
-                                    <tbody>
-                                        <tr style='border: 2px solid ;'>
-                                            <td style='border: 1px solid;'>Nom du produits</td>
-                                            <td style='border: 1px solid;'>Quantite</td>
-                                            <td style='border: 1px solid;'>Prix unitaire</td>
-                                        </tr>"
+            $mail->Body = "<table  width='100%' border='0' cellspacing='0' cellpadding='0'>
+            <tr>
+                <td style='background-color: #ebebeb;' width='33%'></td>
+                <td style='padding: 1em;'>
+                    <a href='http://localhost/sbrnet'><img width='150' height='50' src='http://localhost/sbrnet/assets/img/logosbr(txt).png'></a>
+                    <hr>
+                    <h2 style='font-family: Arial, Helvetica, sans-serif;font-size: 18px;'>Merci d'avoir fait confiance à SBRPharma!</h2>
+                    <p>Bonjour Mr/Mme $nom</p>
+                    <p>Votre commande a été envoyé avec succès! <br>
+                    Nous vous appelerons sur $phone le plus tôt possible pour confirmer votre demande.</p>
+                    <br>
+                    <p style='font-family: Arial, Helvetica, sans-serif;font-size: 14px;font-weight: 600;'>Votre Commande:</p>
+                    <table style='border: 2px solid ;'>
+                        <tbody>
+                            <tr style='border: 2px solid ;'>
+                                <td style='border: 1px solid;'>Nom du produits</td>
+                                <td style='border: 1px solid;'>Quantite</td>
+                                <td style='border: 1px solid;'>Prix unitaire</td>
+                            </tr>"
                                         .$tab.
                                     "</tbody>
-                                </table>
-                                <br>
-                                <p>Si vous avez des questions, veuillez nous envoyer une demande <a href='http://localhost/sbrnet/contact.php'>ici</a></p>
-                                <p>Cordialement,<br>
-                                Equipe SBRPharma</p>
-                            </div>
-                        </div>";
+                                    </table>
+                                    <br>
+                                    <p>Si vous avez des questions, veuillez nous envoyer une demande <a href='http://localhost/sbrnet/contact.php'>ici</a></p>
+                                    <p>Cordialement,<br>
+                                    Equipe SBRPharma</p>
+                                </td>
+                                <td style='background-color: #ebebeb;' width='33%'></td>
+                            </tr>
+                        </table>";
             $mail->send();
         } catch(Exception $e) {
             // echo('<div class="alert-error">
