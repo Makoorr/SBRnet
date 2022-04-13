@@ -28,31 +28,31 @@ if(empty($e)){
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SBRPharma</title>
-  <link rel = "icon" type = "image/png" href = "assets/img/iconsbr.png">
+  <link rel = "icon" type = "image/png" href = "../assets/img/iconsbr.png">
 
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet"> <!--logos-->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/vendor/ajax/magnific-popup.css">
-  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/jQuery/elegant-icons.css" rel="stylesheet">
-  <link href="assets/vendor/jQuery/font-awesome.min.css" rel="stylesheet">
-  <link href="assets/vendor/jQuery/jquery-ui.min.css" rel="stylesheet">
-  <link href="assets/vendor/jQuery/nice-select.css" rel="stylesheet">
-  <link href="assets/vendor/jQuery/owl.carousel.min.css" rel="stylesheet">
-  <link href="assets/vendor/jQuery/slicknav.min.css" rel="stylesheet">
-  <link href="assets/vendor/jQuery/elegant-icons.css" rel="stylesheet">
-  <link href="assets/vendor/fontawesome/fontawesome.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet"> <!--logos-->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/vendor/ajax/magnific-popup.css">
+  <link href="../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="../assets/vendor/jQuery/elegant-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/jQuery/font-awesome.min.css" rel="stylesheet">
+  <link href="../assets/vendor/jQuery/jquery-ui.min.css" rel="stylesheet">
+  <link href="../assets/vendor/jQuery/nice-select.css" rel="stylesheet">
+  <link href="../assets/vendor/jQuery/owl.carousel.min.css" rel="stylesheet">
+  <link href="../assets/vendor/jQuery/slicknav.min.css" rel="stylesheet">
+  <link href="../assets/vendor/jQuery/elegant-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/fontawesome/fontawesome.min.css" rel="stylesheet">
 
   <script src="https://kit.fontawesome.com/0552f5e21b.js" crossorigin="anonymous"></script>
-  <script src="assets/vendor/jQuery/jquery.js"></script>
-  <script src="assets/vendor/jQuery/isotope-pkgd.js"></script>
-  <script src="assets/vendor/jQuery/magnific-popup.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="../assets/vendor/jQuery/jquery.js"></script>
+  <script src="../assets/vendor/jQuery/isotope-pkgd.js"></script>
+  <script src="../assets/vendor/jQuery/magnific-popup.js"></script>
+  <script src="../assets/js/main.js"></script>
 </head>
 
 <body onload="updatecookie()">
@@ -60,8 +60,8 @@ if(empty($e)){
         <div class="container d-flex align-items-center">
 
         <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.php" class="logo me-auto"><img src = "assets/img/logosbr.png" alt="" class="img-fluid"></a> -->
-        <h1 class="logo me-auto"><a href="index.php"><img src = "assets/img/logosbr.png" alt="" class="img-fluid" style="padding-top: 2px;"><span style="color: 00ffb4;font-size: large;font-weight: 500 !important;">  SBR-Pharma</span> </a></h1>
+        <!-- <a href="index.php" class="logo me-auto"><img src = "../assets/img/logosbr.png" alt="" class="img-fluid"></a> -->
+        <h1 class="logo me-auto"><a href="index.php"><img src = "../assets/img/logosbr.png" alt="" class="img-fluid" style="padding-top: 2px;"><span style="color: 00ffb4;font-size: large;font-weight: 500 !important;">  SBR-Pharma</span> </a></h1>
 
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
@@ -240,12 +240,12 @@ if(empty($e)){
                     <div class="col-lg-3">
                         <div class="card mb-4 product-wap rounded-0" style="border: none !important;box-shadow: none !important;">
                             <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" style="height: 15em;" id="img<?php echo($prod['idproduits']); ?>" src="assets/img/<?php echo($prod['idproduits']);?>.jpg">
+                                <img class="card-img rounded-0 img-fluid" style="height: 15em;" id="img<?php echo($prod['idproduits']); ?>" src="../assets/img/<?php echo($prod['idproduits']);?>.jpg">
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
                                         <!-- <li><a class="btn btn-success text-white" href="#"><i class="far fa-heart"></i></a></li> -->
-                                        <!-- <li><a class="btn btn-success text-white mt-2 fancylight popup-btn" href="assets/img/.jpg" data-fancybox-group="light"><i class="far fa-eye"></i></a></li> -->
-                                        <li><a class="btn btn-success text-white mt-2 fancylight popup-btn" style="background-color: #24282D;border-color:#24282D" href="assets/img/<?php echo($prod['idproduits']); ?>.jpg" data-fancybox="gallery"><i class="far fa-eye"></i></a></li>
+                                        <!-- <li><a class="btn btn-success text-white mt-2 fancylight popup-btn" href="../assets/img/.jpg" data-fancybox-group="light"><i class="far fa-eye"></i></a></li> -->
+                                        <li><a class="btn btn-success text-white mt-2 fancylight popup-btn" style="background-color: #24282D;border-color:#24282D" href="../assets/img/<?php echo($prod['idproduits']); ?>.jpg" data-fancybox="gallery"><i class="far fa-eye"></i></a></li>
                                         <!-- <li><a class="btn btn-success text-white mt-2"  onclick="ajt(<?php echo($prod['idproduits']); ?>)"><i class="fas fa-cart-plus"></i></a></li> -->
                                     </ul>
                                 </div>
@@ -320,9 +320,9 @@ if(empty($e)){
     <div class="container" style="text-align: center;">
       <table style="table-layout:fixed;width:100%;">
         <tr>
-          <td><img src="assets/img/delivery-truck.png" alt="" style="width: 150px;height: 115px;"></td>
-          <td><img src="assets/img/time.png" alt="" style="width: 150px;height: 115px;"></td>
-          <td><img src="assets/img/paiement.png" alt="" style="width: 75px;height: 75px;"></td>
+          <td><img src="../assets/img/delivery-truck.png" alt="" style="width: 150px;height: 115px;"></td>
+          <td><img src="../assets/img/time.png" alt="" style="width: 150px;height: 115px;"></td>
+          <td><img src="../assets/img/paiement.png" alt="" style="width: 75px;height: 75px;"></td>
         </tr>
         <tr>
           <td><h6><strong>Commande par livraison</strong></h6></td>
@@ -356,12 +356,12 @@ if(empty($e)){
   <div id="preloader"></div>
   <a  class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/js/main.js"></script>
 </body>
 </html>
 <?php
