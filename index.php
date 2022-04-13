@@ -181,8 +181,7 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3 style="color: white;font-size:larger;font-weight: bold;">SBR Pharma</h3>
             <p>
-              Tunisie, TN <br><br>
-              <strong>Phone:</strong> +216 54 475 861 <br>
+              Tunisie, TN
               <!-- <strong>Email:</strong> info@example.com<br> -->
             </p>
           </div>
