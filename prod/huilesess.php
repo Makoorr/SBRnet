@@ -1,5 +1,5 @@
 <?php
-require_once('config.php');
+require_once('../config.php');
 if(empty($e)){
     if (isset($_GET['pageno'])) {
         $pageno = $_GET['pageno'];
