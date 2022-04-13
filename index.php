@@ -125,14 +125,18 @@
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
-        <div class="row justify-content-center" style="margin-bottom: 3em;">
+        <div class="row justify-content-center" >
         <?php
-        $sql="SELECT distinct categorie,nom_categorie FROM produits;";
+        $sql="SELECT distinct categorie,nom_categorie FROM produits 
+              WHERE nom_categorie='Huiles Essentielles' or nom_categorie='Huiles Végétales'
+              or nom_categorie='Soins Corps' or nom_categorie='Soins Visage'
+              or nom_categorie='Argiles' or nom_categorie='Soins Cheveux';";
+
         $produits = $db->query($sql);
 
         foreach($produits as $prod){
         ?>
-          <div class="col-sm-3 cercle" href="prod/<?php echo($prod['categorie'])?>.php">
+          <div class="col-sm-3 cercle" style="margin-left:2em;margin-bottom:2em;" href="prod/<?php echo($prod['categorie'])?>.php">
             <a class="cercle-img" href="prod/<?php echo($prod['categorie'])?>.php"><img src="assets/img/<?php echo($prod['categorie'])?>.png" style="padding-top: 1%;" width="70em" height="100%" alt="<?php echo($prod['nom_categorie'])?>"></a>
             <a class="cercle-texte" href="prod/<?php echo($prod['categorie'])?>.php"><?php echo($prod['nom_categorie']) ?></a>
           </div>
