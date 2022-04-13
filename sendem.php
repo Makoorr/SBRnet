@@ -10,7 +10,7 @@
     $message = $_POST['message'];
 
     try {
-      $mail->addAddress('sbrpara1@gmail.com');
+      $mail->addAddress('sbrpharma1@gmail.com');
 
       $mail->isHTML(true);
       $mail->Subject = "Demande de contact d'un client SBRPharma";
