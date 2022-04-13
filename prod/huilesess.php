@@ -19,7 +19,7 @@ if(empty($e)){
 
     //checking the ?pageno
     if($pageno<1 || $pageno>$total_pages)
-        header("location:./huilesess.php");
+        header("location:./prod/huilesess.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -104,7 +104,7 @@ if(empty($e)){
                     </div>
                 </div>
                 </li>
-            <!-- <li><a href="huilesess.php">Produits</a></li> -->
+            <!-- <li><a href="prod/huilesess.php">Produits</a></li> -->
             
             <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>

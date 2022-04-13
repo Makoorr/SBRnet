@@ -37,7 +37,7 @@
 
                     foreach($produits as $prod){
                     ?>
-                        <li><a href="<?php echo($prod['categorie'])?>.php"><?php echo($prod['nom_categorie']) ?></a></li>
+                        <li><a href="prod/<?php echo($prod['categorie'])?>.php"><?php echo($prod['nom_categorie']) ?></a></li>
                     <?php
                     }
                     ?>
@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 </li>
-            <!-- <li><a href="huilesess.php">Produits</a></li> -->
+            <!-- <li><a href="prod/huilesess.php">Produits</a></li> -->
             
             <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>

@@ -44,7 +44,7 @@
 
                     foreach($produits as $prod){
                     ?>
-                        <li><a href="<?php echo($prod['categorie'])?>.php"><?php echo($prod['nom_categorie']) ?></a></li>
+                        <li><a href="prod/<?php echo($prod['categorie'])?>.php"><?php echo($prod['nom_categorie']) ?></a></li>
                     <?php
                     }
                     ?>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 </li>
-            <!-- <li><a href="huilesess.php">Produits</a></li> -->
+            <!-- <li><a href="prod/huilesess.php">Produits</a></li> -->
             
             <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
@@ -105,7 +105,7 @@
       <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
         <h1>100% Pure Rose<br>Huile essentielle</h1>
         <h2 class="has-text-align-center has-small-font-size" id="my-all-time-favourite-scent-it-smells-divine-and-lasts-all-day-a-true-and-beautiful-rose-fragrance" style="line-height:1.5;font-style: italic;"><em style="font-size:x-large;font-weight: 300;">“Notre gamme d'huiles essentielles de haute qualité a été triée sur le volet par nos spécialistes des parfums.”</em></h2>
-        <a href="huilesess.php" class="btn-get-started">Acheter Maintenant!</a>
+        <a href="prod/huilesess.php" class="btn-get-started">Acheter Maintenant!</a>
       </div>
     </section><!-- End Hero -->
 
@@ -132,9 +132,9 @@
 
         foreach($produits as $prod){
         ?>
-          <div class="col-sm-3 cercle" href="<?php echo($prod['categorie'])?>.php">
-            <a class="cercle-img" href="<?php echo($prod['categorie'])?>.php"><img src="assets/img/<?php echo($prod['categorie'])?>.png" style="padding-top: 1%;" width="70em" height="100%" alt="<?php echo($prod['nom_categorie'])?>"></a>
-            <a class="cercle-texte" href="<?php echo($prod['categorie'])?>.php"><?php echo($prod['nom_categorie']) ?></a>
+          <div class="col-sm-3 cercle" href="prod/<?php echo($prod['categorie'])?>.php">
+            <a class="cercle-img" href="prod/<?php echo($prod['categorie'])?>.php"><img src="assets/img/<?php echo($prod['categorie'])?>.png" style="padding-top: 1%;" width="70em" height="100%" alt="<?php echo($prod['nom_categorie'])?>"></a>
+            <a class="cercle-texte" href="prod/<?php echo($prod['categorie'])?>.php"><?php echo($prod['nom_categorie']) ?></a>
           </div>
         <?php
         }
