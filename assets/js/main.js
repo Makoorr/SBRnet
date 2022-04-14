@@ -277,6 +277,12 @@ function ajt(x){
       setCookie("total",total.innerHTML,1);
 
       document.getElementById("quantity"+x).style.borderColor="#000000";
+      var linkToFocus = document.querySelector('.cart-hover');
+      linkToFocus.style="visibility: visible;opacity:1;top:60px;";
+      
+      setTimeout(function() {
+        linkToFocus.style="";
+      }, 1500);
     }
     else{
       document.getElementById("quantity"+x).style.borderColor="red";
@@ -296,9 +302,16 @@ function ajt(x){
       oldquan=parseInt(getCookie("quantity"+x));
       total.innerHTML=parseInt(total.innerHTML)-(parseInt(price)*oldquan)+(parseInt(price)*parseInt(quantity));
       setCookie("total",total.innerHTML,1);
-      
+
       setCookie("quantity"+x,quantity,1);
       document.getElementById("quantity"+x).style.borderColor="#000000";
+
+      var linkToFocus = document.querySelector('.cart-hover');
+      linkToFocus.style="visibility: visible;opacity:1;top:60px;";
+      
+      setTimeout(function() {
+        linkToFocus.style="";
+      }, 1500);
     }
     else{
       document.getElementById("quantity"+x).style.borderColor="red";
