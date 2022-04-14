@@ -1,5 +1,6 @@
 <?php
     require_once('config.php');
+    if ($_COOKIE['post']==1){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,3 +36,9 @@
     ?>
 </body>
 </html>
+<?php
+    }
+    else{
+        header('location:./index.php');
+    }
+?>

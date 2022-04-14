@@ -87,6 +87,7 @@
         }
         setcookie("cartquantity", "0", 0 , "/"); //resetting l panier
         echo('merci!');
+        setcookie("post","1",time()*60*5,"/");
 
         //getting the carts' elements from the order
         
