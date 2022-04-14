@@ -27,9 +27,31 @@
         $cartquantity=$_COOKIE['cartquantity'];
         if(isset($_COOKIE['total']))
         $total=$_COOKIE['total'];
-        $date=date("Y/m/d");
+
+        $date=date("Y-m-d");
         date_default_timezone_set("Africa/Tunis");
         $time=date("H:i:s");
+
+        //Checking if commande deja put into here (fi nhar heka)
+        $sql = "SELECT nom,prenom,email,phone,ville,address,zip,total,cartquantity,date from commande where nom='$nom' and prenom='$prenom' and date='$date'
+                                and email='$email' and phone='$phone' and ville='$ville' and address='$address' and zip='$zip' and total='$total' and cartquantity='$cartquantity';";
+
+        foreach ($db->query($sql) as $com) {
+            $checknom=$com['nom'];
+            $checkprenom=$com['prenom'];
+            $checkdate=$com['date'];
+            $checkemail=$com['email'];
+            $checkphone=$com['phone'];
+            $checkville=$com['ville'];
+            $checkaddress=$com['address'];
+            $checkzip=$com['zip'];
+            $checktotal=$com['total'];
+            $checkcartquantity=$com['cartquantity'];
+        }
+
+        if ( $nom!=$checknom or $prenom!=$checkprenom or $date!=$checkdate or $email!=$checkemail
+        or $phone!=$checkphone or $ville!=$checkville or $address!=$checkaddress or $zip!=$checkzip or $total!=$checktotal or $cartquantity!=$checkcartquantity    
+        ){ //Menghir INSERT ken el commande bel details hedhom deja mawjouda (fel nhar hedha kahaw el verif)
 
         function CheckCookieById($id){
             if(! empty($_COOKIE["img$id"]) && ! empty($_COOKIE["price$id"]) && ! empty($_COOKIE["quantity$id"]) && ! empty($_COOKIE["name$id"]))
@@ -85,13 +107,8 @@
             }
             $x++;
         }
-        setcookie("cartquantity", "0", 0 , "/"); //resetting l panier
-        echo('merci!');
-        setcookie("post","1",time()+60*5,"/");
-
+    
         //getting the carts' elements from the order
-        
-
         try {
             $mail->addAddress($email);
       
@@ -104,7 +121,7 @@
                     <a href='http://localhost/sbrnet'><img width='150' height='50' src='http://localhost/sbrnet/assets/img/logosbr(txt).png'></a>
                     <hr>
                     <h2 style='font-family: Arial, Helvetica, sans-serif;font-size: 18px;'>Merci d'avoir fait confiance à SBRPharma!</h2>
-                    <p>Bonjour Mr/Mme $nom</p>
+                    <p>Bonjour $nom</p>
                     <p>Votre commande a été envoyé avec succès! <br>
                     Nous vous appelerons sur $phone le plus tôt possible pour confirmer votre demande.</p>
                     <br>
@@ -134,9 +151,8 @@
             //           <span>'.$e->getMessage().'</span>
             //         </div>');
         }
-    }
-    else{
-        echo('no post');
-        setcookie("cartquantity", "0", 0 , "/"); //resetting l panier
-    }
+    } //Fin check (commande mawjouda ou non)
+    }//Fin if ($test)
+    setcookie("cartquantity", "0", 0 , "/"); //resetting l panier
+    setcookie("post","1",time()+60*5,"/");
 ?>
