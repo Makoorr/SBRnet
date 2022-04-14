@@ -33,6 +33,7 @@
 
     <?php
         include('includes/footer.php');
+        setcookie("post","0",0,"/");
     ?>
 </body>
 </html>

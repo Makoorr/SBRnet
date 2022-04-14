@@ -22,6 +22,6 @@
       //           <span>'.$e->getMessage().'</span>
       //         </div>');
     }
-    setcookie("post",1,time()*60*5,"/");
+    setcookie("post",1,time()+60*5,"/");
   }
 ?>
