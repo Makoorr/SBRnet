@@ -19,7 +19,7 @@ if(empty($e)){
 
     //checking the ?pageno
     if($pageno<1 || $pageno>$total_pages)
-        header("location:./prod/savons.php");
+        header("location:./savons.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

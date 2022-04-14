@@ -19,7 +19,7 @@ if(empty($e)){
 
     //checking the ?pageno
     if($pageno<1 || $pageno>$total_pages)
-        header("location:./prod/huilesveg.php");
+        header("location:./huilesveg.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
