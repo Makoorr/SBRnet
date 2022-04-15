@@ -144,14 +144,14 @@
                                 <table style='color: white;border: 1px solid white;'>
                                     <tbody>
                                         <tr style='color: white;'>
-                                            <td style='border-right:1px solid white;color: white;width: 20em'>Nom du produits</td>
-                                            <td style='border-right:1px solid white;color: white;width: 10em;'>Quantite</td>
-                                            <td style='color: white;width: 10em;'>Prix unitaire</td>
+                                            <td style='border-bottom:1px solid white;border-right:1px solid white;color: white;width: 20em'>Nom du produits</td>
+                                            <td style='border-bottom:1px solid white;border-right:1px solid white;color: white;width: 10em;'>Quantite</td>
+                                            <td style='border-bottom:1px solid white;color: white;width: 10em;'>Prix unitaire</td>
                                         </tr>"
                                         .$tab.
                                     "</tbody>
                                     </table>
-                                    <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Prix Total: $pricex DT</p>
+                                    <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Prix Total(+Frais de Livraison(8DT)): $total DT</p>
                                     <br>
                                     <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Si vous avez des questions, veuillez nous envoyer une demande <a href='http://localhost/sbrnet/contact.php'>ici</a></p>
                                     <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Cordialement,<br>
