@@ -90,8 +90,10 @@
                 $pricex=intval($_COOKIE["price$x"])*intval($_COOKIE["quantity$x"]); //prix total (prix unitaire * quantite)
                 
                 //appending ltab
-                $tab.=" <tr style='border: 2px solid ;'>
-                            <td style='border: 1px solid;'>$namex</td><td style='border: 1px solid;'>$quantityx</td><td style='border: 1px solid;'>$prixx DT</td>
+                $tab.=" <tr style='color:white;'>
+                            <td style='border-bottom:1px solid white;border-right:1px solid white;color: white;width: 20em'>$namex</td>
+                            <td style='border-bottom:1px solid white;border-right:1px solid white;color: white;width: 10em;'>$quantityx</td>
+                            <td style='border-bottom:1px solid white;color: white;width: 10em;'>$prixx DT</td>
                         </tr>";
 
                 //getting the idproduits
@@ -114,37 +116,49 @@
       
             $mail->isHTML(true);
             $mail->Subject = "Commande d'achat chez SBRPharma";
-            $mail->Body = "<table  width='100%' border='0' cellspacing='0' cellpadding='0'>
-            <tr>
-                <td style='background-color: #ebebeb;' width='33%'></td>
-                <td style='padding: 1em;'>
-                    <a href='http://localhost/sbrnet'><img width='150' height='50' src='http://localhost/sbrnet/assets/img/logosbr(txt).png'></a>
-                    <hr>
-                    <h2 style='font-family: Arial, Helvetica, sans-serif;font-size: 18px;'>Merci d'avoir fait confiance à SBRPharma!</h2>
-                    <p>Bonjour $nom</p>
-                    <p>Votre commande a été envoyé avec succès! <br>
-                    Nous vous appelerons sur $phone le plus tôt possible pour confirmer votre demande.</p>
-                    <br>
-                    <p style='font-family: Arial, Helvetica, sans-serif;font-size: 14px;font-weight: 600;'>Votre Commande:</p>
-                    <table style='border: 2px solid ;'>
-                        <tbody>
-                            <tr style='border: 2px solid ;'>
-                                <td style='border: 1px solid;'>Nom du produits</td>
-                                <td style='border: 1px solid;'>Quantite</td>
-                                <td style='border: 1px solid;'>Prix unitaire</td>
-                            </tr>"
+            $mail->Body = "<link rel='preconnect' href='https://fonts.googleapis.com'>
+            <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+            <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap' rel='stylesheet'>
+            <link rel='preconnect' href='https://fonts.googleapis.com'>
+            <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+            <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap' rel='stylesheet'>
+        
+                <table  width='100%' border='0' cellspacing='0' cellpadding='0'>
+                    <tr>
+                        <td style='background-color: #24282D;' width='33%'></td>
+                        <td style='background-color: #1c1e1f;'>
+        
+                            <div style='background-color: #14ae5c;height: 7em;display:flex;justify-content: left;'>
+                                <h2 style='font-family: Poppins, sans-serif;;font-size: 20px;font-weight: 600;font-stretch:extra-expanded;color: white;padding:1.3em;'>Merci d'avoir fait confiance à SBRPharma!</h2>
+                            </div>
+        
+                            <div style='padding: 1em;'>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Bonjour $nom ,</p>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Votre commande #$idcommande a été envoyé avec succès! <br>
+                                Nous vous appelerons sur $phone le plus tôt possible pour confirmer votre demande.</p>
+                                
+                                <p style='font-family: Arial, Helvetica, sans-serif;font-size: 14px;font-weight: 600;color: white;'>[Commande #$idcommande]($date)</p>
+                                <table style='color: white;border: 1px solid white;'>
+                                    <tbody>
+                                        <tr style='color: white;'>
+                                            <td style='border-right:1px solid white;color: white;width: 20em'>Nom du produits</td>
+                                            <td style='border-right:1px solid white;color: white;width: 10em;'>Quantite</td>
+                                            <td style='color: white;width: 10em;'>Prix unitaire</td>
+                                        </tr>"
                                         .$tab.
                                     "</tbody>
                                     </table>
-                                    <p>Prix Total: $pricex DT</p>
+                                    <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Prix Total: $pricex DT</p>
                                     <br>
-                                    <p>Si vous avez des questions, veuillez nous envoyer une demande <a href='http://localhost/sbrnet/contact.php'>ici</a></p>
-                                    <p>Cordialement,<br>
+                                    <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Si vous avez des questions, veuillez nous envoyer une demande <a href='http://localhost/sbrnet/contact.php'>ici</a></p>
+                                    <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Cordialement,<br>
                                     Equipe SBRPharma</p>
-                                </td>
-                                <td style='background-color: #ebebeb;' width='33%'></td>
-                            </tr>
-                        </table>";
+                                </div>
+            
+                            </td>
+                            <td style='background-color: #24282D;' width='33%'></td>
+                        </tr>
+                    </table>";
             $mail->send();
         } catch(Exception $e) {
             // echo('<div class="alert-error">
