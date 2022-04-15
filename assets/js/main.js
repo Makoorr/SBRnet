@@ -89,9 +89,9 @@ function checkoutajt(){
     while (s!=0){
       test=document.getElementById("item"+x);
       if(test!=null){
-        name=document.getElementById("item"+x+"name").innerText;
-        price=document.getElementById("item"+x+"price").innerText;
-        quantity=document.getElementById("item"+x+"quantity").innerText;
+        name=document.getElementById("item"+x+"name").innerHTML;
+        price=document.getElementById("item"+x+"price").innerHTML;
+        quantity=document.getElementById("item"+x+"quantity").innerHTML;
 
         li = document.createElement("li");
         li.classList.add("fw-normal");
@@ -103,8 +103,8 @@ function checkoutajt(){
       }
       x++;
     }
-    subtotal.innerText=tot;
-    total.innerText=parseInt(tot)+8; //Frais de Livraison 8dt
+    subtotal.innerHTML=tot;
+    total.innerHTML=parseInt(tot)+8; //Frais de Livraison 8dt
   }
 }
 
@@ -156,7 +156,7 @@ function updatecookie(){
           //h6 tekhou nom
           let h6=document.createElement("h6");
           h6.setAttribute("id","item"+x+"name");
-          h6.innerText=name;
+          h6.innerHTML=name;
           h6.style.color="#50cf80";
           div1.appendChild(p1);
           div1.appendChild(h6);
@@ -180,10 +180,10 @@ function updatecookie(){
           table.appendChild(tr);
 
           //Ajout Quantité panier
-          cartquantity.innerText=parseInt(getCookie("cartquantity"));
+          cartquantity.innerHTML=parseInt(getCookie("cartquantity"));
 
           //Ajout Total panier
-          total.innerText=parseInt(getCookie("total"));
+          total.innerHTML=parseInt(getCookie("total"));
 
           s--;
         }
@@ -208,7 +208,7 @@ function ajt(x){
   let cartquantity=document.getElementById("cartquantity");
 
   let img=document.getElementById("img"+x).src;
-  let price=document.getElementById('price'+x).innerText;
+  let price=document.getElementById('price'+x).innerHTML;
   let name=document.getElementById("name"+x).innerText;
   let quantity=document.getElementById("quantity"+x).value;
 
@@ -240,7 +240,7 @@ function ajt(x){
       //h6 tekhou nom
       let h6=document.createElement("h6");
       h6.setAttribute("id","item"+x+"name");
-      h6.innerText=name;
+      h6.innerHTML=name;
       h6.style.color="#50cf80";
       div1.appendChild(p1);
       div1.appendChild(h6);
@@ -270,13 +270,13 @@ function ajt(x){
       setCookie("img"+x,img,1);
 
       //Ajout Quantité panier
-      cartquantity.innerText=parseInt(cartquantity.innerText)+1;
-      setCookie("cartquantity",parseInt(cartquantity.innerText),1);
+      cartquantity.innerHTML=parseInt(cartquantity.innerHTML)+1;
+      setCookie("cartquantity",parseInt(cartquantity.innerHTML),1);
 
       //calcul total
       let total=document.getElementById("totalprice");
-      total.innerText=parseInt(total.innerText)+(parseInt(price)*parseInt(quantity));
-      setCookie("total",total.innerText,1);
+      total.innerHTML=parseInt(total.innerHTML)+(parseInt(price)*parseInt(quantity));
+      setCookie("total",total.innerHTML,1);
 
       document.getElementById("quantity"+x).style.borderColor="#000000";
       var linkToFocus = document.querySelector('.cart-hover');
@@ -293,7 +293,7 @@ function ajt(x){
   else{ //ken l'item deja mawjoud
     if(quantity>0 && quantity<300){
 
-      document.getElementById("item"+x+"quantity").innerText=quantity;
+      document.getElementById("item"+x+"quantity").innerHTML=quantity;
 
       //Ajout Cookies de l'item x
       setCookie("name"+x,name,1);
@@ -302,8 +302,8 @@ function ajt(x){
       //calcul total
       let total=document.getElementById("totalprice");
       oldquan=parseInt(getCookie("quantity"+x));
-      total.innerText=parseInt(total.innerText)-(parseInt(price)*oldquan)+(parseInt(price)*parseInt(quantity));
-      setCookie("total",total.innerText,1);
+      total.innerHTML=parseInt(total.innerHTML)-(parseInt(price)*oldquan)+(parseInt(price)*parseInt(quantity));
+      setCookie("total",total.innerHTML,1);
 
       setCookie("quantity"+x,quantity,1);
       document.getElementById("quantity"+x).style.borderColor="#000000";
@@ -325,8 +325,8 @@ function ajt(x){
 function sup(x){
   let tbody=document.getElementById("cart-items");
   let tr=document.getElementById("item"+x);
-  let price=document.getElementById("item"+x+"price").innerText;
-  let quantity=document.getElementById("item"+x+"quantity").innerText;
+  let price=document.getElementById("item"+x+"price").innerHTML;
+  let quantity=document.getElementById("item"+x+"quantity").innerHTML;
   let total=document.getElementById("totalprice");
   let cartquantity=document.getElementById("cartquantity");
 
@@ -338,12 +338,12 @@ function sup(x){
   setCookie("img"+x,"",0);
 
   //calcul cartquantity
-  cartquantity.innerText=parseInt(cartquantity.innerText)-1;
+  cartquantity.innerHTML=parseInt(cartquantity.innerHTML)-1;
   //calcul total
-  total.innerText=parseInt(total.innerText)-(parseInt(price)*parseInt(quantity));
-  if (cartquantity.innerText>0){
-    setCookie("cartquantity",parseInt(cartquantity.innerText),1);
-    setCookie("total",total.innerText,1);
+  total.innerHTML=parseInt(total.innerHTML)-(parseInt(price)*parseInt(quantity));
+  if (cartquantity.innerHTML>0){
+    setCookie("cartquantity",parseInt(cartquantity.innerHTML),1);
+    setCookie("total",total.innerHTML,1);
   }
   else{
     setCookie("cartquantity","",0);
