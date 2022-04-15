@@ -4,6 +4,7 @@
 ?>
 
 <?php
+    $frais=8;
     //done tkoun empty (yaani mehoush mizel ki checkouta)
     $test=! empty ($_POST) && ! empty($_COOKIE) && ! isset($_COOKIE['done']) && ! empty($_POST['nom']) && ! empty($_POST['prenom']) 
         && ! empty($_POST['email']) && ! empty($_POST['phone']) && ! empty($_POST['ville']) && ! empty($_POST['address']) && ! empty($_POST['zip']);
@@ -27,6 +28,8 @@
         $cartquantity=$_COOKIE['cartquantity'];
         if(isset($_COOKIE['total']))
         $total=$_COOKIE['total'];
+
+        $total=intval($total)+$frais;
 
         $date=date("Y-m-d");
         date_default_timezone_set("Africa/Tunis");
@@ -168,5 +171,5 @@
     } //Fin check (commande mawjouda ou non)
     }//Fin if ($test)
     setcookie("cartquantity", "0", 0 , "/"); //resetting l panier
-    setcookie("post","1",time()+60*5,"/");
+    setcookie("post","1",time()+5,"/");
 ?>

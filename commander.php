@@ -122,6 +122,8 @@
                                 </ul>
                                 <br>
                                 <div class="order-table">
+                                    <li class="order-table total-price mb-1">Sub-Total <span style="color: #50cf80;"><a id="subtotalprix">0.00</a> DT</span></li>
+                                    <li class="order-table total-price mb-1">Frais de Livraion <span style="color: #50cf80;"><a>+8</a> DT</span></li>
                                     <li class="order-table total-price">Total <span style="color: #50cf80;"><a id="totalprix">0.00</a> DT</span></li>
                                 </div>
                                 <div class="order-btn">

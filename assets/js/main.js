@@ -6,12 +6,12 @@ function newsletter(){
   //email
   var email =  document.getElementById('emailnews').value;
   if (email == "") {
-      document.querySelector('.statusnews').innerHTML = "Veuillez remplir votre email!";
+      document.querySelector('.statusnews').innerText = "Veuillez remplir votre email!";
       return false;
   } else {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       if(!re.test(email)){
-          document.querySelector('.statusnews').innerHTML = "Format d'email invalide!";
+          document.querySelector('.statusnews').innerText = "Format d'email invalide!";
           return false;
       }
   }
@@ -20,11 +20,11 @@ function newsletter(){
     url: 'newsletter.php',
     data: {email:email},
     success: function(data){
-      document.querySelector('.statusnews').innerHTML = "Email envoyé!";
+      document.querySelector('.statusnews').innerText = "Email envoyé!";
       location.reload();
     },
     error: function(data){
-      document.querySelector('.statusnews').innerHTML = "Erreur d'envoi.";
+      document.querySelector('.statusnews').innerText = "Erreur d'envoi.";
     }
   });
 }
@@ -71,6 +71,7 @@ function checkoutajt(){
   }
   else{
     let ordertable = document.getElementById("order-table");
+    let subtotal = document.getElementById("subtotalprix");
     let total = document.getElementById("totalprix");
     var price;
     var name;
@@ -88,9 +89,9 @@ function checkoutajt(){
     while (s!=0){
       test=document.getElementById("item"+x);
       if(test!=null){
-        name=document.getElementById("item"+x+"name").innerHTML;
-        price=document.getElementById("item"+x+"price").innerHTML;
-        quantity=document.getElementById("item"+x+"quantity").innerHTML;
+        name=document.getElementById("item"+x+"name").innerText;
+        price=document.getElementById("item"+x+"price").innerText;
+        quantity=document.getElementById("item"+x+"quantity").innerText;
 
         li = document.createElement("li");
         li.classList.add("fw-normal");
@@ -102,7 +103,8 @@ function checkoutajt(){
       }
       x++;
     }
-    total.innerHTML=tot;
+    subtotal.innerText=tot;
+    total.innerText=parseInt(tot)+8; //Frais de Livraison 8dt
   }
 }
 
@@ -154,7 +156,7 @@ function updatecookie(){
           //h6 tekhou nom
           let h6=document.createElement("h6");
           h6.setAttribute("id","item"+x+"name");
-          h6.innerHTML=name;
+          h6.innerText=name;
           h6.style.color="#50cf80";
           div1.appendChild(p1);
           div1.appendChild(h6);
@@ -178,10 +180,10 @@ function updatecookie(){
           table.appendChild(tr);
 
           //Ajout Quantité panier
-          cartquantity.innerHTML=parseInt(getCookie("cartquantity"));
+          cartquantity.innerText=parseInt(getCookie("cartquantity"));
 
           //Ajout Total panier
-          total.innerHTML=parseInt(getCookie("total"));
+          total.innerText=parseInt(getCookie("total"));
 
           s--;
         }
@@ -206,7 +208,7 @@ function ajt(x){
   let cartquantity=document.getElementById("cartquantity");
 
   let img=document.getElementById("img"+x).src;
-  let price=document.getElementById('price'+x).innerHTML;
+  let price=document.getElementById('price'+x).innerText;
   let name=document.getElementById("name"+x).innerText;
   let quantity=document.getElementById("quantity"+x).value;
 
@@ -238,7 +240,7 @@ function ajt(x){
       //h6 tekhou nom
       let h6=document.createElement("h6");
       h6.setAttribute("id","item"+x+"name");
-      h6.innerHTML=name;
+      h6.innerText=name;
       h6.style.color="#50cf80";
       div1.appendChild(p1);
       div1.appendChild(h6);
@@ -268,13 +270,13 @@ function ajt(x){
       setCookie("img"+x,img,1);
 
       //Ajout Quantité panier
-      cartquantity.innerHTML=parseInt(cartquantity.innerHTML)+1;
-      setCookie("cartquantity",parseInt(cartquantity.innerHTML),1);
+      cartquantity.innerText=parseInt(cartquantity.innerText)+1;
+      setCookie("cartquantity",parseInt(cartquantity.innerText),1);
 
       //calcul total
       let total=document.getElementById("totalprice");
-      total.innerHTML=parseInt(total.innerHTML)+(parseInt(price)*parseInt(quantity));
-      setCookie("total",total.innerHTML,1);
+      total.innerText=parseInt(total.innerText)+(parseInt(price)*parseInt(quantity));
+      setCookie("total",total.innerText,1);
 
       document.getElementById("quantity"+x).style.borderColor="#000000";
       var linkToFocus = document.querySelector('.cart-hover');
@@ -291,7 +293,7 @@ function ajt(x){
   else{ //ken l'item deja mawjoud
     if(quantity>0 && quantity<300){
 
-      document.getElementById("item"+x+"quantity").innerHTML=quantity;
+      document.getElementById("item"+x+"quantity").innerText=quantity;
 
       //Ajout Cookies de l'item x
       setCookie("name"+x,name,1);
@@ -300,8 +302,8 @@ function ajt(x){
       //calcul total
       let total=document.getElementById("totalprice");
       oldquan=parseInt(getCookie("quantity"+x));
-      total.innerHTML=parseInt(total.innerHTML)-(parseInt(price)*oldquan)+(parseInt(price)*parseInt(quantity));
-      setCookie("total",total.innerHTML,1);
+      total.innerText=parseInt(total.innerText)-(parseInt(price)*oldquan)+(parseInt(price)*parseInt(quantity));
+      setCookie("total",total.innerText,1);
 
       setCookie("quantity"+x,quantity,1);
       document.getElementById("quantity"+x).style.borderColor="#000000";
@@ -323,8 +325,8 @@ function ajt(x){
 function sup(x){
   let tbody=document.getElementById("cart-items");
   let tr=document.getElementById("item"+x);
-  let price=document.getElementById("item"+x+"price").innerHTML;
-  let quantity=document.getElementById("item"+x+"quantity").innerHTML;
+  let price=document.getElementById("item"+x+"price").innerText;
+  let quantity=document.getElementById("item"+x+"quantity").innerText;
   let total=document.getElementById("totalprice");
   let cartquantity=document.getElementById("cartquantity");
 
@@ -336,12 +338,12 @@ function sup(x){
   setCookie("img"+x,"",0);
 
   //calcul cartquantity
-  cartquantity.innerHTML=parseInt(cartquantity.innerHTML)-1;
+  cartquantity.innerText=parseInt(cartquantity.innerText)-1;
   //calcul total
-  total.innerHTML=parseInt(total.innerHTML)-(parseInt(price)*parseInt(quantity));
-  if (cartquantity.innerHTML>0){
-    setCookie("cartquantity",parseInt(cartquantity.innerHTML),1);
-    setCookie("total",total.innerHTML,1);
+  total.innerText=parseInt(total.innerText)-(parseInt(price)*parseInt(quantity));
+  if (cartquantity.innerText>0){
+    setCookie("cartquantity",parseInt(cartquantity.innerText),1);
+    setCookie("total",total.innerText,1);
   }
   else{
     setCookie("cartquantity","",0);
@@ -355,7 +357,7 @@ function validateCheckout() {
   //nom prenom
   var nom =  document.getElementById('nom').value;
   if (nom == "") {
-      document.querySelector('.status').innerHTML = "Veuillez remplir votre nom!";
+      document.querySelector('.status').innerText = "Veuillez remplir votre nom!";
       document.getElementById('nom').style.borderColor='red';
       return false;
   }
@@ -364,7 +366,7 @@ function validateCheckout() {
   }
   var prenom =  document.getElementById('prenom').value;
   if (prenom == "") {
-      document.querySelector('.status').innerHTML = "Veuillez remplir votre prenom!";
+      document.querySelector('.status').innerText = "Veuillez remplir votre prenom!";
       document.getElementById('prenom').style.borderColor='red';
       return false;
   }
@@ -374,13 +376,13 @@ function validateCheckout() {
   //email
   var email =  document.getElementById('email').value;
   if (email == "") {
-      document.querySelector('.status').innerHTML = "Veuillez remplir votre email!";
+      document.querySelector('.status').innerText = "Veuillez remplir votre email!";
       document.getElementById('email').style.borderColor='red';
       return false;
   } else {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       if(!re.test(email)){
-          document.querySelector('.status').innerHTML = "Format d'email invalide!";
+          document.querySelector('.status').innerText = "Format d'email invalide!";
           document.getElementById('email').style.borderColor='red';
           return false;
       }
@@ -390,12 +392,12 @@ function validateCheckout() {
   //phone
   var phone =  document.getElementById('phone').value;
   if (phone == "") {
-    document.querySelector('.status').innerHTML = "Veuillez mettre votre numero de téléphone!";
+    document.querySelector('.status').innerText = "Veuillez mettre votre numero de téléphone!";
     document.getElementById('phone').style.borderColor='red';
     return false;
   }
   if (phone.toString().length != 8 ) {
-    document.querySelector('.status').innerHTML = "Veuillez vérifier votre numero de téléphone!";
+    document.querySelector('.status').innerText = "Veuillez vérifier votre numero de téléphone!";
     document.getElementById('phone').style.borderColor='red';
     return false;
   }
@@ -405,7 +407,7 @@ function validateCheckout() {
   //ville
   var ville =  document.getElementById('ville').value;
   if (ville == "") {
-    document.querySelector('.status').innerHTML = "Veuillez remplir votre ville!";
+    document.querySelector('.status').innerText = "Veuillez remplir votre ville!";
     document.getElementById('ville').style.borderColor='red';
     return false;
   }
@@ -415,7 +417,7 @@ function validateCheckout() {
   //address
   var address =  document.getElementById('address').value;
   if (address == "") {
-      document.querySelector('.status').innerHTML = "Veuillez remplir votre adresse!";
+      document.querySelector('.status').innerText = "Veuillez remplir votre adresse!";
       document.getElementById('address').style.borderColor='red';
       return false;
   }
@@ -425,30 +427,30 @@ function validateCheckout() {
   //zip
   var zip =  document.getElementById('zip').value;
   if (zip == "") {
-      document.querySelector('.status').innerHTML = "Veuillez remplir votre code postale!";
+      document.querySelector('.status').innerText = "Veuillez remplir votre code postale!";
       document.getElementById('zip').style.borderColor='red';
       return false;
   }
   if (zip.toString().length != 4) {
-    document.querySelector('.status').innerHTML = "Veuillez vérifier votre code postale!";
+    document.querySelector('.status').innerText = "Veuillez vérifier votre code postale!";
     document.getElementById('zip').style.borderColor='red';
     return false;
   }
   else{
     document.getElementById('zip').style.borderColor='#ebebeb';
   }
-  document.querySelector('.status').innerHTML = "Envoi...";
+  document.querySelector('.status').innerText = "Envoi...";
 
   $.ajax({
       type: 'POST',
       url: 'checkout.php',
       data: {nom: nom,prenom: prenom,email: email,phone: phone,ville: ville,address: address,zip: zip},
       success: function(data){
-        document.querySelector('.status').innerHTML = "Envoyé!";
+        document.querySelector('.status').innerText = "Envoyé!";
         location.assign('merci.php');
       },
       error: function(data){
-        document.querySelector('.status').innerHTML = "Erreur d'envoi.";
+        document.querySelector('.status').innerText = "Erreur d'envoi.";
       }
     });
 }
@@ -457,7 +459,7 @@ function validateCheckout() {
 function validateForm() {
   var name =  document.getElementById('name').value;
   if (name == "") {
-      document.querySelector('.status').innerHTML = "Veuillez remplir votre nom";
+      document.querySelector('.status').innerText = "Veuillez remplir votre nom";
       document.getElementById('name').style.borderColor='red';
       return false;
   }
@@ -466,13 +468,13 @@ function validateForm() {
   }
   var email =  document.getElementById('email').value;
   if (email == "") {
-      document.querySelector('.status').innerHTML = "Veuillez remplir votre email";
+      document.querySelector('.status').innerText = "Veuillez remplir votre email";
       document.getElementById('email').style.borderColor='red';
       return false;
   } else {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       if(!re.test(email)){
-          document.querySelector('.status').innerHTML = "Format d'email invalide";
+          document.querySelector('.status').innerText = "Format d'email invalide";
           document.getElementById('email').style.borderColor='red';
           return false;
       }
@@ -480,7 +482,7 @@ function validateForm() {
   }
   var subject =  document.getElementById('subject').value;
   if (subject == "") {
-      document.querySelector('.status').innerHTML = "Veuillez remplir le sujet";
+      document.querySelector('.status').innerText = "Veuillez remplir le sujet";
       document.getElementById('subject').style.borderColor='red';
       return false;
   }
@@ -489,12 +491,12 @@ function validateForm() {
   }
   var tel =  document.getElementById('tel').value;
   if (tel == "") {
-    document.querySelector('.status').innerHTML = "Veuillez mettre votre numero de téléphone";
+    document.querySelector('.status').innerText = "Veuillez mettre votre numero de téléphone";
     document.getElementById('tel').style.borderColor='red';
     return false;
   }
   if (tel.toString().length != 8 ) {
-    document.querySelector('.status').innerHTML = "Veuillez vérifier votre numero de téléphone";
+    document.querySelector('.status').innerText = "Veuillez vérifier votre numero de téléphone";
     document.getElementById('tel').style.borderColor='red';
     return false;
   }
@@ -503,25 +505,25 @@ function validateForm() {
   }
   var message =  document.getElementById('message').value;
   if (message == "") {
-      document.querySelector('.status').innerHTML = "Veuillez remplir le message";
+      document.querySelector('.status').innerText = "Veuillez remplir le message";
       document.getElementById('message').style.borderColor='red';
       return false;
   }
   else{
     document.getElementById('message').style.borderColor='#ebebeb';
   }
-  document.querySelector('.status').innerHTML = "Envoi...";
+  document.querySelector('.status').innerText = "Envoi...";
 
   $.ajax({
       type: 'POST',
       url: 'sendem.php',
       data: {name: name,email: email,tel: tel,subject: subject,message: message},
       success: function(data){
-        document.querySelector('.status').innerHTML = "Envoyé!";
+        document.querySelector('.status').innerText = "Envoyé!";
         location.assign('merci.php');
       },
       error: function(data){
-        document.querySelector('.status').innerHTML = "Erreur d'envoi.";
+        document.querySelector('.status').innerText = "Erreur d'envoi.";
       }
     });
 }
