@@ -21,7 +21,7 @@ function newsletter(){
     data: {email:email},
     success: function(data){
       document.querySelector('.statusnews').innerText = "Email envoyé!";
-      location.reload();
+      // location.reload();
     },
     error: function(data){
       document.querySelector('.statusnews').innerText = "Erreur d'envoi.";
