@@ -1,5 +1,6 @@
 <?php
     include("config.php");
+    if (! isset($_POST['login']) && ! isset($_POST['password'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,14 +21,18 @@
                 <img src="../assets/img/logosbr(txt).png" id="icon" alt="User Icon" />
             </div>
 
-            <!-- Login Form -->
-            <form>
+            <form action="loginpage.php" method="post">
                 <input type="text" id="login" name="login" placeholder="login">
                 <input type="text" id="password" name="login" placeholder="password">
                 <input type="submit" style="background-color: #18d26e;" value="Log In">
             </form>
-
         </div>
     </div>
 </body>
 </html>
+<?php
+    }
+    else{
+        // header("location: dash.php");//dashboard here
+    }
+?>
