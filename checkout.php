@@ -94,9 +94,9 @@
                 
                 //appending ltab
                 $tab.=" <tr style='color:white;'>
-                            <td style='border-bottom:1px solid white;border-right:1px solid white;color: white;width: 20em'>$namex</td>
-                            <td style='border-bottom:1px solid white;border-right:1px solid white;color: white;width: 10em;'>$quantityx</td>
-                            <td style='border-bottom:1px solid white;color: white;width: 10em;'>$prixx DT</td>
+                            <td style='border-bottom:1px solid #ebebeb86;border-right:1px solid #ebebeb86;color: #ebebeb;width: 20em;'>$namex</td>
+                            <td style='border-bottom:1px solid #ebebeb86;border-right:1px solid #ebebeb86;color: #ebebeb;width: 10em;'>$quantityx</td>
+                            <td style='border-bottom:1px solid #ebebeb86;width: 10em;'>$prixx DT</td>
                         </tr>";
 
                 //getting the idproduits
@@ -112,6 +112,19 @@
             }
             $x++;
         }
+
+        $addliv="<tr style='color: #ebebeb;'>
+                    <td style='color: #ebebeb;width: 15em;'>$nom $prenom</td>
+                </tr>
+                <tr style='color: #ebebeb;'>
+                    <td style='color: #ebebeb;width: 15em;'>$phone</td>
+                </tr>
+                <tr style='color: #ebebeb;'>
+                    <td style='color: #ebebeb;width: 15em;'>$zip, $ville</td>
+                </tr>
+                <tr style='color: #ebebeb;'>
+                    <td style='color: #ebebeb;width: 15em;'>$address</td>
+                </tr>";
     
         //getting the carts' elements from the order
         try {
@@ -119,13 +132,7 @@
       
             $mail->isHTML(true);
             $mail->Subject = "Commande d'achat chez SBRPharma";
-            $mail->Body = "<link rel='preconnect' href='https://fonts.googleapis.com'>
-            <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
-            <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap' rel='stylesheet'>
-            <link rel='preconnect' href='https://fonts.googleapis.com'>
-            <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
-            <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap' rel='stylesheet'>
-        
+            $mail->Body = "        
                 <table  width='100%' border='0' cellspacing='0' cellpadding='0'>
                     <tr>
                         <td style='background-color: #24282D;' width='33%'></td>
@@ -144,24 +151,30 @@
                                 <table style='color: #ebebeb86;border: 1px solid;border-collapse: collapse;'>
                                     <tbody>
                                         <tr style='color: #ebebeb;'>
-                                            <td style='border-bottom:1px solid #ebebeb86;border-right:1px solid #ebebeb86;color: #ebebeb;width: 20em'>Nom du produits</td>
+                                            <td style='border-bottom:1px solid #ebebeb86;border-right:1px solid #ebebeb86;color: #ebebeb;width: 20em;'>Nom du produits</td>
                                             <td style='border-bottom:1px solid #ebebeb86;border-right:1px solid #ebebeb86;color: #ebebeb;width: 10em;'>Quantite</td>
                                             <td style='border-bottom:1px solid #ebebeb86;width: 10em;'>Prix unitaire</td>
-                                        </tr>"
-                                        .$tab.
-                                    "</tbody>
-                                    </table>
-                                    <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Prix Total(+Frais de Livraison(8DT)): $total DT</p>
-                                    <br>
-                                    <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Si vous avez des questions, veuillez nous envoyer une demande <a href='http://localhost/sbrnet/contact.php'>ici</a></p>
-                                    <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Cordialement,<br>
-                                    Equipe SBRPharma</p>
-                                </div>
-            
-                            </td>
-                            <td style='background-color: #24282D;' width='33%'></td>
-                        </tr>
-                    </table>";
+                                        </tr>
+                                        $tab
+                                    </tbody>
+                                </table>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Prix Total(+Frais de Livraison(8DT)): $total DT</p>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Adresse de livraison:</p>
+                                <table style='color: #ebebeb86;border: 1px solid;border-collapse: collapse;'>
+                                    <tbody>
+                                        $addliv
+                                    </tbody>
+                                </table>
+                                <br>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Si vous avez des questions, veuillez nous envoyer une demande <a href='http://localhost/sbrnet/contact.php'>ici</a></p>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Cordialement,<br>
+                                Equipe SBRPharma</p>
+                            </div>
+                            
+                        </td>
+                        <td style='background-color: #24282D;' width='33%'></td>
+                    </tr>
+                </table>";
             $mail->send();
         } catch(Exception $e) {
             // echo('<div class="alert-error">
