@@ -1,5 +1,9 @@
 <?php
     require_once('config.php');
+    session_start();
+    // Checking is User Logged In
+    if(isset($_SESSION['authentication']))
+    {
 ?>
 <?php
 if (isset($_POST['idcomm'])){
@@ -16,8 +20,12 @@ if (isset($_POST['idcomm'])){
     </head>
     <body>
         <div class="container">
+            <h2 style="text-align: center;">Commande N°<?php echo($idcommande) ?></h2>
+            <div class="col-md-10">
+                <h5><a href="dash.php">Home</a> / <a href="comm.php">Commandes</a> / <a href="#">Achat</a></h5>
+                <br>
+            </div>
             <div class="row">
-                <h2 style="text-align: center;">Commande N°<?php echo($idcommande) ?></h2>
                 <table class="table table-hover">
                     <thead>
                         <tr style="text-align: center">
@@ -113,7 +121,7 @@ if (isset($_POST['idcomm'])){
         </div>
             <div class="row">
                 <div class="col">
-                    <a href="comm.php">Retour au Commandes</a>
+                    <h2><a href="comm.php">Retour au Commandes</a></h2>
                 </div>
             </div>
         </div>
@@ -124,8 +132,12 @@ if (isset($_POST['idcomm'])){
 else{
 ?>
     <div>
-        <a href="comm.php">Retour au Commandes</a>
+    <h2><a href="comm.php">Retour au Commandes</a></h2>
     </div>
 <?php
 }
+    }
+    else{
+        header("location: loginpage.php");
+    }
 ?>

@@ -1,5 +1,9 @@
 <?php
     require_once('config.php');
+    session_start();
+    // Checking is User Logged In
+    if(isset($_SESSION['authentication']))
+    {
 
     if (isset($_GET['pageno'])) {
         $pageno = $_GET['pageno'];
@@ -61,24 +65,29 @@
                 </tr>
             </table>
         </div>
+        <div class="row">
+            <div class="col-md-10">
+                <h5><a href="dash.php">Home</a> / <a href="#">Produits</a></h5>
+            </div>
 
-        <div class="d-flex justify-content-end">
-            <div class="pagination">
-                <?php
-                    if($pageno!=1)
-                        $prevpage=intval($pageno)-1;
-                    else
-                        $prevpage=1;
+            <div class="col-md">
+                <div class="pagination">
+                    <?php
+                        if($pageno!=1)
+                            $prevpage=intval($pageno)-1;
+                        else
+                            $prevpage=1;
 
-                    if($pageno<$total_pages)
-                        $nextpage=intval($pageno)+1;
-                    else
-                        $nextpage=$total_pages;
-                    
-                    echo("<a href='?pageno=$prevpage'>&laquo;</a>");
-                    echo("<a href='?pageno=$pageno' class='active' value='$pageno'> $pageno </a>");
-                    echo("<a href='?pageno=$nextpage'>&raquo;</a>");
-                ?>
+                        if($pageno<$total_pages)
+                            $nextpage=intval($pageno)+1;
+                        else
+                            $nextpage=$total_pages;
+                        
+                        echo("<a href='?pageno=$prevpage'>&laquo;</a>");
+                        echo("<a href='?pageno=$pageno' class='active' value='$pageno'> $pageno </a>");
+                        echo("<a href='?pageno=$nextpage'>&raquo;</a>");
+                    ?>
+                </div>
             </div>
         </div>
 
@@ -158,3 +167,9 @@
     </script>
 </body>
 </html>
+<?php
+    }
+    else{
+        header("location: loginpage.php");
+    }
+?>

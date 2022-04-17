@@ -1,5 +1,9 @@
 <?php
     require_once('config.php');
+    session_start();
+    // Checking is User Logged In
+    if(isset($_SESSION['authentication']))
+    {
 
     if (isset($_GET['pageno'])) {
         $pageno = $_GET['pageno'];
@@ -29,9 +33,13 @@
 </head>
 <body>
     <div class="container">
+        <h2 style="text-align: center;">Commandes</h2>
         <div class="row">
-            <h2 style="text-align: center;">Commandes</h2>
-            <div class="d-flex justify-content-end">
+            <div class="col-md-10">
+                <h5><a href="dash.php">Home</a> / <a href="#">Commandes</a></h5>
+            </div>
+
+            <div class="col-md">
                 <div class="pagination">
                     <?php
                         if($pageno!=1)
@@ -50,6 +58,8 @@
                     ?>
                 </div>
             </div>
+        </div>
+            <div class="row">
             <table class="table table-hover">
                 <thead>
                     <tr style="text-align: center;">
@@ -78,10 +88,10 @@
                 <form action="achat.php" method="POST">
                     <tr style="text-align: center;">
                         <td style="border-right: 1px solid;border-bottom: 1px solid;border-left: 1px solid;"><input name="idcomm" value="<?php echo($comm['idcommande']);?>" style="border: 0 none;background:none;text-align: center;width:50%" readonly></td>
-                        <td style="border-right: 1px solid;border-bottom: 1px solid;width:25%"><?php echo($comm['date']); ?></td>
-                        <td style="border-right: 1px solid;border-bottom: 1px solid;width:25%"><?php echo($comm['time']); ?></td>
-                        <td style="border-right: 1px solid;border-bottom: 1px solid;"><?php echo($comm['nom']); ?></td>
-                        <td style="border-right: 1px solid;border-bottom: 1px solid;"><?php echo($comm['prenom']); ?></td>
+                        <td style="border-right: 1px solid;border-bottom: 1px solid;width:20%"><?php echo($comm['date']); ?></td>
+                        <td style="border-right: 1px solid;border-bottom: 1px solid;width:20%"><?php echo($comm['time']); ?></td>
+                        <td style="border-right: 1px solid;border-bottom: 1px solid;width:20%"><?php echo($comm['nom']); ?></td>
+                        <td style="border-right: 1px solid;border-bottom: 1px solid;width:20%"><?php echo($comm['prenom']); ?></td>
                         <td style="border-right: 1px solid;border-bottom: 1px solid;"><?php echo($comm['email']); ?></td>
                         <td style="border-right: 1px solid;border-bottom: 1px solid;"><?php echo($comm['phone']); ?></td>
                         <td style="border-right: 1px solid;border-bottom: 1px solid;"><?php echo($comm['ville']); ?></td>
@@ -100,3 +110,9 @@
     </div>
 </body>
 </html>
+<?php
+    }
+    else{
+        header("location: loginpage.php");
+    }
+?>

@@ -1,5 +1,5 @@
 <?php
-    include('config.php');
+    require_once('config.php');
     session_start();
     // Checking is User Logged In
     if(isset($_SESSION['authentication']))

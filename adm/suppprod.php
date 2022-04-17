@@ -1,5 +1,9 @@
 <?php
     require_once('config.php');
+    session_start();
+    // Checking is User Logged In
+    if(isset($_SESSION['authentication']))
+    {
 ?>
 
 <?php
@@ -28,4 +32,8 @@
         echo ("<h4>Produit $nom supprimé!</h4>");
         echo("<a href='http://localhost/sbrnet/adm/prod.php'>Retour aux produits</a>");
     }
+}
+else{
+    header("location: loginpage.php");
+}
 ?>
