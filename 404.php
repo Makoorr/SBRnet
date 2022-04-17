@@ -32,6 +32,7 @@
             <div class="container" style="text-align: center;">
                 <h1>Page introuvable!</h1>
                 <p>Nous somme désolés, on n'a pas pu trouver cette page.</p>
+                <a href="http://localhost/sbrnet/index.php">Retour</a>
             </div>
         </section>
     </div>
