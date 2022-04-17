@@ -36,10 +36,12 @@
         $time=date("H:i:s");
 
         //Checking if commande deja put into here (fi nhar heka)
-        $sql = "SELECT nom,prenom,email,phone,ville,address,zip,total,cartquantity,date from commande where nom='$nom' and prenom='$prenom' and date='$date'
-                                and email='$email' and phone='$phone' and ville='$ville' and address='$address' and zip='$zip' and total='$total' and cartquantity='$cartquantity';";
-
-        foreach ($db->query($sql) as $com) {
+        $sql = "SELECT nom,prenom,email,phone,ville,address,zip,total,cartquantity,date from commande where nom=:nom and prenom=:prenom and date=:date
+                                and email=:email and phone=:phone and ville=:ville and address=:address and zip=:zip and total=:total and cartquantity=:cartquantity;";
+        $stm = $db->prepare($sql);
+        $stm->execute(array('nom'=>$nom,'prenom'=>$prenom,'email'=>$email,'phone'=>$phone,'ville'=>$ville,'address'=>$address,'zip'=>$zip,'total'=>$total,'cartquantity'=>$cartquantity,'date'=>$date));
+        $req = $stm->fetchAll();
+        foreach ($req as $com) {
             $checknom=$com['nom'];
             $checkprenom=$com['prenom'];
             $checkdate=$com['date'];
@@ -75,8 +77,11 @@
         $result = $stmtinsert->execute([':nom'=>$nom,':prenom'=>$prenom,':email'=>$email,':phone'=>$phone,':ville'=>$ville,':address'=>$address,':zip'=>$zip,':total'=>$total,':cartquantity'=>$cartquantity,':date'=>$date,':time'=>$time]);
 
         //getting the idcommande
-        $sql = "SELECT idcommande from commande where nom='$nom' and prenom='$prenom' and date='$date' and time='$time'";
-        foreach ($db->query($sql) as $idcom) {
+        $sql = "SELECT idcommande from commande where nom=:nom and prenom=:prenom and date=:date and time=:time";
+        $stm = $db->prepare($sql);
+        $stm->execute(array('nom'=>$nom,'prenom'=>$prenom,'date'=>$date,'time'=>$time));
+        $req = $stm->fetchAll();
+        foreach ($req as $idcom) {
             $idcommande=$idcom['idcommande'];
         }
 
@@ -100,8 +105,12 @@
                         </tr>";
 
                 //getting the idproduits
-                $sql = "SELECT idproduits from produits where nom='$namex' and prix='$prixx'";
-                foreach ($db->query($sql) as $idprod) {
+                $sql = "SELECT idproduits from produits where nom=:namex and prix=:prixx";
+                $stm = $db->prepare($sql);
+                $stm->execute(array('namex'=>$namex,'prixx'=>$prixx));
+                $req = $stm->fetchAll();
+
+                foreach ($req as $idprod) {
                     $idproduits=$idprod['idproduits'];
                 }
 
