@@ -147,8 +147,8 @@
                         <td style='background-color: #24282D;' width='33%'></td>
                         <td style='background-color: #1c1e1f;'>
         
-                            <div style='background-color: #14ae5c;height: 7em;'>
-                                <h2 style='font-family: Poppins, sans-serif;font-size: 130%;font-weight: 600;font-stretch:extra-expanded;color: white;padding-left: 3%;padding-top: 6%;'>Merci d'avoir fait confiance à SBRPharma!</h2>
+                            <div style='height: 7em;'>
+                                <img src='cid:header'>
                             </div>
         
                             <div style='padding: 1em;'>
@@ -184,6 +184,7 @@
                         <td style='background-color: #24282D;' width='33%'></td>
                     </tr>
                 </table>";
+            $mail->addEmbeddedImage(dirname(__FILE__)."/assets/img/mailheader.png","header");
             $mail->send();
         } catch(Exception $e) {
             // echo('<div class="alert-error">
