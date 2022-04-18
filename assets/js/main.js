@@ -89,9 +89,9 @@ function checkoutajt(){
     while (s!=0){
       test=document.getElementById("item"+x);
       if(test!=null){
-        name=document.getElementById("item"+x+"name").innerHTML;
-        price=document.getElementById("item"+x+"price").innerHTML;
-        quantity=document.getElementById("item"+x+"quantity").innerHTML;
+        name=document.getElementById("item"+x+"name").textContent;
+        price=document.getElementById("item"+x+"price").textContent;
+        quantity=document.getElementById("item"+x+"quantity").textContent;
 
         li = document.createElement("li");
         li.classList.add("fw-normal");
@@ -152,11 +152,25 @@ function updatecookie(){
           div1.classList.add("product-selected");
           //p tekhou itemxprice et itemxquantity
           let p1=document.createElement("p");
-          p1.innerHTML="<span id='item"+x+"price'>"+price+"</span>DT x <span id='item"+x+"quantity'>"+quantity+"</span>";
+          //creating spans
+          let spa1=document.createElement("span");
+          spa1.setAttribute("id",'item'+x+'price');
+          spa1.innerText=price;
+
+          let spa2=document.createElement("span");
+          spa2.setAttribute("id",'item'+x+'quantity');
+          spa2.innerText=quantity;
+
+          let t=document.createTextNode("DT x ")
+
+          p1.appendChild(spa1);
+          p1.append(t);
+          p1.appendChild(spa2);
+
           //h6 tekhou nom
           let h6=document.createElement("h6");
           h6.setAttribute("id","item"+x+"name");
-          h6.innerHTML=name;
+          h6.textContent=name;
           h6.style.color="#50cf80";
           div1.appendChild(p1);
           div1.appendChild(h6);
@@ -208,7 +222,7 @@ function ajt(x){
   let cartquantity=document.getElementById("cartquantity");
 
   let img=document.getElementById("img"+x).src;
-  let price=document.getElementById('price'+x).innerHTML;
+  let price=document.getElementById('price'+x).textContent;
   let name=document.getElementById("name"+x).innerText;
   let quantity=document.getElementById("quantity"+x).value;
 
@@ -236,11 +250,24 @@ function ajt(x){
       div1.classList.add("product-selected");
       //p tekhou itemxprice et itemxquantity
       let p1=document.createElement("p");
-      p1.innerHTML="<span id='item"+x+"price'>"+price+"</span>DT x <span id='item"+x+"quantity'>"+quantity+"</span>";
+      //creating spans
+      let spa1=document.createElement("span");
+      spa1.setAttribute("id",'item'+x+'price');
+      spa1.innerText=price;
+
+      let spa2=document.createElement("span");
+      spa2.setAttribute("id",'item'+x+'quantity');
+      spa2.innerText=quantity;
+
+      let t=document.createTextNode("DT x ")
+
+      p1.appendChild(spa1);
+      p1.append(t);
+      p1.appendChild(spa2);
       //h6 tekhou nom
       let h6=document.createElement("h6");
       h6.setAttribute("id","item"+x+"name");
-      h6.innerHTML=name;
+      h6.textContent=name;
       h6.style.color="#50cf80";
       div1.appendChild(p1);
       div1.appendChild(h6);
@@ -325,8 +352,8 @@ function ajt(x){
 function sup(x){
   let tbody=document.getElementById("cart-items");
   let tr=document.getElementById("item"+x);
-  let price=document.getElementById("item"+x+"price").innerHTML;
-  let quantity=document.getElementById("item"+x+"quantity").innerHTML;
+  let price=document.getElementById("item"+x+"price").textContent;
+  let quantity=document.getElementById("item"+x+"quantity").textContent;
   let total=document.getElementById("totalprice");
   let cartquantity=document.getElementById("cartquantity");
 
