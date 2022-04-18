@@ -3,11 +3,11 @@
 
   if (! empty($_POST['name']) && ! empty($_POST['email']) && ! empty($_POST['message']) && ! empty($_POST['subject'])) {
 
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $tel = $_POST['tel'];
-    $subject = $_POST['subject'];
-    $message = $_POST['message'];
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $tel = htmlspecialchars($_POST['tel']);
+    $subject = htmlspecialchars($_POST['subject']);
+    $message = htmlspecialchars($_POST['message']);
 
     try {
       $mail->addAddress('sbrpharma1@gmail.com');
