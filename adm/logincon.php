@@ -5,11 +5,12 @@ session_start();
 if(isset($_POST['login']))
 {
     $email = $_POST['login'];
-    $password = $_POST['password'];
+    $password = crypt($_POST['password'],'CRYPT_SHA256');
+    $hashed_pw = crypt($password,'CRYPT_MD5');
 
     $sql = "SELECT * FROM users where email=:email and password=:password LIMIT 1";
     $stm = $db->prepare($sql);
-    $stm->execute(array('email'=>$email,'password'=>$password));
+    $stm->execute(array('email'=>$email,'password'=>$hashed_pw));
     $req = $stm->fetchAll();
     foreach($req as $acc){
         $checkid=$acc['id'];
@@ -27,7 +28,6 @@ if(isset($_POST['login']))
         $_SESSION['auth_user'] = [
             'user_id'=>$checkid,
             'user_email'=>$checkem,
-            'user_password'=>$checkpw,
         ];
 
         $_SESSION['message'] = "You are Logged In Successfully"; //message to show
