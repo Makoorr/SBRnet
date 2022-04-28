@@ -8,7 +8,7 @@
     <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
             <li><a class="hover-underline-anim" href="index.php">Accueil</a></li>
-            <li class="dropdown"><a style="cursor: pointer;"><span>Nos Produits</span> <i class="bi bi-chevron-down"></i></a>
+            <li class="dropdown"><a style="cursor: pointer;"><span>Nos Produits</span> <i class="bi bi-chevron-down" style="margin-top: 0.5em"></i></a>
                 <ul>
                 <?php
                 $sql="SELECT distinct categorie,nom_categorie FROM produits;";
