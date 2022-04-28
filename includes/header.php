@@ -30,10 +30,10 @@
                     <span id="cartquantity">0</span>
                 </a>
             <div class="cart-hover">
-                <div class="select-items"> <!-- El names are : Itemx : itemxquantity | itemxname | itemxprice | onclick="sup(1)" -->
+                <div class="select-items" style="overflow-y: scroll;max-height: 50vh;"> <!-- El names are : Itemx : itemxquantity | itemxname | itemxprice | onclick="sup(1)" -->
                     <table>
                         <tbody id="cart-items">
-                            
+                        
                         </tbody>
                     </table>
                 </div>

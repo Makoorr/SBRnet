@@ -416,6 +416,8 @@ li.cart-icon a span {
 
 li.cart-icon .cart-hover .select-items table {
 	width: 100%;
+  max-height: 100px;
+  overflow-y: auto;
 }
 
 li.cart-icon .cart-hover .select-items table tr td {
