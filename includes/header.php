@@ -7,7 +7,7 @@
 
     <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-            <li><a class="active" href="index.php">Accueil</a></li>
+            <li><a class="hover-underline-animation" href="index.php">Accueil</a></li>
             <li class="dropdown"><a style="cursor: pointer;"><span>Nos Produits</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                 <?php
@@ -16,12 +16,12 @@
 
                 foreach($produits as $prod){
                 ?>
-                    <li><a href="prod/<?php echo($prod['categorie'])?>.php"><?php echo($prod['nom_categorie']) ?></a></li>
+                    <li><a class="hover-underline-animation" href="prod/<?php echo($prod['categorie'])?>.php"><?php echo($prod['nom_categorie']) ?></a></li>
                 <?php
                 }
                 ?>
                 </ul>
-            <li><a href="contact.php">Contact</a></li>
+            <li><a class="hover-underline-animation" href="contact.php">Contact</a></li>
             </li>
 
             <li class="cart-icon">

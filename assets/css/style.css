@@ -1,3 +1,30 @@
+/* Header text animation */
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #18d26e;
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #18d26e;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Header text animation */
 /* Pagination links */
 .pagination a {
   color: black;
@@ -821,16 +848,16 @@ footer, footer .container .col{
   padding: 0;
   display: flex;
   list-style: none;
-  align-items: center;
+  align-items: left;
 }
 .navbar li {
   position: relative;
 }
 .navbar a, .navbar a:focus {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 0 10px 30px;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0 10px 30px;
   font-family: "Poppins", sans-serif;
   font-size: 15px;
   font-weight: 500;
@@ -865,7 +892,8 @@ footer, footer .container .col{
   min-width: 200px;
 }
 .navbar .dropdown ul a {
-  padding: 10px 20px;
+  margin: 10px 20px;
+  content: inherit;
   font-size: 14px;
   text-transform: none;
   font-weight: 500;
