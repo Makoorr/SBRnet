@@ -67,7 +67,7 @@
         foreach($produits as $prod){
         ?>
           <div class="col-sm-3 cercle" style="margin-left:2em;margin-bottom:2em;" href="prod/<?php echo($prod['categorie'])?>.php">
-            <a class="cercle-img" href="prod/<?php echo($prod['categorie'])?>.php"><img src="assets/img/<?php echo($prod['categorie'])?>.png" style="padding-top: 1%;" width="70em" height="100%" alt="<?php echo($prod['nom_categorie'])?>"></a>
+            <a class="cercle-img" href="prod/<?php echo($prod['categorie'])?>.php"><img src="assets/img/<?php echo($prod['categorie'])?>.png" style="display:block;padding-top: 1%;contain: style;margin : auto;" width="70em" height="100%" alt="<?php echo($prod['nom_categorie'])?>"></a>
             <a class="cercle-texte" href="prod/<?php echo($prod['categorie'])?>.php"><?php echo($prod['nom_categorie']) ?></a>
           </div>
         <?php
