@@ -1,3 +1,6 @@
+<?php
+    require_once('config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,14 +34,11 @@
     <script src="assets/vendor/jQuery/magnific-popup.js"></script>
     <script src="assets/js/main.js"></script>
 </head>
+<body onload="updatecookie();checkoutajt()">
 <?php
-  require_once('config.php');
-  if(isset($_COOKIE['cartquantity'])){
+    include ('includes/header.php');
+    if(isset($_COOKIE['cartquantity'])){
 ?>
-    <body onload="updatecookie();checkoutajt()">
-        <?php
-            include ('includes/header.php');
-        ?>
 
         <!-- Shopping Cart Section Begin -->
         <section class="checkout-section spad" style="margin-top: 4em;">
@@ -159,34 +159,19 @@
 
         <!-- ====== Line Separator ====== -->
         <hr style="border-top: 3px solid #bbb">
-
-        <?php
-            include('includes/footer.php');
-            include('includes/scripts.php');
-        ?>
-    </body>
-    </html>
 <?php
   }
-  else{
+  else{   
 ?>
-    <body>
-<?php    
-      include('includes/header.php');
-?>
-
         <section class="mb-4" style="padding-top: 12%;padding-bottom: 15%;height:46em;">
             <div class="container" style="text-align: center;margin-top: 10em;">
                 <a href="./index.php">Retour</a>
             </div>
         </section>
-
-    <?php
-        include('includes/footer.php');
-        include('includes/scripts.php');
-    ?>
-    </body>
-    </html>
 <?php
-  }
+    }
+    include('includes/footer.php');
+    include('includes/scripts.php');
 ?>
+</body>
+</html>
