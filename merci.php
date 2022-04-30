@@ -19,7 +19,7 @@
     <script src="assets/js/main.js"></script>
 </head>
 
-<body>
+<body onload="updatecookie();">
     <?php
         include ('includes/header.php');
     ?>

@@ -111,7 +111,7 @@ function checkoutajt(){
 //Updating cookies to the current page's cart elements
 function updatecookie(){
     var s;
-    if(getCookie("cartquantity"))
+    if(getCookie("cartquantity") && ! getCookie("post"))
       s = parseInt(getCookie("cartquantity")); //decompteur s
     else
       s=0;
@@ -474,6 +474,7 @@ function validateCheckout() {
       data: {nom: nom,prenom: prenom,email: email,phone: phone,ville: ville,address: address,zip: zip},
       success: function(data){
         document.querySelector('.status').innerText = "Envoyé!";
+        setCookie('post','1',5/(24*60));
         location.assign('merci.php');
       },
       error: function(data){

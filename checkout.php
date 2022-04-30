@@ -29,6 +29,8 @@
         if(isset($_COOKIE['total']))
         $total=$_COOKIE['total'];
 
+        setcookie("post","1",time()+5,"/");
+
         $total=intval($total)+$frais;
 
         $date=date("Y-m-d");
@@ -193,6 +195,4 @@
         }
     } //Fin check (commande mawjouda ou non)
     }//Fin if ($test)
-    setcookie("cartquantity", "0", 0 , "/"); //resetting l panier
-    setcookie("post","1",time()+5,"/");
 ?>
