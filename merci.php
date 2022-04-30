@@ -27,7 +27,7 @@
     <section class="mb-4" style="padding-top: 12%;padding-bottom: 15%;height:46em;">
         <div class="container" style="text-align: center;margin-top: 10em;">
             <h1>Votre demande a été envoyé avec succès!</h1>
-            <a href="http://localhost/sbrnet/index.php">Retour</a>
+            <a href="./index.php">Retour</a>
         </div>
     </section>
 

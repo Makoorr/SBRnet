@@ -22,6 +22,6 @@
             echo($e->getMessage());
         }
     }
-    // header('Location: http://localhost/sbrnet/index.html');
+    // header('Location: ./index.html');
     // exit();
 ?>
