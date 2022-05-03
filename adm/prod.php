@@ -46,16 +46,21 @@
                 <tr style="text-align: center;">
                     <form action="addprod.php" enctype="multipart/form-data" method="POST">
                         <td>
-                            <select name="nom_categorie">
-                            <?php
-                            $sql = "SELECT distinct nom_categorie FROM produits";
-                            foreach ($db->query($sql) as $cat) {
-                            ?>
-                                <option value="<?php echo($cat['nom_categorie']);?>"><?php echo($cat['nom_categorie']);?></option>
-                            <?php
-                            }
-                            ?>
-                            </select>
+                        <select name="nom_categorie">
+                            <option value="Huiles Végétales">Huiles Végétales</option>
+                            <option value="Soins Cheveux">Soins Cheveux</option>
+                            <option value="Soins Corps">Soins Corps</option>
+                            <option value="Soins Visage">Soins Visage</option>
+                            <option value="Savons">Savons</option>
+                            <option value="Lèvres">Lèvres</option>
+                            <option value="Argiles">Argiles</option>
+                            <option value="Eaux Florales">Eaux Florales</option>
+                            <option value="Gel Hydroalcoolique">Gel Hydroalcoolique</option>
+                            <option value="Masques Jetables">Masques Jetables</option>
+                            <option value="Test de Grossesse">Test de Grossesse</option>
+                            <option value="Bouchons d'oreilles">Bouchons d'oreilles</option>
+                            <option value="Huiles Essentielles">Huiles Essentielles</option>
+                        </select>
                         </td>
                         <td><input type="text" name="nom"></td>
                         <td><input type="number" name="prix"></td>
@@ -64,7 +69,7 @@
                     </form>
                 </tr>
             </table>
-        </div>
+        </div> <!-- Fin Add prod -->
         <div class="row">
             <div class="col-md-5">
                 <h5><a href="dash.php">Home</a> / <a href="#">Produits</a></h5>
@@ -121,7 +126,7 @@
                 <form method="POST" action="changedisp.php">
                 <tr style="text-align: center;">
                     <td style="border-right: 1px solid;border-bottom: 1px solid;border-left: 1px solid;"><input type="text" name="supp_idproduits" style="border: 0 none;text-align:center;width:2em;background:none;" value="<?php echo($prod['idproduits']); ?>" readonly></td>
-                    <!-- <td style="border-right: 1px solid;border-bottom: 1px solid;border-left: 1px solid;"><img src="../assets/img/<?php echo($prod['idproduits']);?>.png" style="width: 50%;"></td> -->
+                    <!-- <td style="border-right: 1px solid;border-bottom: 1px solid;border-left: 1px solid;"><img src="../assets/img/<?php echo($prod['idproduits']);?>.jpg" style="width: 50%;"></td> -->
                     <td style="border-right: 1px solid;border-bottom: 1px solid;"><input type="text" name="supp_nom_categorie" style="border: 0 none;text-align:center;background:none;width:10em;" value="<?php echo($prod['nom_categorie']); ?>" readonly></td>
                     <td style="border-right: 1px solid;border-bottom: 1px solid;"><input type="text" name="supp_nom" style="border: 0 none;text-align:center;background:none;width:20em;" value="<?php echo($prod['nom']); ?>" readonly></td>
                     <td style="border-right: 1px solid;border-bottom: 1px solid;width:13em;"><input type="text" name="supp_prix" style="border: 0 none;text-align:right;width:20%;background:none;" value="<?php echo($prod['prix']); ?>" readonly> DT</td>
