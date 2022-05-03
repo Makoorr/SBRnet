@@ -58,9 +58,9 @@
         <div class="row justify-content-center" >
         <?php
         $sql="SELECT distinct categorie,nom_categorie FROM produits 
-              WHERE nom_categorie='Huiles Essentielles' or nom_categorie='Huiles Végétales'
+              WHERE (nom_categorie='Huiles Essentielles' or nom_categorie='Huiles Végétales'
               or nom_categorie='Soins Corps' or nom_categorie='Soins Visage'
-              or nom_categorie='Argiles' or nom_categorie='Soins Cheveux';";
+              or nom_categorie='Argiles' or nom_categorie='Soins Cheveux') and disponibilite=1;";
 
         $produits = $db->query($sql);
 
@@ -115,17 +115,6 @@
               <!-- <strong>Email:</strong> info@example.com<br> -->
             </p>
           </div>
-
-          <!-- <div class="col-lg-2 col-md-6 footer-links">
-            <h4 style="color: white;">Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div> -->
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4 style="color: white;">Liens</h4>
