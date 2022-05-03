@@ -1,4 +1,6 @@
+.gitignore
 todo.txt
 /test
 /trash
 mail.php
+/prod
