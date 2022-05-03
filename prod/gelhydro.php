@@ -159,7 +159,7 @@ if(empty($e)){
                                 
                                 <div class="w-100 list-unstyled d-flex justify-content-center mb-0">
                                     <div style="margin-top: 3px;">Prix: <a id="price<?php echo($prod['idproduits']); ?>"> <?php echo($prod['prix']); ?></a> DT</div>
-                                    <a style="margin-left:2em;">Quantité: <input style="text-align: center;width: 3em;" type="number" min="0" value=1 id="quantity<?php echo($prod['idproduits']); ?>" style="width: 3em;border-color: #000;"></a>                                </div>
+                                    <a style="margin-left:2em;">Quantité: <input style="text-align: center;width: 3em;" type="number" min="0" value=1 id="quantity<?php echo($prod['idproduits']); ?>" style="width: 3em;border-color: #000;"></a>
                                 <div class="w-100 d-flex justify-content-center" style="margin-top: 0.5em;">
                                     <a class="h3"><button class="get-started-btn" onclick="ajt(<?php echo($prod['idproduits']); ?>)" style="width:auto;">Ajouter dans le panier</button></a>
                                 </div>
