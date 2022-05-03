@@ -4,3 +4,5 @@ todo.txt
 /trash
 mail.php
 /presets
+adm/.htaccess
+adm/.htpasswd
