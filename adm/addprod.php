@@ -32,9 +32,9 @@ if(isset($_POST['nom']) && isset($_POST['prix']) && isset($_POST['nom_categorie'
         }
 
         try{
-            // $sql1 = "INSERT INTO produits (nom,prix,disponibilite,categorie,nom_categorie) VALUES(:nom,:prix,:disponibilite,:categorie,:nom_categorie)";
-            // $stmtinsert = $db->prepare($sql1);
-            // $result = $stmtinsert->execute([':nom'=>$nom,'prix'=>$prix,':disponibilite'=>1,':categorie'=>$categorie,':nom_categorie'=>$nom_categorie]);
+            $sql1 = "INSERT INTO produits (nom,prix,disponibilite,categorie,nom_categorie) VALUES(:nom,:prix,:disponibilite,:categorie,:nom_categorie)";
+            $stmtinsert = $db->prepare($sql1);
+            $result = $stmtinsert->execute([':nom'=>$nom,'prix'=>$prix,':disponibilite'=>1,':categorie'=>$categorie,':nom_categorie'=>$nom_categorie]);
 
             //Ajout img
             foreach($db->query("SELECT idproduits FROM produits WHERE nom='$nom' and categorie='$categorie' and prix='$prix'") as $id){
