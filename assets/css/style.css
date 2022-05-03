@@ -345,23 +345,23 @@ input[type=number] {
 	text-transform: uppercase;
 }
 
-li.cart-icon {
+.cart-icon {
 	position: relative;
 }
 
-li.cart-icon:hover .cart-hover {
+.cart-icon:hover .cart-hover {
 	opacity: 1;
 	visibility: visible;
 	top: 60px;
 }
 
-li.cart-icon a {
+.cart-icon a {
 	color: #252525;
 	position: relative;
 	display: inline-block;
 }
 
-li.cart-icon a span {
+.cart-icon a span {
 	position: absolute;
 	right: -8px;
 	top: -10px;
@@ -377,9 +377,10 @@ li.cart-icon a span {
 }
 
 @media (max-width: 1000px) {
-  li.cart-icon .cart-hover {
+  .cart-icon .cart-hover {
     position: absolute;
     top: 100px;
+    right: 2px;
     width: 350px;
     background: #ffffff;
     z-index: 99;
@@ -395,7 +396,7 @@ li.cart-icon a span {
   }
 }
 @media (min-width: 1000px) {
-  li.cart-icon .cart-hover {
+  .cart-icon .cart-hover {
     position: absolute;
     right: -70px;
     top: 100px;
@@ -414,48 +415,48 @@ li.cart-icon a span {
   }
 }
 
-li.cart-icon .cart-hover .select-items table {
+.cart-icon .cart-hover .select-items table {
 	width: 100%;
   max-height: 100px;
   overflow-y: auto;
 }
 
-li.cart-icon .cart-hover .select-items table tr td {
+.cart-icon .cart-hover .select-items table tr td {
 	padding-bottom: 20px;
 }
 
-li.cart-icon .cart-hover .select-items table tr td.si-pic img {
+.cart-icon .cart-hover .select-items table tr td.si-pic img {
 	border: 1px solid #ebebeb;
 }
 
-li.cart-icon .cart-hover .select-items table tr td.si-text {
+.cart-icon .cart-hover .select-items table tr td.si-text {
 	padding-left: 18px;
 }
 
-li.cart-icon .cart-hover .select-items table tr td.si-text .product-selected p {
+.cart-icon .cart-hover .select-items table tr td.si-text .product-selected p {
 	color: #50cf80;
 	line-height: 30px;
 	margin-bottom: 7px;
 }
 
-li.cart-icon .cart-hover .select-items table tr td.si-text .product-selected h6 {
+.cart-icon .cart-hover .select-items table tr td.si-text .product-selected h6 {
 	color: #232530;
 }
 
-li.cart-icon .cart-hover .select-items table tr td.si-close {
+.cart-icon .cart-hover .select-items table tr td.si-close {
 	color: #252525;
 	font-size: 16px;
 	cursor: pointer;
 }
 
-li.cart-icon .cart-hover .select-total {
+.cart-icon .cart-hover .select-total {
 	overflow: hidden;
 	border-top: 1px solid #e5e5e5;
 	padding-top: 26px;
 	margin-bottom: 30px;
 }
 
-li.cart-icon .cart-hover .select-total span {
+.cart-icon .cart-hover .select-total span {
 	font-size: 14px;
 	color: #50cf80;
 	text-transform: uppercase;
@@ -463,12 +464,12 @@ li.cart-icon .cart-hover .select-total span {
 	float: left;
 }
 
-li.cart-icon .cart-hover .select-total h5 {
+.cart-icon .cart-hover .select-total h5 {
 	color: #50cf80;
 	float: right;
 }
 
-li.cart-icon .cart-hover .select-button .view-card {
+.cart-icon .cart-hover .select-button .view-card {
 	font-size: 12px;
 	letter-spacing: 2px;
 	display: block;
@@ -479,7 +480,7 @@ li.cart-icon .cart-hover .select-button .view-card {
 	margin-bottom: 10px;
 }
 
-li.cart-icon .cart-hover .select-button .checkout-btn {
+.cart-icon .cart-hover .select-button .checkout-btn {
 	font-size: 2px;
 	letter-spacing: 0px;
 	display: block;
@@ -494,9 +495,9 @@ li.cart-price {
 	color: #252525;
 }
 
-
-
 /* End Cart */
+
+
 body, ul, li, p, a, label, input, div {
   font-family: 'Roboto', sans-serif;
   font-size: 18px !important;

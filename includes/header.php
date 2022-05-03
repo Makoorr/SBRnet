@@ -23,29 +23,6 @@
                 </ul>
             <li><a class="hover-underline-anim" href="contact.php">Contact</a></li>
             </li>
-
-            <li class="cart-icon">
-                <a style="cursor: pointer;">
-                <i class="fas fa-cart-plus" style="font-size: 1.25rem;"></i>
-                    <span id="cartquantity">0</span>
-                </a>
-            <div class="cart-hover">
-                <div class="select-items" style="overflow-y: scroll;max-height: 50vh;"> <!-- El names are : Itemx : itemxquantity | itemxname | itemxprice | onclick="sup(1)" -->
-                    <table>
-                        <tbody id="cart-items">
-                        
-                        </tbody>
-                    </table>
-                </div>
-                <div class="select-total">
-                    <span>total:</span>
-                    <h5>DT <h5 id="totalprice">0</h5></h5>
-                </div>
-                <div class="select-button">
-                    <a href="commander.php" class="primary-btn checkout-btn">Commander</a>
-                </div>
-            </div>
-            </li>
         <!-- <li><a href="prod/huilesess.php">Produits</a></li> -->
         
         <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
@@ -68,6 +45,28 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
+    <div class="cart-icon" style="margin-left:1em;margin-right:1em;">
+        <a style="cursor: pointer;">
+        <i class="fas fa-cart-plus" style="font-size: 1.25rem;"></i>
+            <span id="cartquantity">0</span>
+        </a>
+        <div class="cart-hover">
+            <div class="select-items" style="overflow-y: scroll;max-height: 50vh;"> <!-- El names are : Itemx : itemxquantity | itemxname | itemxprice | onclick="sup(1)" -->
+                <table>
+                    <tbody id="cart-items">
+                    
+                    </tbody>
+                </table>
+            </div>
+            <div class="select-total">
+                <span>total:</span>
+                <h5>DT <h5 id="totalprice">0</h5></h5>
+            </div>
+            <div class="select-button">
+                <a href="commander.php" class="primary-btn checkout-btn">Commander</a>
+            </div>
+        </div>
+    </div>
 
     </div>
 </header><!-- End Header -->
