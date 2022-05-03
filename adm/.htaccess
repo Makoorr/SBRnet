@@ -1,0 +1,4 @@
+AuthType Basic 
+AuthName "adm"
+AuthUserFile "C:/xampp/htdocs/sbrnet/adm/.htpasswd"
+require valid-user
