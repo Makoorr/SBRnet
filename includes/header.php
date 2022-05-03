@@ -1,8 +1,5 @@
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-
-    <!-- Uncomment below if you prefer to use an image logo -->
-    <!-- <a href="index.php" class="logo me-auto"><img src = "assets/img/logosbr.png" alt="" class="img-fluid"></a> -->
     <h1 class="logo me-auto"><a href="index.php"><img src = "assets/img/logosbr.png" alt="" class="img-fluid" style="padding-top: 2px;"><span style="color: 00ffb4;font-size: large;font-weight: 500 !important;">  SBRSwitchmed</span> </a></h1>
 
     <nav id="navbar" class="navbar order-last order-lg-0">
@@ -23,25 +20,6 @@
                 </ul>
             <li><a class="hover-underline-anim" href="contact.php">Contact</a></li>
             </li>
-        <!-- <li><a href="prod/huilesess.php">Produits</a></li> -->
-        
-        <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-            <li><a href="#">Drop Down 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                <li><a href="#">Deep Drop Down 1</a></li>
-                <li><a href="#">Deep Drop Down 2</a></li>
-                <li><a href="#">Deep Drop Down 3</a></li>
-                <li><a href="#">Deep Drop Down 4</a></li>
-                <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Drop Down 2</a></li>
-            <li><a href="#">Drop Down 3</a></li>
-            <li><a href="#">Drop Down 4</a></li>
-            </ul>
-        </li> -->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
