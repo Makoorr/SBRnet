@@ -8,7 +8,7 @@
             <li class="dropdown"><a style="cursor: pointer;"><span>Nos Produits</span> <i class="bi bi-chevron-down" style="margin-top: 0.5em"></i></a>
                 <ul>
                 <?php
-                $sql="SELECT distinct categorie,nom_categorie FROM produits;";
+                $sql="SELECT distinct categorie,nom_categorie FROM produits where disponibilite=1;";
                 $produits = $db->query($sql);
 
                 foreach($produits as $prod){
