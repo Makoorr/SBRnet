@@ -1,7 +1,7 @@
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-    <h1 class="logo me-auto"><a href="../index.php"><img src = "../assets/img/logosbr.png" alt="" class="img-fluid" style="padding-top: 2px;"><span style="color: 00ffb4;font-size: large;font-weight: 500 !important;">  SBR-Pharma</span> </a></h1>
+    <h1 class="logo me-auto"><a href="../index.php"><img src = "../assets/img/logosbr.png" alt="" class="img-fluid" style="padding-top: 2px;"><span style="color: 00ffb4;font-size: large;font-weight: 500 !important;">  SBRSwitchmed</span> </a></h1>
 
     <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>

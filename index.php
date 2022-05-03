@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SBRPharma</title>
+    <title>SBRSwitchmed</title>
     <link rel = "icon" type = "image/png" href = "assets/img/iconsbr.png">
 
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet"> <!--logos-->
@@ -45,7 +45,7 @@
     <!-- Texte -->
     <div class="wp-container-14 wp-block-group" style="padding-top:3vh;padding-bottom:3vh;text-align: center;">
       <h2 class="has-text-align-center has-small-font-size" id="my-all-time-favourite-scent-it-smells-divine-and-lasts-all-day-a-true-and-beautiful-rose-fragrance" style="line-height:1.5;font-style: italic;"><em style="font-size:x-large;font-weight: 300;">“Notre gamme de produits biologiques s'appuie sur les propriétés naturelles des plantes et de l'ensemble du monde végétal.”</em></h2>
-      <p class="has-text-align-center has-small-font-size">SBR Pharma</p>
+      <p class="has-text-align-center has-small-font-size">SBR Switchmed</p>
     </div>
     <!-- Fin Texte-->
 
@@ -109,7 +109,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3 style="color: white;font-size:larger;font-weight: bold;">SBR Pharma</h3>
+            <h3 style="color: white;font-size:larger;font-weight: bold;">SBR Switchmed</h3>
             <p>
               Tunisie, TN
               <!-- <strong>Email:</strong> info@example.com<br> -->
@@ -154,7 +154,7 @@
 
       <div class="me-md-auto text-center text-md-start">
         <div class="copyright">
-          Copyright &copy;<script>document.write(new Date().getFullYear());</script> | <strong><span> SBR-Pharma</span></strong>
+          Copyright &copy;<script>document.write(new Date().getFullYear());</script> | <strong><span> SBRSwitchmed</span></strong>
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">

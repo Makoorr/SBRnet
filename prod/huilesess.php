@@ -160,7 +160,7 @@ if(empty($e)){
 
         <div class="me-md-auto text-center text-md-start">
             <div class="copyright">
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> | <strong><span> SBR-Pharma</span></strong>
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> | <strong><span> SBRSwitchmed</span></strong>
             </div>
         </div>
         <div class="social-links text-center text-md-right pt-3 pt-md-0">

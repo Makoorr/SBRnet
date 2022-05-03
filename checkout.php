@@ -142,7 +142,7 @@
             $mail->addAddress($email);
       
             $mail->isHTML(true);
-            $mail->Subject = "Commande d'achat chez SBRPharma";
+            $mail->Subject = "Commande d'achat chez SBRSwitchmed";
             $mail->Body = "        
                 <table  width='100%' border='0' cellspacing='0' cellpadding='0'>
                     <tr>
@@ -179,9 +179,9 @@
                                 <br>
                                 <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Si vous avez des questions, veuillez nous envoyer une demande <a href='http://localhost/sbrnet/contact.php'>ici</a></p>
                                 <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Cordialement,<br>
-                                Equipe SBRPharma</p>
+                                Equipe SBRSwitchmed</p>
                             </div>
-                            
+
                         </td>
                         <td style='background-color: #24282D;' width='33%'></td>
                     </tr>

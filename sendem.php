@@ -13,7 +13,7 @@
       $mail->addAddress('sbrpharma1@gmail.com');
 
       $mail->isHTML(true);
-      $mail->Subject = "Demande de contact d'un client SBRPharma";
+      $mail->Subject = "Demande de contact d'un client SBRSwitchmed";
       $mail->Body = "<h3>From:$name<br> Sujet: $subject<br> Email: $email <br> Tel: $tel <br> Message: $message";
 
       $mail->send();
