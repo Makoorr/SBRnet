@@ -66,8 +66,12 @@
             </table>
         </div>
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-5">
                 <h5><a href="dash.php">Home</a> / <a href="#">Produits</a></h5>
+            </div>
+
+            <div class="col-sm-5">
+                <input type="button" value="Ajouter un produit" onclick="addprod()">
             </div>
 
             <div class="col-md">
@@ -92,6 +96,10 @@
         </div>
 
         <div class="row">
+            
+        </div>
+
+        <div class="row">
             <table class="table table-hover">
                 <thead>
                     <tr style="text-align: center;">
@@ -101,7 +109,6 @@
                         <th>Nom</th>
                         <th>Prix unitaire</th>
                         <th>Disponibilite</th>
-                        <th>Supprimer</th>
                     </tr>
                 </thead>
                 <?php
@@ -111,29 +118,26 @@
 
                     foreach($produits as $prod){
                 ?>
+                <form method="POST" action="changedisp.php">
                 <tr style="text-align: center;">
-                <form action="suppprod.php" method="POST">
-                    <td style="border-right: 1px solid;border-bottom: 1px solid;border-left: 1px solid;"><input type="text" name="supp_idproduits" style="border: 0 none;text-align:center;width:10%;background:none;" value="<?php echo($prod['idproduits']); ?>" readonly></td>
+                    <td style="border-right: 1px solid;border-bottom: 1px solid;border-left: 1px solid;"><input type="text" name="supp_idproduits" style="border: 0 none;text-align:center;width:2em;background:none;" value="<?php echo($prod['idproduits']); ?>" readonly></td>
                     <!-- <td style="border-right: 1px solid;border-bottom: 1px solid;border-left: 1px solid;"><img src="../assets/img/<?php echo($prod['idproduits']);?>.png" style="width: 50%;"></td> -->
-                    <td style="border-right: 1px solid;border-bottom: 1px solid;"><input type="text" name="supp_nom_categorie" style="border: 0 none;text-align:center;background:none;" value="<?php echo($prod['nom_categorie']); ?>" readonly></td>
-                    <td style="border-right: 1px solid;border-bottom: 1px solid;"><input type="text" name="supp_nom" style="border: 0 none;text-align:center;background:none;" value="<?php echo($prod['nom']); ?>" readonly></td>
-                    <td style="border-right: 1px solid;border-bottom: 1px solid;"><input type="text" name="supp_prix" style="border: 0 none;text-align:right;width:20%;background:none;" value="<?php echo($prod['prix']); ?>" readonly> DT</td>
-                    <td style="border-right: 1px solid;border-bottom: 1px solid;"><?php if($prod['disponibilite']) echo('Oui'); else echo('Non'); ?></td>
-                    <td style="border-right: 1px solid;border-bottom: 1px solid;"><button type="submit">X</button></td>
+                    <td style="border-right: 1px solid;border-bottom: 1px solid;"><input type="text" name="supp_nom_categorie" style="border: 0 none;text-align:center;background:none;width:10em;" value="<?php echo($prod['nom_categorie']); ?>" readonly></td>
+                    <td style="border-right: 1px solid;border-bottom: 1px solid;"><input type="text" name="supp_nom" style="border: 0 none;text-align:center;background:none;width:20em;" value="<?php echo($prod['nom']); ?>" readonly></td>
+                    <td style="border-right: 1px solid;border-bottom: 1px solid;width:13em;"><input type="text" name="supp_prix" style="border: 0 none;text-align:right;width:20%;background:none;" value="<?php echo($prod['prix']); ?>" readonly> DT</td>
+                    <td style="border-right: 1px solid;border-bottom: 1px solid;">
+                            <select name="dispo" onchange="this.form.submit();">
+                                <option <?php if($prod['disponibilite']===1) echo('selected');?> value="1">Oui</option>
+                                <option <?php if($prod['disponibilite']===0) echo('selected');?> value="0">Non</option>
+                                <input type="submit" id="subm" hidden>
+                            </select>
+                    </td>
                 </form>
                 <?php
                     }
                 ?>
                 </tr>
             </table>
-        </div>
-        <div class="row">
-            <div class="col-sm-2">
-                <input type="button" value="Ajouter un produit" onclick="addprod()">
-            </div>
-            <!-- <div class="col-sm-2">
-                <input type="button" value="Ajouter une categorie" onclick="addcateg()">
-            </div> -->
         </div>
 
         <!-- Ajt Categ -->

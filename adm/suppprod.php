@@ -21,10 +21,10 @@
         $file_pointer="../assets/img/$idproduits.jpg";
         // Use unlink() function to delete a file
         if (!unlink($file_pointer)) {
-            echo ("$file_pointer ne peut pas etre effacé!");
+            echo ("<h1>$file_pointer ne peut pas etre effacé!</h1>");
         }
         else {
-            echo ("$file_pointer a été effacé!");
+            echo ("<h1>$file_pointer a été effacé!</h1>");
         }
         $sql1="DELETE FROM produits where idproduits='$idproduits'";
         $stmtinsert = $db->exec($sql1);
