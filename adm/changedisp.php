@@ -17,12 +17,12 @@
             header("location: prod.php");
         }
         else{
-            echo("<h1>Il y'a eu un erreur!</h1>");
+            echo("<h1>Il y'a eu une erreur!</h1>");
             echo("<h2><a href='./prod.php'>Retour</a></h2>");
         }
     }
     else{
-        echo("<h1>Il y'a eu un erreur!</h1>");
+        echo("<h1>Il y'a eu une erreur!</h1>");
         echo("<h2><a href='./prod.php'>Retour</a></h2>");
     }
 }
