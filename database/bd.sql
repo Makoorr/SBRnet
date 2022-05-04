@@ -35,7 +35,6 @@ CREATE TABLE `achat` (
   PRIMARY KEY (`idproduits`,`idcommande`),
   KEY `idcommande_idx` (`idcommande`),
   CONSTRAINT `idcommande` FOREIGN KEY (`idcommande`) REFERENCES `commande` (`idcommande`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `idproduits` FOREIGN KEY (`idproduits`) REFERENCES `produits` (`idproduits`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
