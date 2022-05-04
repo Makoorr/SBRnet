@@ -4,6 +4,13 @@
     // Checking is User Logged In
     if(isset($_SESSION['authentication']))
     {
+    
+    if (isset($_GET['etat'])){
+        $etat = $_GET['etat'];
+    }
+    else{
+        $etat = 1;
+    }
 
     if (isset($_GET['pageno'])) {
         $pageno = $_GET['pageno'];
@@ -14,7 +21,7 @@
     $no_of_records_per_page = 25;
     $offset = ($pageno-1) * $no_of_records_per_page;
 
-    $total_pages_sql = "SELECT COUNT(*) FROM commande;";
+    $total_pages_sql = "SELECT COUNT(*) FROM commande where etat=$etat;";
     $result = $db->query($total_pages_sql);
     foreach($result as $res){
         $total_rows = $res[0];
@@ -39,7 +46,7 @@
                 <h5><a href="dash.php">Home</a> / <a href="#">Commandes</a></h5>
             </div>
 
-            <div class="col-md">
+            <div class="col-md"> <!-- Pagination -->
                 <div class="pagination">
                     <?php
                         if($pageno!=1)
@@ -52,14 +59,26 @@
                         else
                             $nextpage=$total_pages;
                         
-                        echo("<a href='?pageno=$prevpage'>&laquo;</a>");
-                        echo("<a href='?pageno=$pageno' class='active' value='$pageno'> $pageno </a>");
-                        echo("<a href='?pageno=$nextpage'>&raquo;</a>");
+                        echo("<a href='?etat=$etat&pageno=$prevpage'>&laquo;</a>");
+                        echo("<a href='?etat=$etat&pageno=$pageno' class='active' value='$pageno'> $pageno </a>");
+                        echo("<a href='?etat=$etat&pageno=$nextpage'>&raquo;</a>");
                     ?>
                 </div>
             </div>
         </div>
-            <div class="row">
+
+        <form action="comm.php" method="GET">
+        <div class="row">
+            <div><strong style="font-size:large;">Commandes: </strong>
+            <label>
+                <input onchange='this.form.submit();' type="radio" name="etat" value="1" <?php if($etat==1) echo('checked');?>> En cours
+                <input onchange='this.form.submit();' type="radio" name="etat" value="0" <?php if($etat==0) echo('checked');?>> Achevé
+            </label>
+            </div>
+        </div>
+        </form> <!-- radios -->
+
+        <div class="row">
             <table class="table table-hover">
                 <thead>
                     <tr style="text-align: center;">
@@ -76,11 +95,12 @@
                         <th>Total</th>
                         <th>Quantité de produits</th> <!--cartquantity-->
                         <th></th>
+                        <th>Etat</th>
                     </tr>
                 </thead>
                 <?php
                     $i=0;
-                    $sql="SELECT * FROM commande ORDER BY idcommande desc LIMIT $offset, $no_of_records_per_page;";
+                    $sql="SELECT * FROM commande WHERE etat=$etat ORDER BY idcommande desc LIMIT $offset, $no_of_records_per_page;";
                     $commande = $db->query($sql);
 
                     foreach($commande as $comm){
@@ -100,8 +120,17 @@
                         <td style="border-right: 1px solid;border-bottom: 1px solid;"><?php echo($comm['total']); ?></td>
                         <td style="border-right: 1px solid;border-bottom: 1px solid;"><?php echo($comm['cartquantity']); ?></td>
                         <td style="border-right: 1px solid;border-bottom: 1px solid;"><input type="submit" value="Voir Achat"></td>
-                    </tr>
                 </form>
+                        <form action="etat_comm.php" method="POST">
+                        <td style="border-right: 1px solid;border-bottom: 1px solid;">
+                            <select name="etat" onchange="this.form.submit();">
+                                <option <?php if($comm['etat']===1) echo('selected');?> value="1">En Cours</option>
+                                <option <?php if($comm['etat']===0) echo('selected');?> value="0">Achevé</option>
+                            </select>
+                            <input name="idcomm" value="<?php echo($comm['idcommande']);?>" hidden>
+                        </td>
+                        </form>
+                    </tr>
                 <?php
                     }
                 ?>
