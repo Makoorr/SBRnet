@@ -58,7 +58,7 @@ if(isset($_POST['nom']) && isset($_POST['prix']) && isset($_POST['nom_categorie'
 else{
     echo('not ISSET!');
 }
-echo("<a href='http://localhost/sbrnet/adm/prod.php'>Retour aux produits</a>");
+echo("<a href='./prod.php'>Retour aux produits</a>");
 }
 else{
     header("location: loginpage.php");

@@ -132,8 +132,8 @@
                     <td style="border-right: 1px solid;border-bottom: 1px solid;width:13em;"><input type="text" name="supp_prix" style="border: 0 none;text-align:right;width:20%;background:none;" value="<?php echo($prod['prix']); ?>" readonly> DT</td>
                     <td style="border-right: 1px solid;border-bottom: 1px solid;">
                             <select name="dispo" onchange="this.form.submit();">
-                                <option <?php if($prod['disponibilite']===1) echo('selected');?> value="1">Oui</option>
-                                <option <?php if($prod['disponibilite']===0) echo('selected');?> value="0">Non</option>
+                                <option <?php if($prod['disponibilite']==1) echo('selected');?> value="1">Oui</option>
+                                <option <?php if($prod['disponibilite']==0) echo('selected');?> value="0">Non</option>
                                 <input type="submit" id="subm" hidden>
                             </select>
                     </td>
