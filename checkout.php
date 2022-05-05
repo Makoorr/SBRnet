@@ -10,19 +10,19 @@
         && ! empty($_POST['email']) && ! empty($_POST['phone']) && ! empty($_POST['ville']) && ! empty($_POST['address']) && ! empty($_POST['zip']);
     if($test){
         if(isset($_POST['nom']))
-        $nom=$_POST['nom'];
+        $nom=htmlspecialchars($_POST['nom']);
         if(isset($_POST['prenom']))
-        $prenom=$_POST['prenom'];
+        $prenom=htmlspecialchars($_POST['prenom']);
         if(isset($_POST['email']))
-        $email=$_POST['email'];
+        $email=htmlspecialchars($_POST['email']);
         if(isset($_POST['phone']))
-        $phone=$_POST['phone'];
+        $phone=htmlspecialchars($_POST['phone']);
         if(isset($_POST['ville']))
-        $ville=$_POST['ville'];
+        $ville=htmlspecialchars($_POST['ville']);
         if(isset($_POST['address']))
-        $address=$_POST['address'];
+        $address=htmlspecialchars($_POST['address']);
         if(isset($_POST['zip']))
-        $zip=$_POST['zip'];
+        $zip=htmlspecialchars($_POST['zip']);
 
         if(isset($_COOKIE['cartquantity']))
         $cartquantity=$_COOKIE['cartquantity'];
@@ -37,7 +37,7 @@
         date_default_timezone_set("Africa/Tunis");
         $time=date("H:i:s");
 
-        //Checking if commande deja put into here (fi nhar heka)
+        /*Checking if commande deja put into here (fi nhar heka)*/
         $sql = "SELECT nom,prenom,email,phone,ville,address,zip,total,cartquantity,date from commande where nom=:nom and prenom=:prenom and date=:date
                                 and email=:email and phone=:phone and ville=:ville and address=:address and zip=:zip and total=:total and cartquantity=:cartquantity;";
         $stm = $db->prepare($sql);
@@ -55,6 +55,7 @@
             $checktotal=$com['total'];
             $checkcartquantity=$com['cartquantity'];
         }
+        /*Checking if commande deja put into here (fi nhar heka)*/
 
         if ( $nom!=$checknom or $prenom!=$checkprenom or $date!=$checkdate or $email!=$checkemail
         or $phone!=$checkphone or $ville!=$checkville or $address!=$checkaddress or $zip!=$checkzip or $total!=$checktotal or $cartquantity!=$checkcartquantity    
@@ -92,34 +93,33 @@
 
         while($s!=0){ //Ajout lel entité achat
             if(CheckCookieById($x)){
+                $idproduits = $x;
 
-                //getting products' details from cookies
-                $namex=$_COOKIE["name$x"];
-                $prixx=intval($_COOKIE["price$x"]);
-                $quantityx=$_COOKIE["quantity$x"];
-                $pricex=intval($_COOKIE["price$x"])*intval($_COOKIE["quantity$x"]); //prix total (prix unitaire * quantite)
+                //getting products' details from id($x)
+                $sql = "SELECT nom,prix from produits where idproduits=:idproduits";
+                $stm = $db->prepare($sql);
+                $stm->execute(array('idproduits'=>$idproduits));
+                $req = $stm->fetchAll();
                 
+                foreach ($req as $prod) {
+                    $namex=intval($prod['nom']);
+                    $prixx=intval($prod['prix']);
+                }
+                
+                $quantityx=$_COOKIE["quantity$x"];
+                $pricex=$prixx*intval($_COOKIE["quantity$x"]); //prix total (prix unitaire * quantite)
+
+                $sql = "INSERT INTO achat (idproduits,idcommande,quantite,prix) VALUES(:idproduits,:idcommande,:quantite,:prix)";
+                $stmtinsert1 = $db->prepare($sql);
+                $result = $stmtinsert1->execute([':idproduits'=>$idproduits,':idcommande'=>$idcommande,':quantite'=>$quantityx,':prix'=>$pricex]);
+                $s--;
+
                 //appending ltab
                 $tab.=" <tr style='color:white;'>
                             <td style='border-bottom:1px solid #ebebeb86;border-right:1px solid #ebebeb86;color: #ebebeb;width: 20em;'>$namex</td>
                             <td style='border-bottom:1px solid #ebebeb86;border-right:1px solid #ebebeb86;color: #ebebeb;width: 10em;'>$quantityx</td>
                             <td style='border-bottom:1px solid #ebebeb86;width: 10em;'>$prixx DT</td>
                         </tr>";
-
-                //getting the idproduits
-                $sql = "SELECT idproduits from produits where nom=:namex and prix=:prixx";
-                $stm = $db->prepare($sql);
-                $stm->execute(array('namex'=>$namex,'prixx'=>$prixx));
-                $req = $stm->fetchAll();
-
-                foreach ($req as $idprod) {
-                    $idproduits=$idprod['idproduits'];
-                }
-
-                $sql = "INSERT INTO achat (idproduits,idcommande,quantite,prix) VALUES(:idproduits,:idcommande,:quantite,:prix)";
-                $stmtinsert1 = $db->prepare($sql);
-                $result = $stmtinsert1->execute([':idproduits'=>$idproduits,':idcommande'=>$idcommande,':quantite'=>$quantityx,':prix'=>$pricex]);
-                $s--;
             }
             $x++;
         }
@@ -154,7 +154,7 @@
                             </div>
         
                             <div style='padding: 1em;'>
-                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Bonjour $nom ,</p>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Bonjour $prenom ,</p>
                                 <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Votre commande #$idcommande a été envoyé avec succès! <br>
                                 Nous vous appelerons sur $phone le plus tôt possible pour confirmer votre demande.</p>
                                 
