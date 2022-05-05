@@ -102,7 +102,7 @@
                 $req = $stm->fetchAll();
                 
                 foreach ($req as $prod) {
-                    $namex=intval($prod['nom']);
+                    $namex=$prod['nom'];
                     $prixx=intval($prod['prix']);
                 }
                 
