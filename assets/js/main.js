@@ -54,8 +54,7 @@ function getCookie(cname) {
 
 //Checking cookies for the id x
 function CheckCookieById(x){
-  if(getCookie("img"+x)!="" && getCookie("img"+x)!=null
-    && getCookie("price"+x)!="" && getCookie("price"+x)!=null
+  if(getCookie("price"+x)!="" && getCookie("price"+x)!=null
     && getCookie("quantity"+x)!="" && getCookie("quantity"+x)!=null
     && getCookie("name"+x)!="" && getCookie("name"+x)!=null)
     return true;
@@ -80,8 +79,6 @@ function checkoutajt(){
     var s = cart.childElementCount;
     var x = 1;
     var tot = 0;
-
-    console.log(parseInt(s));
 
     var test;
 
@@ -110,6 +107,8 @@ function checkoutajt(){
 
 //Updating cookies to the current page's cart elements
 function updatecookie(){
+    let total=document.getElementById("totalprice");
+    let tot=0;
     var s;
     if(getCookie("cartquantity") && ! getCookie("post"))
       s = parseInt(getCookie("cartquantity")); //decompteur s
@@ -124,10 +123,9 @@ function updatecookie(){
           //ajt(x) :
 
           let table=document.getElementById("cart-items");
-          let cartquantity=document.getElementById("cartquantity");    
-          let total=document.getElementById("totalprice");
+          let cartquantity=document.getElementById("cartquantity");
 
-          let img=getCookie("img"+x);
+          let img="http://localhost/sbrnet/assets/img/"+x+".jpg";
           let price=getCookie("price"+x);
           let quantity=getCookie("quantity"+x);
           let name=getCookie("name"+x);
@@ -196,13 +194,15 @@ function updatecookie(){
           //Ajout Quantité panier
           cartquantity.innerHTML=parseInt(getCookie("cartquantity"));
 
-          //Ajout Total panier
-          total.innerHTML=parseInt(getCookie("total"));
+          tot += price * quantity;
 
           s--;
         }
         x++;
       }
+      //Ajout Total panier
+      total.innerHTML=parseInt(tot);
+    
     }
     else{ //ken cartquantity<=0 //resetting l panier
       var cookies = document.cookie.split(";");
@@ -294,7 +294,6 @@ function ajt(x){
       setCookie("name"+x,name,1);
       setCookie("price"+x,price,1);
       setCookie("quantity"+x,quantity,1);
-      setCookie("img"+x,img,1);
 
       //Ajout Quantité panier
       cartquantity.innerHTML=parseInt(cartquantity.innerHTML)+1;
@@ -303,7 +302,6 @@ function ajt(x){
       //calcul total
       let total=document.getElementById("totalprice");
       total.innerHTML=parseInt(total.innerHTML)+(parseInt(price)*parseInt(quantity));
-      setCookie("total",total.innerHTML,1);
 
       document.getElementById("quantity"+x).style.borderColor="#000000";
       var linkToFocus = document.querySelector('.cart-hover');
@@ -330,7 +328,6 @@ function ajt(x){
       let total=document.getElementById("totalprice");
       oldquan=parseInt(getCookie("quantity"+x));
       total.innerHTML=parseInt(total.innerHTML)-(parseInt(price)*oldquan)+(parseInt(price)*parseInt(quantity));
-      setCookie("total",total.innerHTML,1);
 
       setCookie("quantity"+x,quantity,1);
       document.getElementById("quantity"+x).style.borderColor="#000000";
@@ -362,7 +359,6 @@ function sup(x){
   setCookie("name"+x,"",0);
   setCookie("price"+x,"",0);
   setCookie("quantity"+x,"",0);
-  setCookie("img"+x,"",0);
 
   //calcul cartquantity
   cartquantity.innerHTML=parseInt(cartquantity.innerHTML)-1;
@@ -370,11 +366,9 @@ function sup(x){
   total.innerHTML=parseInt(total.innerHTML)-(parseInt(price)*parseInt(quantity));
   if (cartquantity.innerHTML>0){
     setCookie("cartquantity",parseInt(cartquantity.innerHTML),1);
-    setCookie("total",total.innerHTML,1);
   }
   else{
     setCookie("cartquantity","",0);
-    setCookie("total","",0);
   }
   location.reload();
 }

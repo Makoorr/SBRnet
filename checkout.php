@@ -25,9 +25,42 @@
         $zip=htmlspecialchars($_POST['zip']);
 
         if(isset($_COOKIE['cartquantity']))
-        $cartquantity=$_COOKIE['cartquantity'];
-        if(isset($_COOKIE['total']))
-        $total=$_COOKIE['total'];
+        $cartquantity=intval($_COOKIE['cartquantity']);
+
+        function CheckCookieById($id){
+            if(! empty($_COOKIE["price$id"]) && ! empty($_COOKIE["quantity$id"]) && ! empty($_COOKIE["name$id"]))
+                return true;
+            else
+                return false;
+        }
+
+        if($cartquantity>0)
+            $s=$cartquantity; //decompteur s
+        else
+            $s=0;
+        $x=1;
+
+        //Calculating total
+        $total=0;
+        while($s!=0){
+            if(CheckCookieById($x)){
+                //getting products' prices from id($x)
+                $sql = "SELECT prix from produits where idproduits=:idproduits";
+                $stm = $db->prepare($sql);
+                $stm->execute(array('idproduits'=>$idproduits));
+                $req = $stm->fetchAll();
+
+                foreach ($req as $prod) {
+                    $prix_uni=intval($prod['prix']);
+                }
+
+                $price = $prix_uni * intval($_COOKIE["quantity$x"]);
+                $total += $price;
+                
+                $s--;
+            }
+            $x++;
+        }
 
         setcookie("post","1",time()+5,"/");
 
@@ -61,20 +94,6 @@
         or $phone!=$checkphone or $ville!=$checkville or $address!=$checkaddress or $zip!=$checkzip or $total!=$checktotal or $cartquantity!=$checkcartquantity    
         ){ //Menghir INSERT ken el commande bel details hedhom deja mawjouda (fel nhar hedha kahaw el verif)
 
-        function CheckCookieById($id){
-            if(! empty($_COOKIE["img$id"]) && ! empty($_COOKIE["price$id"]) && ! empty($_COOKIE["quantity$id"]) && ! empty($_COOKIE["name$id"]))
-                return true;
-            else
-                return false;
-        }
-
-        if($cartquantity>0)
-            $s=$cartquantity; //decompteur s
-        else
-            $s=0;
-
-        $x=1;
-
         $sql = "INSERT INTO commande (nom,prenom,email,phone,ville,address,zip,total,cartquantity,date,time) VALUES(:nom,:prenom,:email,:phone,:ville,:address,:zip,:total,:cartquantity,:date,:time)";
         $stmtinsert = $db->prepare($sql);
         $result = $stmtinsert->execute([':nom'=>$nom,':prenom'=>$prenom,':email'=>$email,':phone'=>$phone,':ville'=>$ville,':address'=>$address,':zip'=>$zip,':total'=>$total,':cartquantity'=>$cartquantity,':date'=>$date,':time'=>$time]);
@@ -90,6 +109,11 @@
 
         //initialiazing tab elements
         $tab="";
+        if($cartquantity>0)
+            $s=$cartquantity; //decompteur s
+        else
+            $s=0;
+        $x=1;
 
         while($s!=0){ //Ajout lel entité achat
             if(CheckCookieById($x)){
@@ -100,7 +124,7 @@
                 $stm = $db->prepare($sql);
                 $stm->execute(array('idproduits'=>$idproduits));
                 $req = $stm->fetchAll();
-                
+
                 foreach ($req as $prod) {
                     $namex=$prod['nom'];
                     $prixx=intval($prod['prix']);
