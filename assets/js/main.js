@@ -316,10 +316,7 @@ function ajt(x){
     }
   }
   else{ //ken l'item deja mawjoud
-    if(quantity>0 && quantity<300){
-
-      document.getElementById("item"+x+"quantity").innerHTML=quantity;
-
+    if(quantity>0 && quantity<500){
       //Ajout Cookies de l'item x
       setCookie("name"+x,name,1);
       setCookie("price"+x,price,1);
@@ -327,7 +324,10 @@ function ajt(x){
       //calcul total
       let total=document.getElementById("totalprice");
       oldquan=parseInt(getCookie("quantity"+x));
+      quantity= parseInt(quantity) + parseInt(getCookie("quantity"+x));
+      
       total.innerHTML=parseInt(total.innerHTML)-(parseInt(price)*oldquan)+(parseInt(price)*parseInt(quantity));
+      document.getElementById("item"+x+"quantity").innerHTML=quantity;
 
       setCookie("quantity"+x,quantity,1);
       document.getElementById("quantity"+x).style.borderColor="#000000";
