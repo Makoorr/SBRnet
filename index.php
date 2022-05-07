@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 
-    <meta name="description" content="SBR-Switchmed.com est une société spécialisée dans la vente de produits parapharmaceutiques certifiés avec des prix attractifs et avec une livraison à domicile.
+    <meta name="description" content="SBRSwitchmed.com est une société spécialisée dans la vente de produits parapharmaceutiques certifiés avec des prix attractifs et avec une livraison à domicile.
     Vous aurez l'occasion d'apprécier la qualité de nos produits avec les meilleurs prix.">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
