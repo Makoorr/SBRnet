@@ -47,7 +47,7 @@
                 //getting products' prices from id($x)
                 $sql = "SELECT prix from produits where idproduits=:idproduits";
                 $stm = $db->prepare($sql);
-                $stm->execute(array('idproduits'=>$idproduits));
+                $stm->execute(array('idproduits'=>$x));
                 $req = $stm->fetchAll();
 
                 foreach ($req as $prod) {
@@ -55,8 +55,9 @@
                 }
 
                 $price = $prix_uni * intval($_COOKIE["quantity$x"]);
-                $total += $price;
-                
+                $total = $total + $price;
+                echo("<h1>price$x: $price | total : $total</h1>");
+
                 $s--;
             }
             $x++;
@@ -65,10 +66,15 @@
         setcookie("post","1",time()+5,"/");
 
         $total=intval($total)+$frais;
+        echo("<h1>total apres frais: $total</h1>");
 
         $date=date("Y-m-d");
         date_default_timezone_set("Africa/Tunis");
         $time=date("H:i:s");
+
+        /* Begin a transaction, turning off autocommit */
+        $db->beginTransaction();
+        /* Begin a transaction, turning off autocommit */
 
         /*Checking if commande deja put into here (fi nhar heka)*/
         $sql = "SELECT nom,prenom,email,phone,ville,address,zip,total,cartquantity,date from commande where nom=:nom and prenom=:prenom and date=:date
@@ -148,6 +154,9 @@
             $x++;
         }
 
+        //Commiting insertion
+        $db->commit();
+
         $addliv="<tr style='color: #ebebeb;'>
                     <td style='color: #ebebeb;width: 15em;'>$nom $prenom</td>
                 </tr>
@@ -217,6 +226,9 @@
             //           <span>'.$e->getMessage().'</span>
             //         </div>');
         }
-    } //Fin check (commande mawjouda ou non)
+    } else{ //Fin check (commande mawjouda ou non)
+        /* Recognize mistake and roll back changes */
+        $db->rollBack();
+    }
     }//Fin if ($test)
 ?>
