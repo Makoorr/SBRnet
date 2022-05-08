@@ -15,11 +15,6 @@ if(empty($e)){
     foreach($result as $res){
         $total_rows = $res[0];
     }
-    $total_pages = ceil($total_rows / $no_of_records_per_page);
-
-    //checking the ?pageno
-    if($pageno<1 || $pageno>$total_pages)
-        header("location:./bouchor.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +24,13 @@ if(empty($e)){
 
 <body onload="updatecookie()">
     <?php
-        include ('includes/header.php');
+        if ($total_rows > 0){
+            include ('includes/header.php');
+            $total_pages = ceil($total_rows / $no_of_records_per_page);
+    
+            //checking the ?pageno
+            if($pageno<1 || $pageno>$total_pages)
+                header("location:./bouchor.php");
     ?>
 
     <!-- Start Content -->
@@ -237,23 +238,13 @@ if(empty($e)){
 
     <!-- ====== Line Separator ====== -->
     <hr style="border-top: 3px solid #bbb">
-
-    <!-- ======= Footer ======= -->
-    <footer id="footer" style="height: 100%;">
-      <!-- Copyright -->
-      <div class="container d-md-flex py-4">
-
-        <div class="me-md-auto text-center text-md-start">
-            <div class="copyright">
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> | <strong><span> SBRSwitchmed</span></strong>
-            </div>
-        </div>
-        <div class="social-links text-center text-md-right pt-3 pt-md-0">
-            <strong><span>Notre page facebook&nbsp;&nbsp;</span></strong>
-            <a href="https://www.facebook.com/Produits-Parapharmaceutiques-Cosm%C3%A9tiques-124308735628194" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
-        </div>
-        </div>
-    </footer><!-- End Footer -->
+    
+    <?php
+        include ('includes/footer.php');
+        } else {
+            include('includes/nocontent.php');
+        }
+    ?>
 
   <div id="preloader"></div>
   <a  class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
