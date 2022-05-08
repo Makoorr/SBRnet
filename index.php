@@ -63,7 +63,7 @@
         $sql="SELECT distinct categorie,nom_categorie FROM produits 
               WHERE (nom_categorie='Huiles Essentielles' or nom_categorie='Huiles Végétales'
               or nom_categorie='Soins Corps' or nom_categorie='Soins Visage'
-              or nom_categorie='Argiles' or nom_categorie='Soins Cheveux') and disponibilite=1;";
+              or nom_categorie='Argiles' or nom_categorie='Soins Cheveux');";
 
         $produits = $db->query($sql);
 
