@@ -26,6 +26,10 @@ if(isset($_POST['nom']) && isset($_POST['prix']) && isset($_POST['categorie']) &
         $categorie=$_POST['categorie'];
         $target="../assets/img/";
 
+        /* Begin a transaction, turning off autocommit */
+        $db->beginTransaction();
+        /* Begin a transaction, turning off autocommit */
+
         $sql = "SELECT distinct nom_categorie FROM produits WHERE categorie='$categorie'";
         foreach ($db->query($sql) as $cat) {
             $nom_categorie=$cat['nom_categorie'];
@@ -45,9 +49,13 @@ if(isset($_POST['nom']) && isset($_POST['prix']) && isset($_POST['categorie']) &
 
             move_uploaded_file($_FILES["filetoupload"]["tmp_name"], $target_file);
             echo("<h2 style='color:red'>  Produits ajouté!</h2>");
+            //Commiting insertion
+            $db->commit();
         }
         catch(Exception $e){
             echo("Erreur d'ajout d'image, veuillez verifier l'emplacement de l'image!");
+            /* Recognize mistake and roll back changes */
+            $db->rollBack();
         }
 
     }
