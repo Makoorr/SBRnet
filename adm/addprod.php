@@ -7,28 +7,28 @@
 ?>
 
 <?php
-if(isset($_POST['nom']) && isset($_POST['prix']) && isset($_POST['nom_categorie']) && is_uploaded_file($_FILES['filetoupload']['tmp_name'])){
+if(isset($_POST['nom']) && isset($_POST['prix']) && isset($_POST['categorie']) && is_uploaded_file($_FILES['filetoupload']['tmp_name'])){
     $nom=$_POST['nom'];
     $prix=$_POST['prix'];
-    $nom_categorie=$_POST['nom_categorie'];
+    $categorie=$_POST['categorie'];
     $img=$_FILES['filetoupload']['name'];
 
     echo("<h3>");
     echo("Nom : ".$nom." <br>");
     echo("Prix : ".$prix." <br>");
-    echo("Nom_categorie : ".$nom_categorie."  <br>");
+    echo("categorie : ".$categorie."  <br>");
     echo("Image : ".$img."  <br>");
     echo("</h3>");
 
-    if (! empty($_POST['nom_categorie']) && ! empty($_POST['nom']) && ! empty($_POST['prix']) && ! empty($_FILES['filetoupload']['name'])){
+    if (! empty($_POST['categorie']) && ! empty($_POST['nom']) && ! empty($_POST['prix']) && ! empty($_FILES['filetoupload']['name'])){
         $nom=$_POST['nom'];
         $prix=$_POST['prix'];
-        $nom_categorie=$_POST['nom_categorie'];
+        $categorie=$_POST['categorie'];
         $target="../assets/img/";
 
-        $sql = "SELECT distinct categorie FROM produits WHERE nom_categorie='$nom_categorie'";
+        $sql = "SELECT distinct nom_categorie FROM produits WHERE categorie='$categorie'";
         foreach ($db->query($sql) as $cat) {
-            $categorie=$cat['categorie'];
+            $nom_categorie=$cat['nom_categorie'];
         }
 
         try{

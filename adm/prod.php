@@ -46,20 +46,20 @@
                 <tr style="text-align: center;">
                     <form action="addprod.php" enctype="multipart/form-data" method="POST">
                         <td>
-                        <select name="nom_categorie">
-                            <option value="Huiles Végétales">Huiles Végétales</option>
-                            <option value="Soins Cheveux">Soins Cheveux</option>
-                            <option value="Soins Corps">Soins Corps</option>
-                            <option value="Soins Visage">Soins Visage</option>
-                            <option value="Savons">Savons</option>
-                            <option value="Lèvres">Lèvres</option>
-                            <option value="Argiles">Argiles</option>
-                            <option value="Eaux Florales">Eaux Florales</option>
-                            <option value="Gel Hydroalcoolique">Gel Hydroalcoolique</option>
-                            <option value="Masques Jetables">Masques Jetables</option>
-                            <option value="Test de Grossesse">Test de Grossesse</option>
-                            <option value="Bouchons d'oreilles">Bouchons d'oreilles</option>
-                            <option value="Huiles Essentielles">Huiles Essentielles</option>
+                        <select name="categorie">
+                            <option value="huilesveg">Huiles Végétales</option>
+                            <option value="soinsch">Soins Cheveux</option>
+                            <option value="soinsco">Soins Corps</option>
+                            <option value="soinsvis">Soins Visage</option>
+                            <option value="savons">Savons</option>
+                            <option value="levre">Lèvres</option>
+                            <option value="argiles">Argiles</option>
+                            <option value="eauflor">Eaux Florales</option>
+                            <option value="gelhydro">Gel Hydroalcoolique</option>
+                            <option value="masques">Masques Jetables</option>
+                            <option value="testgross">Test de Grossesse</option>
+                            <option value="bouchor">Bouchons d'oreilles</option>
+                            <option value="huilesess">Huiles Essentielles</option>
                         </select>
                         </td>
                         <td><input type="text" name="nom"></td>
