@@ -1,3 +1,9 @@
+/* Carousel */
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
+  justify-content: center;
+  display: flex;
+}
+
 /* Header text animation */
 
 .hover-underline-anim{
