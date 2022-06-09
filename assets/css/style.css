@@ -1,3 +1,9 @@
+/* Carousel */
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
+  justify-content: center;
+  display: flex;
+}
+
 /* Header text animation */
 
 .hover-underline-anim{
@@ -328,6 +334,10 @@ input[type=number] {
   border-radius: 4em;
   width: 8em;
   height: 8em;
+}
+
+.cercle-texte {
+  font-size: 14px !important;
 }
 
 /* End Index dwer */
@@ -1200,7 +1210,7 @@ section {
   padding: 0;
 }
 .about .content ul li {
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 .about .content ul i {
   font-size: 20px;
