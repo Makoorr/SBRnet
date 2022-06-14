@@ -62,10 +62,7 @@
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
         <?php
-        $sql="SELECT distinct categorie,nom_categorie FROM produits 
-              WHERE (nom_categorie='Huiles Essentielles' or nom_categorie='Huiles Végétales'
-              or nom_categorie='Soins Corps' or nom_categorie='Soins Visage'
-              or nom_categorie='Argiles' or nom_categorie='Soins Cheveux');";
+        $sql="SELECT distinct categorie,nom_categorie FROM produits";
 
         $produits = $db->query($sql);
         $el=0;
