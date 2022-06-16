@@ -22,8 +22,10 @@
   <link href="../assets/vendor/jQuery/slicknav.min.css" rel="stylesheet">
   <link href="../assets/vendor/jQuery/elegant-icons.css" rel="stylesheet">
   <link href="../assets/vendor/fontawesome/fontawesome.min.css" rel="stylesheet">
-
+  <link href="../assets/vendor/fancyapps/jquery.fancybox.min.css" rel="stylesheet">
+  
   <script src="https://kit.fontawesome.com/0552f5e21b.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="../assets/vendor/jQuery/jquery.js"></script>
   <script src="../assets/vendor/jQuery/isotope-pkgd.js"></script>
   <script src="../assets/vendor/jQuery/magnific-popup.js"></script>

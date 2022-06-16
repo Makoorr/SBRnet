@@ -148,8 +148,9 @@ if(empty($e)){
                                     <ul class="list-unstyled">
                                         <!-- <li><a class="btn btn-success text-white" href="#"><i class="far fa-heart"></i></a></li> -->
                                         <!-- <li><a class="btn btn-success text-white mt-2 fancylight popup-btn" href="../assets/img/.jpg" data-fancybox-group="light"><i class="far fa-eye"></i></a></li> -->
-                                        <li><a class="btn btn-success text-white mt-2 fancylight popup-btn" style="background-color: #24282D;border-color:#24282D" href="../assets/img/<?php echo($prod['idproduits']); ?>.jpg" data-fancybox="gallery"><i class="far fa-eye"></i></a></li>
+                                        <!-- <li><a class="btn btn-success text-white mt-2 fancylight popup-btn" style="background-color: #24282D;border-color:#24282D" href="../assets/img/<?php echo($prod['idproduits']); ?>.jpg" data-fancybox="gallery"><i class="far fa-eye"></i></a></li> -->
                                         <!-- <li><a class="btn btn-success text-white mt-2"  onclick="ajt(<?php echo($prod['idproduits']); ?>)"><i class="fas fa-cart-plus"></i></a></li> -->
+                                        <li><a class="btn btn-success text-white mt-2" href="../singleprod.php?product=<?php echo($prod['idproduits']); ?>" data-fancybox data-type="iframe" data-options='{ "iframe" : {"preload" : false, "css" : {"width" : "1000px"}} }'><i class="fas fa-eye"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -254,6 +255,7 @@ if(empty($e)){
   <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="../assets/vendor/php-email-form/validate.js"></script>
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/vendor/fancyapps/jquery.fancybox.min.js"></script>
 </body>
 </html>
 <?php

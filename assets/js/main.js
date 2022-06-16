@@ -550,6 +550,25 @@ function validateForm() {
     });
 }
 
+// function btnplus(){
+//   var valnode = document.querySelector("#var-value");
+//   var prodnode = document.querySelector("[name='product-quantity']");
+//   let val = parseInt(valnode.innerText);
+//   val++;
+//     valnode.innerText = val;
+//     prodnode.value = val;
+// }
+
+// function btnminus(){
+//   var valnode = document.querySelector("#var-value");
+//   var prodnode = document.querySelector("[name='product-quantity']");
+//   let val = parseInt(valnode.innerText);
+//   val = (val=='1')?val:val-1;
+
+//     valnode.innerText = val;
+//     prodnode.value = val;
+// }
+
 (function() {
   "use strict";
   //produits popup image
@@ -561,11 +580,6 @@ function validateForm() {
                           enabled : true
                           }
                         });
-                    });
-
-
-  $(document).ready(function() {
-  // Accordion
   var all_panels = $('.templatemo-accordion > li > ul').hide();
 
   $('.templatemo-accordion > li > a').click(function() {
@@ -578,36 +592,6 @@ function validateForm() {
     return false;
   });
   // End accordion
-  // Product detail
-  $('.product-links-wap a').click(function(){
-    var this_src = $(this).children('img').attr('src');
-    $('#product-detail').attr('src',this_src);
-    return false;
-  });
-  $('#btn-minus').click(function(){
-    var val = $("#var-value").html();
-    val = (val=='1')?val:val-1;
-    $("#var-value").html(val);
-    $("#product-quanity").val(val);
-    return false;
-  });
-  $('#btn-plus').click(function(){
-    var val = $("#var-value").html();
-    val++;
-    $("#var-value").html(val);
-    $("#product-quanity").val(val);
-    return false;
-  });
-  $('.btn-size').click(function(){
-    var this_val = $(this).html();
-    $("#product-size").val(this_val);
-    $(".btn-size").removeClass('btn-secondary');
-    $(".btn-size").addClass('btn-success');
-    $(this).removeClass('btn-success');
-    $(this).addClass('btn-secondary');
-    return false;
-  });
-  // End Product detail 
   });
   
   /**
