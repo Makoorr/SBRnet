@@ -140,7 +140,7 @@ if(empty($e)){
 
                         foreach($produits as $prod){
                     ?>
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 d-flex justify-content-center">
                         <div class="card mb-4 product-wap rounded-0" style="border: none !important;box-shadow: none !important;">
                             <div class="card rounded-0">
                                 <img class="card-img rounded-0 img-fluid" style="height: 15em;" id="img<?php echo($prod['idproduits']); ?>" src="../assets/img/<?php echo($prod['idproduits']);?>.jpg">
