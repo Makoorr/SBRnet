@@ -569,6 +569,13 @@ h1, h2, h5 {
   visibility: visible;
   opacity: 1;
 }
+.cardutil .card .product-overlay ul li {
+  transition: all .2s ease-in-out;
+  transform: translateY(150%);
+}
+.cardutil:hover .card .product-overlay ul li {
+  transform: translateY(0%);
+}
 .card.product-wap a { color: #000;}
 #carousel-related-product .slick-slide:focus { outline: none !important;}
 #carousel-related-product .slick-dots li button:before {
