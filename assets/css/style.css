@@ -889,6 +889,10 @@ footer, footer .container .col{
 }
 .navbar li {
   position: relative;
+  transition: all .2s ease-in-out;
+}
+.navbar li:hover {
+  transform: scale(1.2);
 }
 .navbar a, .navbar a:focus {
   display: flex;
