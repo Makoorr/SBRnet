@@ -13,7 +13,7 @@
 
                 foreach($produits as $prod){
                 ?>
-                    <li class="hover-underline-animation"><a href="<?php echo($prod['categorie'])?>.php"><div><?php echo($prod['nom_categorie']) ?></div></a></li>
+                    <li class="hover-underline-animation"><a href="prod.php?cat=<?php echo($prod['categorie'])?>"><div><?php echo($prod['nom_categorie']) ?></div></a></li>
                 <?php
                 }
                 ?>

@@ -72,9 +72,9 @@
           if($it==3){
         ?>
         <div class="carousel-item col-sm-3 <?php if($el==0){echo("active");$el++;} ?>"> <?php } ?>
-          <div class="cercle" style="margin-left:2em;margin-bottom:2em;" href="prod/<?php echo($prod['categorie'])?>.php">
-            <a class="cercle-img" href="prod/<?php echo($prod['categorie'])?>.php"><img src="assets/img/<?php echo($prod['categorie'])?>.png" style="display:block;padding-top: 1%;contain: style;margin : auto;" width="70em" height="100%" alt="<?php echo($prod['nom_categorie'])?>"></a>
-            <a class="cercle-texte" href="prod/<?php echo($prod['categorie'])?>.php"><?php echo($prod['nom_categorie']) ?></a>
+          <div class="cercle" style="margin-left:2em;margin-bottom:2em;" href="prod/prod.php?cat=<?php echo($prod['categorie'])?>">
+            <a class="cercle-img" href="prod/prod.php?cat=<?php echo($prod['categorie'])?>"><img src="assets/img/<?php echo($prod['categorie'])?>.png" style="display:block;padding-top: 1%;contain: style;margin : auto;" width="70em" height="100%" alt="<?php echo($prod['nom_categorie'])?>"></a>
+            <a class="cercle-texte" href="prod/prod.php?cat=<?php echo($prod['categorie'])?>"><?php echo($prod['nom_categorie']) ?></a>
           </div>
         <?php  
           if($it==3){

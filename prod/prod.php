@@ -1,6 +1,16 @@
 <?php
 require_once('../config.php');
+?>
+<!DOCTYPE html>
+<html lang="en">
+<?php
+include('includes/meta.php');
 if(empty($e)){
+
+if (isset($_GET['cat'])){
+    $categ = $_GET['cat'];
+$arr = ['huilesveg','soinsch','soinsco','soinsvis','savons','levre','argiles','eauflor','gelhydro','masques','testgross','bouchor','huilesess'];
+if (in_array($categ, $arr)){
     if (isset($_GET['pageno'])) {
         $pageno = $_GET['pageno'];
     } else {
@@ -10,18 +20,12 @@ if(empty($e)){
     $no_of_records_per_page = 10;
     $offset = ($pageno-1) * $no_of_records_per_page;
 
-    $total_pages_sql = "SELECT COUNT(*) FROM produits where disponibilite=1 and categorie='testgross';";
+    $total_pages_sql = "SELECT COUNT(*) FROM produits where disponibilite=1 and categorie='$categ';";
     $result = $db->query($total_pages_sql);
     foreach($result as $res){
         $total_rows = $res[0];
     }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<?php
-    include('includes/meta.php');
-?>
-
 <body onload="updatecookie()">
     <?php
         if ($total_rows > 0){
@@ -30,7 +34,7 @@ if(empty($e)){
     
             //checking the ?pageno
             if($pageno<1 || $pageno>$total_pages)
-                header("location:./testgross.php");
+                header("location:./prod.php?cat=$categ");
     ?>
 
     <!-- Start Content -->
@@ -93,7 +97,7 @@ if(empty($e)){
                     <div class="col-md">
                         <h4 style="text-align: center;">
                             <?php
-                            $sql="SELECT nom_categorie FROM produits where categorie='testgross'";
+                            $sql="SELECT nom_categorie FROM produits where categorie='$categ'";
                             $produits = $db->query($sql);
                             foreach($produits as $prod){
                                 $nomcateg=$prod[0];
@@ -116,14 +120,14 @@ if(empty($e)){
                                     else
                                         $nextpage=$total_pages;
                                     
-                                    echo("<a href='?pageno=$prevpage'>&laquo;</a>");
+                                    echo("<a href='?cat=$categ&pageno=$prevpage'>&laquo;</a>");
                                     for ($i=1;$i<=$total_pages;$i++){
                                         if(intval($i)===intval($pageno))
-                                            echo("<a href='?pageno=$i' class='active' value='$i'> $i </a>");
+                                            echo("<a href='?cat=$categ&pageno=$i' class='active' value='$i'> $i </a>");
                                         else
-                                            echo("<a href='?pageno=$i' value='$i'> $i </a>");
+                                            echo("<a href='?cat=$categ&pageno=$i' value='$i'> $i </a>");
                                     }
-                                    echo("<a href='?pageno=$nextpage'>&raquo;</a>");
+                                    echo("<a href='?cat=$categ&pageno=$nextpage'>&raquo;</a>");
                                 ?>
                             </div>
                         </div>
@@ -135,13 +139,13 @@ if(empty($e)){
                 <!-- Articles --> <!-- ID'S : img id | btn onclick ajt(id) | name id | price id |-->
                 <div class="row">
                     <?php
-                        $sql="SELECT * FROM produits where disponibilite=1 and categorie='testgross' LIMIT $offset, $no_of_records_per_page;";
+                        $sql="SELECT * FROM produits where disponibilite=1 and categorie='$categ' LIMIT $offset, $no_of_records_per_page;";
                         $produits = $db->query($sql);
 
                         foreach($produits as $prod){
                     ?>
                     <div class="col-lg-3 d-flex justify-content-center">
-                        <div class="card mb-4 product-wap rounded-0" style="border: none !important;box-shadow: none !important;">
+                        <div class="card mb-4 product-wap rounded-0 cardutil" style="border: none !important;box-shadow: none !important;">
                             <div class="card rounded-0">
                                 <img class="card-img rounded-0 img-fluid" style="height: 15em;" id="img<?php echo($prod['idproduits']); ?>" src="../assets/img/<?php echo($prod['idproduits']);?>.jpg">
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
@@ -216,7 +220,6 @@ if(empty($e)){
     <!-- End Content -->
     </div>
 
-
     <!-- ====== Line Separator ====== -->
     <hr style="border-top: 3px solid #bbb">
 
@@ -260,5 +263,13 @@ if(empty($e)){
 </body>
 </html>
 <?php
+}
+else {
+    header('location:../404.php');
+}
+}
+else {
+    header('location:../404.php');
+}
 }
 ?>
