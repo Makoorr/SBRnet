@@ -66,7 +66,7 @@ function CheckCookieById(x){
 function checkoutajt(){
   let cart = document.getElementById("cart-items");
   if(cart.childElementCount<=0){
-    location.assign('prod/huilesess.php');
+    location.assign('prod/prod.php?cat=huilesess');
   }
   else{
     let ordertable = document.getElementById("order-table");
