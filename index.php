@@ -69,6 +69,7 @@
         $it=3;
 
         foreach($produits as $prod){
+          if($el==0) $size = $produits->rowCount();
           if($it==3){
         ?>
         <div class="carousel-item col-sm-3 <?php if($el==0){echo("active");$el++;} ?>"> <?php } ?>
@@ -83,7 +84,8 @@
           else{
             $it++;
           }
-          if($it==3){
+          $size--;
+          if($it==3 || $size == 0){
         ?>
           </div>
         <?php
