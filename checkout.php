@@ -4,7 +4,7 @@
 ?>
 
 <?php
-    $frais=8;
+    $frais=7;
     //done tkoun empty (yaani mehoush mizel ki checkouta)
     $test=! empty ($_POST) && ! empty($_COOKIE) && ! isset($_COOKIE['done']) && ! empty($_POST['nom']) && ! empty($_POST['prenom']) 
         && ! empty($_POST['email']) && ! empty($_POST['phone']) && ! empty($_POST['ville']) && ! empty($_POST['address']) && ! empty($_POST['zip']);
@@ -202,7 +202,7 @@
                                         $tab
                                     </tbody>
                                 </table>
-                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Prix Total(+Frais de Livraison(8DT)): $total DT</p>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Prix Total(+Frais de Livraison(7DT)): $total DT</p>
                                 <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Adresse de livraison:</p>
                                 <table style='color: #ebebeb86;border: 1px solid;border-collapse: collapse;'>
                                     <tbody>
