@@ -4,9 +4,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <meta name="description" content="SBRSwitchmed.com est une société spécialisée dans la vente de produits parapharmaceutiques certifiés avec des prix attractifs et avec une livraison à domicile.
-    Vous aurez l'occasion d'apprécier la qualité de nos produits avec les meilleurs prix.">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,11 +33,16 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex justify-content-center align-items-center">
       <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-        <h1>100% Pure Rose<br>Huile essentielle</h1>
-        <h2 class="has-text-align-center has-small-font-size" id="my-all-time-favourite-scent-it-smells-divine-and-lasts-all-day-a-true-and-beautiful-rose-fragrance" style="line-height:1.5;font-style: italic;"><em style="font-size:x-large;font-weight: 300;">“Notre gamme d'huiles essentielles de haute qualité a été triée sur le volet par nos spécialistes des parfums.”</em></h2>
-        <a href="prod/huilesess.php" class="btn-get-started">Acheter Maintenant!</a>
+        <h1>Produits BIO<br>100% Naturelles</h1>
+        <h2 class="has-text-align-center has-small-font-size" id="my-all-time-favourite-scent-it-smells-divine-and-lasts-all-day-a-true-and-beautiful-rose-fragrance" style="line-height:1.5;font-style: italic;"><em style="font-size:x-large;font-weight: 300;">“Notre gamme de produits de haute qualité a été triée sur le volet par nos spécialistes des parfums.”</em></h2>
+        <a href="#about" class="btn-get-started">Nos Catégories</a>
       </div>
     </section><!-- End Hero -->
+
+    <!-- ====== Line Separator ====== -->
+    <hr style="border-top: 3px solid #bbb">
+
+
 
     <!-- ====== Line Separator ====== -->
     <hr style="border-top: 3px solid #bbb">
