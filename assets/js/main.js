@@ -101,7 +101,7 @@ function checkoutajt(){
       x++;
     }
     subtotal.innerHTML=tot;
-    total.innerHTML=parseInt(tot)+8; //Frais de Livraison 8dt
+    total.innerHTML=parseInt(tot)+7; //Frais de Livraison 7dt
   }
 }
 
