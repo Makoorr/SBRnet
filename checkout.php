@@ -226,6 +226,64 @@
             //           <span>'.$e->getMessage().'</span>
             //         </div>');
         }
+
+        //Sending email to the admins
+        try {
+            $mail2->addAddress("makoorr@gmail.com");
+      
+            $mail2->isHTML(true);
+            $mail2->Subject = "Commande d'achat chez SBRSwitchmed";
+            $mail2->Body = "        
+                <table  width='100%' border='0' cellspacing='0' cellpadding='0'>
+                    <tr>
+                        <td style='background-color: #24282D;' width='33%'></td>
+                        <td style='background-color: #1c1e1f;'>
+        
+                            <div style='height: 7em;'>
+                                <img src='cid:header'>
+                            </div>
+        
+                            <div style='padding: 1em;'>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Bonjour $prenom ,</p>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Votre commande #$idcommande a été envoyé avec succès! <br>
+                                Nous vous appelerons sur $phone le plus tôt possible pour confirmer votre demande.</p>
+                                
+                                <p style='font-family: Arial, Helvetica, sans-serif;font-size: 14px;font-weight: 600;color: white;'>[Commande #$idcommande]($date)</p>
+                                <table style='color: #ebebeb86;border: 1px solid;border-collapse: collapse;'>
+                                    <tbody>
+                                        <tr style='color: #ebebeb;'>
+                                            <td style='border-bottom:1px solid #ebebeb86;border-right:1px solid #ebebeb86;color: #ebebeb;width: 20em;'>Nom du produits</td>
+                                            <td style='border-bottom:1px solid #ebebeb86;border-right:1px solid #ebebeb86;color: #ebebeb;width: 10em;'>Quantite</td>
+                                            <td style='border-bottom:1px solid #ebebeb86;width: 10em;'>Prix unitaire</td>
+                                        </tr>
+                                        $tab
+                                    </tbody>
+                                </table>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Prix Total(+Frais de Livraison(7DT)): $total DT</p>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Adresse de livraison:</p>
+                                <table style='color: #ebebeb86;border: 1px solid;border-collapse: collapse;'>
+                                    <tbody>
+                                        $addliv
+                                    </tbody>
+                                </table>
+                                <br>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Si vous avez des questions, veuillez nous envoyer une demande <a href='http://localhost/sbrnet/contact.php'>ici</a></p>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Cordialement,<br>
+                                Equipe SBRSwitchmed</p>
+                            </div>
+
+                        </td>
+                        <td style='background-color: #24282D;' width='33%'></td>
+                    </tr>
+                </table>";
+            $mail2->addEmbeddedImage(dirname(__FILE__)."/assets/img/mailheader.png","header");
+            $mail2->send();
+        } catch(Exception $e) {
+            // echo('<div class="alert-error">
+            //           <span>'.$e->getMessage().'</span>
+            //         </div>');
+        }
+
     } else{ //Fin check (commande mawjouda ou non)
         /* Recognize mistake and roll back changes */
         $db->rollBack();
