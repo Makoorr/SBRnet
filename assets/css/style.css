@@ -842,6 +842,26 @@ footer, footer .container .col{
   padding: 15px 0;
   box-shadow: 0px 0 18px rgba(55, 66, 59, 0.08);
 }
+.headernoscroll {
+  background: none !important;
+  box-shadow: none !important;
+}
+@media (min-width: 992px) {
+  .headernoscroll nav ul li a {
+    color: white;
+    font-weight: 100 !important;
+  }
+  .headernoscroll nav ul li:hover a {
+    color: white;
+    font-weight: 100 !important;
+  }
+}
+.headernoscroll .fas.fa-cart-plus {
+  color: white;
+}
+.headernoscroll .bi.mobile-nav-toggle.bi-list {
+  color: white;
+}
 #header .logo {
   font-size: 30px;
   margin: 0;

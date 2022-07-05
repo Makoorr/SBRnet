@@ -1,4 +1,4 @@
-<header id="header" class="fixed-top">
+<header id="header" class="fixed-top headernoscroll">
     <div class="container d-flex align-items-center">
     <h1 class="logo me-auto"><a href="index.php"><img src = "assets/img/logotextsbr.png" alt="" class="img-fluid" style="padding-top: 2px;"><span style="color: 00ffb4;font-size: large;font-weight: 500 !important;">  </span> </a></h1>
 
@@ -13,7 +13,7 @@
 
                 foreach($produits as $prod){
                 ?>
-                    <li class="hover-underline-animation"><a href="prod/prod.php?cat=<?php echo($prod['categorie'])?>"><div><?php echo($prod['nom_categorie']) ?></div></a></li>
+                    <li class="hover-underline-animation"><a href="prod/prod.php?cat=<?php echo($prod['categorie'])?>" style="color: black !important;"><div><?php echo($prod['nom_categorie']) ?></div></a></li>
                 <?php
                 }
                 ?>

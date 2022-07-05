@@ -33,8 +33,10 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex justify-content-center align-items-center">
       <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-        <h1>Produits BIO<br>100% Naturelles</h1>
-        <h2 class="has-text-align-center has-small-font-size" id="my-all-time-favourite-scent-it-smells-divine-and-lasts-all-day-a-true-and-beautiful-rose-fragrance" style="line-height:1.5;font-style: italic;"><em style="font-size:x-large;font-weight: 300;">“Notre gamme de produits de haute qualité a été triée sur le volet par nos spécialistes des parfums.”</em></h2>
+        <h1>Produits BIO<br>100% Naturels</h1>
+        <h2 class="has-text-align-center has-small-font-size" id="my-all-time-favourite-scent-it-smells-divine-and-lasts-all-day-a-true-and-beautiful-rose-fragrance" style="line-height:1.5;font-style: italic;"><em style="font-size:x-large;font-weight: 300;">
+          “Notre gamme de produits de haute qualité a été triée sur le volet par nos spécialistes.”</em>
+        </h2>
         <a href="#about" class="btn-get-started">Nos Catégories</a>
       </div>
     </section><!-- End Hero -->
@@ -42,7 +44,11 @@
     <!-- ====== Line Separator ====== -->
     <hr style="border-top: 3px solid #bbb">
 
-
+    <section>
+      <div class="container" style="text-align: center;">
+        <p>$Carousel items</p>
+      </div>
+    </section>
 
     <!-- ====== Line Separator ====== -->
     <hr style="border-top: 3px solid #bbb">
@@ -193,5 +199,16 @@
   <?php
     include('includes/scripts.php');
   ?>
+  <script type="text/javascript">
+    var nav = document.querySelector('header');
+
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset < 500) {
+        nav.classList.add('headernoscroll');
+      } else {
+        nav.classList.remove('headernoscroll');
+      }
+    });
+  </script>
 </body>
 </html>
