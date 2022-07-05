@@ -340,6 +340,18 @@ input[type=number] {
   font-size: 14px !important;
 }
 
+.cercle-img {
+  overflow: hidden;
+}
+
+.cercle-img img{
+  transition: 0.3s ease-in-out;
+}
+
+.cercle:hover .cercle-img img{
+  transform: scale(1.2);
+}
+
 /* End Index dwer */
 
 
