@@ -143,6 +143,41 @@
 
   <!-- ======= Footer ======= -->
   <footer id="footer" style="height: 100%;">
+    <!-- Start Brands -->
+    <section style="background: #eef0ef !important;">
+        <div class="container">
+            <div class="row text-center py-3">
+                <div class="col-lg-6 m-auto">
+                    <h4 style="font-family: 'Roboto', sans-serif;font-size: 30px !important;font-weight: 100 !important;">Nos Marques</h4>
+                </div>
+                <div class="col-lg-9 m-auto tempaltemo-carousel">
+                    <div class="row d-flex flex-row">
+                        <!--Carousel Wrapper-->
+                        <div class="col">
+                          <div class="carousel-item active">
+                              <div class="row">
+                                  <div class="col-3 p-md-5">
+                                      <a style="cursor: pointer;"><img class="img-fluid brand-img" src="assets/img/herbeos.png" alt="Herbeos"></a>
+                                  </div>
+                                  <div class="col-3 p-md-5">
+                                      <a style="cursor: pointer;"><img class="img-fluid brand-img" src="assets/img/moldex.png" alt="Moldex"></a>
+                                  </div>
+                                  <div class="col-3 p-md-5">
+                                      <a style="cursor: pointer;"><img class="img-fluid brand-img" src="assets/img/koroglu.png" alt="Koroglu"></a>
+                                  </div>
+                                  <div class="col-3 p-md-5">
+                                      <a style="cursor: pointer;"><img class="img-fluid brand-img" src="assets/img/orthomed.png" alt="Orthomed"></a>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                        <!--End Carousel Wrapper-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Brands-->
     <div class="footer-top" style="background-color: black;">
       <div class="container">
         <div class="row">
@@ -178,7 +213,6 @@
     </div>
 
     <div class="container d-md-flex py-4">
-
       <div class="me-md-auto text-center text-md-start">
         <div class="copyright">
           Copyright &copy;<script>document.write(new Date().getFullYear());</script> | <strong><span> SBRSwitchmed</span></strong>
