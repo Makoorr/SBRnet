@@ -563,11 +563,12 @@ h1, h2, h5 {
   background: rgba(0,0,0,.2);
   visibility: hidden;
   opacity: 0;
-  transition: .3s;
+  transition: .6s;
 }
 .card.product-wap:hover .card .product-overlay {
   visibility: visible;
   opacity: 1;
+  transform: scale(1.1);
 }
 .cardutil .card .product-overlay ul li {
   transition: all .2s ease-in-out;
@@ -575,6 +576,15 @@ h1, h2, h5 {
 }
 .cardutil:hover .card .product-overlay ul li {
   transform: translateY(0%);
+}
+.cardutil .card .card-img {
+	transition: 0.4s ease-in-out;
+}
+.cardutil:hover .card .card-img {
+	transform: scale(1.1);
+}
+.card.rounded-0 {
+	overflow: hidden;
 }
 .card.product-wap a { color: #000;}
 #carousel-related-product .slick-slide:focus { outline: none !important;}
