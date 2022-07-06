@@ -148,7 +148,7 @@
         <div class="container">
             <div class="row text-center py-3">
                 <div class="col-lg-6 m-auto">
-                    <h4 style="font-family: 'Roboto', sans-serif;font-size: 30px !important;font-weight: 100 !important;padding-bottom: 10px;">Nos Marques</h4>
+                    <h4 style="font-family: var(--bs-body-font-family);font-size: 30px !important;font-weight: 300 !important;padding-bottom: 10px;">Nos Marques</h4>
                 </div>
                 <div class="col-lg-9 m-auto tempaltemo-carousel">
                     <div class="row d-flex flex-row">
