@@ -236,7 +236,7 @@
     include('includes/scripts.php');
   ?>
   <script type="text/javascript">
-    var nav = document.querySelector('header');
+    var nav = document.querySelector('.headernoscroll');
 
     window.addEventListener('scroll', function () {
       if (window.pageYOffset < 500) {
