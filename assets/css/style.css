@@ -614,6 +614,11 @@ h1, h2, h5 {
   filter: grayscale(0%);
   opacity: 1;
 }
+@media (max-width: 992px){
+  #brands {
+    height: 30vh;
+  }
+}
 /* Carousel Hero */
 #template-mo-zay-hero-carousel .carousel-indicators li {
   margin-top: -50px;
