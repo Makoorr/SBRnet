@@ -619,6 +619,10 @@ h1, h2, h5 {
     height: 30vh;
   }
 }
+/* Pages */
+.pagel:hover {
+  color: #50cf80;
+}
 /* Carousel Hero */
 #template-mo-zay-hero-carousel .carousel-indicators li {
   margin-top: -50px;
@@ -859,24 +863,24 @@ footer, footer .container .col{
   padding: 15px 0;
   box-shadow: 0px 0 18px rgba(55, 66, 59, 0.08);
 }
-.headernoscroll {
+.headernoscroll header {
   background: none !important;
   box-shadow: none !important;
 }
 @media (min-width: 992px) {
-  .headernoscroll nav ul li a {
+  .headernoscroll header nav ul li a {
     color: white;
     font-weight: 100 !important;
   }
-  .headernoscroll nav ul li:hover a {
+  .headernoscroll header nav ul li:hover a {
     color: white;
     font-weight: 100 !important;
   }
 }
-.headernoscroll .fas.fa-cart-plus {
+.headernoscroll header .fas.fa-cart-plus {
   color: white;
 }
-.headernoscroll .bi.mobile-nav-toggle.bi-list {
+.headernoscroll header .bi.mobile-nav-toggle.bi-list {
   color: white;
 }
 #header .logo {

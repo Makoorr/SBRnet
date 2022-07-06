@@ -133,6 +133,12 @@ if (in_array($categ, $arr)){
                         </div>
                     </div>
                 </div>
+                <!-- Pages -->
+                <div class="col-md-5" style="margin: 1rem;">
+                        <a class="pagel" href="../"><i class="fa fa-home" aria-hidden="true"></i><span style="padding-right: 2em;padding-left: 1em;">Accueil</span></a> >
+                        <a class="pagel" href="../index.php#textc" style="padding-right: 2em;padding-left: 2em;">Produits</a> > 
+                        <a style="padding-left: 2em;color: #b2b2b2;"><?php echo($nomcateg); ?></a>
+                </div>
                 <!-- End Title -->
                 <br>
 

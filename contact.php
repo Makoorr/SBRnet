@@ -43,6 +43,11 @@
     <!--Section: Contact-->
     <section class="mb-4" style="padding-top: 10%;padding-bottom: 10%;">
         <div class="container" data-aos="fade-up">
+        <!-- Pages -->
+        <div class="col-md-5" style="margin: 1rem;">
+            <a class="pagel" href="../"><i class="fa fa-home" aria-hidden="true"></i><span style="padding-right: 2em;padding-left: 1em;">Accueil</span></a> >
+            <a style="padding-left: 2em;color: #b2b2b2;">Contact</a>
+        </div>
         <!--Section heading-->
         <h2 class="h1-responsive font-weight-bold text-center my-4">Contactez-nous</h2>
         <!--Section description-->

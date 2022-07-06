@@ -26,9 +26,11 @@
 </head>
 
 <body onload="updatecookie()">
+    <div class="headernoscroll">
     <?php
       include ('includes/header.php');
     ?>
+    </div>
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex justify-content-center align-items-center">
@@ -54,7 +56,7 @@
     <hr style="border-top: 3px solid #bbb">
 
     <!-- Texte -->
-    <div class="wp-container-14 wp-block-group" style="padding-top:3vh;padding-bottom:3vh;text-align: center;">
+    <div id="textc" class="wp-container-14 wp-block-group" style="padding-top:3vh;padding-bottom:3vh;text-align: center;">
       <h2 class="has-text-align-center has-small-font-size" id="my-all-time-favourite-scent-it-smells-divine-and-lasts-all-day-a-true-and-beautiful-rose-fragrance" style="line-height:1.5;font-style: italic;"><em style="font-size:x-large;font-weight: 300;">“Notre gamme de produits biologiques s'appuie sur les propriétés naturelles des plantes et de l'ensemble du monde végétal.”</em></h2>
       <p class="has-text-align-center has-small-font-size">SBR Switchmed</p>
     </div>

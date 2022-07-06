@@ -1,4 +1,4 @@
-<header id="header" class="fixed-top headernoscroll">
+<header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
     <h1 class="logo me-auto"><a href="index.php"><img src = "assets/img/logotextsbr.png" alt="" class="img-fluid" style="padding-top: 2px;"><span style="color: 00ffb4;font-size: large;font-weight: 500 !important;">  </span> </a></h1>
 
