@@ -204,7 +204,8 @@
             <h4 style="color: white;">Abonnez-vous à notre Newsletter</h4>
             <!-- <p style="color: white;">Abonnez-vous à notre Newsletter et recevez 10% de réduction sur votre première commande.</p> -->
             <form>
-              <input type="email" id="emailnews"><input class="newsletterbtn" type="button" onclick="newsletter()" value="S'abonner">
+              <label></label>
+              <input placeholder="Votre Email" type="email" id="emailnews"><input class="newsletterbtn" type="button" onclick="newsletter()" value="S'abonner">
             </form>
             <br>
             <div class="statusnews" style="color:#ebebeb"></div>
