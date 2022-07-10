@@ -137,48 +137,38 @@
       </table>
     </div> <!-- Fin Tableau -->
 
-    <!-- ====== Line Separator ====== -->
-    <hr style="border-top: 3px solid #bbb">
-
 
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer" style="height: 100%;">
+    <!-- ====== Line Separator ====== -->
+    <hr style="border-top: 3px solid #bbb">
     <!-- Start Brands -->
-    <section id="brands" style="background: #eef0ef !important;">
-        <div class="container">
-            <div class="row text-center py-3">
-                <div class="col-lg-6 m-auto">
-                    <h4 style="font-family: var(--bs-body-font-family);font-size: 30px !important;font-weight: 300 !important;padding-bottom: 10px;">Nos Marques</h4>
-                </div>
-                <div class="col-lg-9 m-auto tempaltemo-carousel">
-                    <div class="row d-flex flex-row">
-                        <!--Carousel Wrapper-->
-                        <div class="col">
-                          <div class="carousel-item active">
-                              <div class="row">
-                                  <div class="col-3 p-md-5">
-                                      <a style="cursor: pointer;"><img class="img-fluid brand-img" src="assets/img/herbeos.png" alt="Herbeos"></a>
-                                  </div>
-                                  <div class="col-3 p-md-5">
-                                      <a style="cursor: pointer;"><img class="img-fluid brand-img" src="assets/img/moldex.png" alt="Moldex"></a>
-                                  </div>
-                                  <div class="col-3 p-md-5">
-                                      <a style="cursor: pointer;"><img class="img-fluid brand-img" src="assets/img/koroglu.png" alt="Koroglu"></a>
-                                  </div>
-                                  <div class="col-3 p-md-5">
-                                      <a style="cursor: pointer;"><img class="img-fluid brand-img" src="assets/img/orthomed.png" alt="Orthomed"></a>
-                                  </div>
-                              </div>
+    <div id="brands" class="container" style="background: #eef0ef !important;">
+      <div class="row text-center">
+          <div class="col-lg-9 m-auto">
+              <div class="row d-flex flex-row">
+                  <div class="col brandscol">
+                      <div class="row">
+                          <div class="col-3 brandspad">
+                              <a style="cursor: pointer;"><img class="img-fluid brand-img" src="assets/img/herbeos.png" alt="Herbeos"></a>
                           </div>
-                        </div>
-                        <!--End Carousel Wrapper-->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                          <div class="col-3 brandspad">
+                              <a style="cursor: pointer;"><img class="img-fluid brand-img" src="assets/img/moldex.png" alt="Moldex"></a>
+                          </div>
+                          <div class="col-3 brandspad">
+                              <a style="cursor: pointer;"><img class="img-fluid brand-img" src="assets/img/koroglu.png" alt="Koroglu"></a>
+                          </div>
+                          <div class="col-3 brandspad">
+                              <a style="cursor: pointer;"><img class="img-fluid brand-img" src="assets/img/orthomed.png" alt="Orthomed"></a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
     <!--End Brands-->
     <div class="footer-top" style="background-color: black;">
       <div class="container">
