@@ -11,9 +11,9 @@
     <title>SBRSwitchmed</title>
     <link rel = "icon" type = "image/png" href = "assets/img/iconsbr.png">
     <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet"> <!--logos-->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet"> <!--logos-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     
     <script src="https://kit.fontawesome.com/0552f5e21b.js" crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
