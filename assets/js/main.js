@@ -2,6 +2,74 @@
 /* Fel Cart el names are itemx : itemxquantity | itemxname | itemx price | onclick="sup(1)" */
 /* Fel Produits el names are : namex | pricex | imgx */
 
+function searchfn(id,nom,categ,pr){
+  var elems = document.querySelector('.elements');
+  var input = document.querySelector('#search');
+  var ul = document.querySelector('#elemsul');
+  ul.innerHTML="";
+  var wid = input.clientWidth; //width
+
+  //input
+  let inp = input.value;
+  let checkinp = inp.toUpperCase();
+  //elems mel base
+  let tabid = id.split(',');
+  let tabnom = nom.split(',');
+  let tabcateg = categ.split(',');
+  //elems mel base upper
+  let checkid = id.toUpperCase().split(',');
+  let checknom = nom.toUpperCase().split(',');
+  //elems mel base confirmed
+  let confid = [];
+  let confnom = [];
+  let confcateg = [];
+
+  if (inp.value != ""){
+    elems.style="visibility: visible !important;opacity: 1;width:"+wid+"px;";
+
+    for(let i=0;i<checkid.length;i++){
+      if(checknom[i].includes(checkinp)){
+        confid.push(tabid[i]);
+        confnom.push(tabnom[i]);
+        confcateg.push(tabcateg[i]);
+      }
+    }
+
+    for (let i=0;i<confid.length;i++){
+      let li = document.createElement("li");
+      let a1 = document.createElement("a");
+      let div2 = document.createElement("span");
+
+      //td class "elemspic"
+      let img1=document.createElement("img");
+      img1.setAttribute("width","72px");
+      img1.setAttribute("height","72px");
+      img1.setAttribute("src","http://localhost/sbrnet/assets/img/"+confid[i]+".jpg");
+      img1.setAttribute("alt","");
+      img1.classList.add("elemspic");
+      a1.appendChild(img1);
+
+      //td class "elemstext"
+      let h6=document.createElement("h6");
+      h6.innerHTML= confnom[i];
+      h6.style.color="#50cf80";
+      div2.appendChild(h6);
+      div2.classList.add("elemstext");
+      a1.appendChild(div2);
+      pr == '1'?
+        a1.setAttribute('href','prod/prod.php?cat='+confcateg[i]+'#'+confid[i])
+        :a1.setAttribute('href','prod.php?cat='+confcateg[i]+'#'+confid[i]);
+
+
+      li.appendChild(a1);
+      ul.appendChild(li);
+    }
+  }
+  else {
+    elems.style="visibility: hidden !important;opacity: 0;width:"+wid+"px;";
+  }
+}
+
 function newsletter(){
   //email
   var email =  document.getElementById('emailnews').value;
@@ -593,7 +661,51 @@ function validateForm() {
   });
   // End accordion
   });
+
+  var mw = window.matchMedia("(max-width: 992px)");
+  if (mw.matches) { // If media query matches
+    document.getElementById('search').hidden=true;
+    document.getElementById('searchbtn').hidden=true;
+    document.getElementById('searchbtnmob').hidden=false;
+  } else {
+    document.getElementById('search').hidden=false;
+    document.getElementById('searchbtn').hidden=false;
+    document.getElementById('searchbtnmob').hidden=true;
+  }
   
+  window.addEventListener('resize',function(){
+    if (mw.matches) { // If media query matches
+      document.getElementById('search').hidden=true;
+      document.getElementById('searchbtn').hidden=true;
+      document.getElementById('searchbtnmob').hidden=false;
+    } else {
+      document.getElementById('search').hidden=false;
+      document.getElementById('searchbtn').hidden=false;
+      document.getElementById('searchbtnmob').hidden=true;
+    }
+    let elems = document.querySelector('.elements');
+    let wid = document.getElementById('search').clientWidth;
+    elems.style="visibility: hidden !important;opacity: 0;width:"+wid+"px;";
+
+    let popup = document.getElementById("pop");
+    popup.classList.remove('popup-box-on');
+  });
+
+  const searchbtnmob = document.getElementById("searchbtnmob");
+  const popup = document.getElementById("pop");
+    document.addEventListener("click", (event) => {
+        const clickIn = searchbtnmob.contains(event.target);
+
+        if (clickIn) {
+          if (mw.matches) {
+            popup.classList.add('popup-box-on');
+            document.getElementById('search').hidden=false;
+          }
+          else {
+            document.getElementById('search').hidden=true;
+          }
+        }
+    });
   /**
    * Easy selector helper function
    */

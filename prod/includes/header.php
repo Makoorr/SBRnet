@@ -1,6 +1,34 @@
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-    <h1 class="logo me-auto"><a href="../index.php"><img src = "../assets/img/logotextsbr.png" alt="" class="img-fluid" style="padding-top: 2px;"><span style="color: 00ffb4;font-size: large;font-weight: 500 !important;"> </span> </a></h1>
+    <h1 class="logo me-auto"><a href="../index.php"><img src = "../assets/img/logotextsbr.png" alt="" class="img-fluid" style="padding-top: 2px;"></a></h1>
+
+    <div class="search-container" style="height: 4em;">
+        <?php
+            $sql = "SELECT idproduits,nom,categorie from produits;";
+            $stm = $db->prepare($sql);
+            $stm->execute();
+            $req = $stm->fetchAll();
+            $tabid = [];
+            $tabnom = [];
+            $tabcateg = [];
+
+            foreach($req as $mp){
+                array_push($tabid,$mp['idproduits']);
+                array_push($tabnom,$mp['nom']);
+                array_push($tabcateg,$mp['categorie']);
+            }
+        ?>
+        <div id="pop">
+            <input type="text" id="search" onkeyup="searchfn('<?php echo(addslashes(implode(',',$tabid)) . '\',\'' . addslashes(implode(',',$tabnom)) . '\',\'' . addslashes(implode(',',$tabcateg)) ); ?>','0');" placeholder="Rechercher.." name="search">
+            <button id="searchbtn" onclick="$('#search').focus();"><i class="fa fa-search fa-xl" style="margin-top: 1.25rem;"></i></button>
+            <button id="searchbtnmob"><i class="fa fa-search fa-xl" style="margin-top: 1.25rem;"></i></button>
+            <div class="elements">
+                <ul id="elemsul">
+
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
@@ -48,3 +76,26 @@
 
     </div>
 </header><!-- End Header -->
+
+<script>
+    const specifiedElement = document.getElementById("search");
+    document.addEventListener("click", (event) => {
+        const isClickInside = specifiedElement.contains(event.target);
+        let elems = document.querySelector('.elements');
+        let clicked = elems.contains(event.target);
+
+        if (!isClickInside && !clicked) {
+            let wid = specifiedElement.clientWidth;
+            elems.style="visibility: hidden !important;opacity: 0;width:"+wid+"px;";
+
+            let popup = document.getElementById("pop");
+            if (popup.classList.contains('popup-box-on')){
+                popup.classList.remove('popup-box-on');
+                document.getElementById('search').hidden=true;
+            }
+        }
+        else if (specifiedElement.value != ""){
+            searchfn('<?php echo(addslashes(implode(',',$tabid)) . '\',\'' . addslashes(implode(',',$tabnom)) . '\',\'' . addslashes(implode(',',$tabcateg)) ); ?>','0');
+        }
+    });
+</script>
