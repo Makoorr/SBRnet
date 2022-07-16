@@ -19,6 +19,7 @@
             }
         ?>
         <div id="pop">
+            <button id="removeClass" class="popbtnclose" onclick="document.getElementById('pop').classList.remove('popup-box-on');document.getElementById('search').hidden=true;document.getElementById('removeClass').hidden=true;" type="button" hidden>x</button>
             <input type="text" id="search" onkeyup="searchfn('<?php echo(addslashes(implode(',',$tabid)) . '\',\'' . addslashes(implode(',',$tabnom)) . '\',\'' . addslashes(implode(',',$tabcateg)) ); ?>','1');" placeholder="Rechercher.." name="search">
             <button id="searchbtn" onclick="$('#search').focus();"><i class="fa fa-search fa-xl" style="margin-top: 1.25rem;"></i></button>
             <button id="searchbtnmob"><i class="fa fa-search fa-xl" style="margin-top: 1.25rem;"></i></button>
@@ -78,6 +79,7 @@
 </header><!-- End Header -->
 
 <script>
+    //Clicks outside search bar
     const specifiedElement = document.getElementById("search");
     document.addEventListener("click", (event) => {
         const isClickInside = specifiedElement.contains(event.target);
@@ -87,12 +89,6 @@
         if (!isClickInside && !clicked) {
             let wid = specifiedElement.clientWidth;
             elems.style="visibility: hidden !important;opacity: 0;width:"+wid+"px;";
-
-            let popup = document.getElementById("pop");
-            if (popup.classList.contains('popup-box-on')){
-                popup.classList.remove('popup-box-on');
-                document.getElementById('search').hidden=true;
-            }
         }
         else if (specifiedElement.value != ""){
             searchfn('<?php echo(addslashes(implode(',',$tabid)) . '\',\'' . addslashes(implode(',',$tabnom)) . '\',\'' . addslashes(implode(',',$tabcateg)) ); ?>','1');

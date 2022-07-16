@@ -618,25 +618,6 @@ function validateForm() {
     });
 }
 
-// function btnplus(){
-//   var valnode = document.querySelector("#var-value");
-//   var prodnode = document.querySelector("[name='product-quantity']");
-//   let val = parseInt(valnode.innerText);
-//   val++;
-//     valnode.innerText = val;
-//     prodnode.value = val;
-// }
-
-// function btnminus(){
-//   var valnode = document.querySelector("#var-value");
-//   var prodnode = document.querySelector("[name='product-quantity']");
-//   let val = parseInt(valnode.innerText);
-//   val = (val=='1')?val:val-1;
-
-//     valnode.innerText = val;
-//     prodnode.value = val;
-// }
-
 (function() {
   "use strict";
   //produits popup image
@@ -675,20 +656,19 @@ function validateForm() {
   
   window.addEventListener('resize',function(){
     if (mw.matches) { // If media query matches
-      document.getElementById('search').hidden=true;
+      if(! document.getElementById("pop").classList.contains('popup-box-on'))
+        document.getElementById('search').hidden=true;
       document.getElementById('searchbtn').hidden=true;
       document.getElementById('searchbtnmob').hidden=false;
     } else {
-      document.getElementById('search').hidden=false;
+      if(! document.getElementById("pop").classList.contains('popup-box-on'))
+        document.getElementById('search').hidden=false;
       document.getElementById('searchbtn').hidden=false;
       document.getElementById('searchbtnmob').hidden=true;
     }
     let elems = document.querySelector('.elements');
     let wid = document.getElementById('search').clientWidth;
     elems.style="visibility: hidden !important;opacity: 0;width:"+wid+"px;";
-
-    let popup = document.getElementById("pop");
-    popup.classList.remove('popup-box-on');
   });
 
   const searchbtnmob = document.getElementById("searchbtnmob");
@@ -700,9 +680,11 @@ function validateForm() {
           if (mw.matches) {
             popup.classList.add('popup-box-on');
             document.getElementById('search').hidden=false;
+            document.getElementById('removeClass').hidden=false;
           }
           else {
             document.getElementById('search').hidden=true;
+            document.getElementById('removeClass').hidden=true;
           }
         }
     });

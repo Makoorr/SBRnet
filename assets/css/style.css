@@ -933,7 +933,7 @@ footer, footer .container .col{
   margin: auto;
   padding-top: 0.6rem;
 }
-.headernoscroll #header .search-container button {
+.headernoscroll #header .search-container button:not(#removeClass) {
   float: right;
   padding: 6px 10px;
   margin-right: 16px;
@@ -969,7 +969,7 @@ footer, footer .container .col{
   box-shadow: 0px;
   outline: auto #50cf80 2px;
 }
-#header .search-container button {
+#header .search-container button:not(#removeClass) {
   float: right;
   padding: 6px 10px;
   margin-right: 16px;
@@ -1073,6 +1073,23 @@ footer, footer .container .col{
   .popup-box-on .elements {
     margin-left: 40%;
   }
+}
+.popup-box-on .popbtnclose {
+  display: block;
+  color: #50cf80;
+  font-size: 40px;
+  opacity: 1;
+  padding: 10px 17px;
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  background: transparent none repeat scroll 0 0;
+  border: 0 none;
+  cursor: pointer;
+  float: right;
+  font-weight: bold;
+  line-height: 1;
+  text-shadow: 0 1px 0 #fff;
 }
 /**
 * Get Started Button 
