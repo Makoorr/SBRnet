@@ -57,8 +57,8 @@ function searchfn(id,nom,categ,pr){
       div2.classList.add("elemstext");
       a1.appendChild(div2);
       pr == '1'?
-        a1.setAttribute('href','prod/prod.php?cat='+confcateg[i]+'#'+confid[i])
-        :a1.setAttribute('href','prod.php?cat='+confcateg[i]+'#'+confid[i]);
+        a1.setAttribute('href','prod/prod.php?cat='+confcateg[i]+'#img'+confid[i])
+        :a1.setAttribute('href','prod.php?cat='+confcateg[i]+'#img'+confid[i]);
 
 
       li.appendChild(a1);
