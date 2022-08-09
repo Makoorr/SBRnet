@@ -48,7 +48,7 @@
 
     <!-- ======= Other Section ======= -->
     <section id="about" style="padding:0 !important;" class="about">
-        <h1 class="h2" style="text-align: center;margin: 1em"><span>Notre Nouveautée</span></h1>
+        <h1 class="h2" style="text-align: center;margin: 1em;font-family: Montserrat;"><span>Notre Nouveauté</span></h1>
         <div class="container">
         <div class="row justify-content-center">
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
