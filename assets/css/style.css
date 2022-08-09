@@ -1138,7 +1138,7 @@ footer, footer .container .col{
   border-radius: 50px;
   background: none;
   color: #fff;
-  width: 25em;
+  width: 15rem;
   height: 3rem;
 }
 #header .search-container input[type=text] {
@@ -1149,7 +1149,7 @@ footer, footer .container .col{
   background: none;
   color: #000;
   opacity: 0.7;
-  width: 25em;
+  width: 15rem;
   height: 3rem;
 }
 #header .search-container input[type=text]:focus {

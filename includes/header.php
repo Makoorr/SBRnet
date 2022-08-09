@@ -34,10 +34,10 @@
     <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
             <li><a class="hover-underline-anim" href="index.php">Accueil</a></li>
-            <li class="dropdown"><a class="hover-underline-anim" style="cursor: pointer;"><span>Nos Produits</span> <i class="bi bi-chevron-down" style="margin-top: 0.5em"></i></a>
-                <ul style="overflow-y: scroll;max-height: 50vh;overflow-x: none;">
+            <li class="dropdown"><a class="hover-underline-anim" style="cursor: pointer;"><span>Soins</span> <i class="bi bi-chevron-down" style="margin-top: 0.5em"></i></a>
+                <ul style="overflow-y: scroll;max-height: 50vh;overflow-x: hidden;">
                 <?php
-                $sql="SELECT distinct categorie,nom_categorie FROM produits where disponibilite=1 ORDER BY idproduits desc;";
+                $sql="SELECT distinct categorie,nom_categorie FROM produits where disponibilite=1 AND ( nom_categorie LIKE 'Soins%' OR nom_categorie LIKE '%vres%' ) ORDER BY idproduits desc;";
                 $produits = $db->query($sql);
 
                 foreach($produits as $prod){
@@ -47,8 +47,36 @@
                 }
                 ?>
                 </ul>
-            <li><a class="hover-underline-anim" href="contact.php">Contact</a></li>
             </li>
+            <li class="dropdown"><a class="hover-underline-anim" style="cursor: pointer;"><span>Huiles</span> <i class="bi bi-chevron-down" style="margin-top: 0.5em"></i></a>
+                <ul style="overflow-y: scroll;max-height: 50vh;overflow-x: hidden;">
+                <?php
+                $sql="SELECT distinct categorie,nom_categorie FROM produits where disponibilite=1 AND nom_categorie LIKE 'Huiles%' ORDER BY idproduits desc;";
+                $produits = $db->query($sql);
+
+                foreach($produits as $prod){
+                ?>
+                    <li class="hover-underline-animation"><a href="prod/prod.php?cat=<?php echo($prod['categorie'])?>" style="color: black !important;"><div><?php echo($prod['nom_categorie']) ?></div></a></li>
+                <?php
+                }
+                ?>
+                </ul>
+            </li>
+            <li class="dropdown"><a class="hover-underline-anim" style="cursor: pointer;"><span>Autres Catégories</span> <i class="bi bi-chevron-down" style="margin-top: 0.5em"></i></a>
+                <ul style="overflow-y: scroll;max-height: 50vh;overflow-x: hidden;">
+                <?php
+                $sql="SELECT distinct categorie,nom_categorie FROM produits where nom_categorie NOT LIKE 'Soins%' AND nom_categorie NOT LIKE '%vres%' AND nom_categorie NOT LIKE 'Huiles%' AND disponibilite=1 ORDER BY idproduits desc;";
+                $produits = $db->query($sql);
+
+                foreach($produits as $prod){
+                ?>
+                    <li class="hover-underline-animation"><a href="prod/prod.php?cat=<?php echo($prod['categorie'])?>" style="color: black !important;"><div><?php echo($prod['nom_categorie']) ?></div></a></li>
+                <?php
+                }
+                ?>
+                </ul>
+            </li>
+            <li><a class="hover-underline-anim" href="contact.php">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
