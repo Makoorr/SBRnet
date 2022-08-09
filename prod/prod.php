@@ -9,7 +9,9 @@ if(empty($e)){
 
 if (isset($_GET['cat'])){
     $categ = $_GET['cat'];
-$arr = ['huilesveg','soinsch','soinsco','soinsvis','savons','levre','argiles','eauflor','gelhydro','masques','testgross','bouchor','huilesess'];
+    $totcats = "SELECT distinct categorie FROM produits";
+    $testcat = $db->query($totcats);
+    $arr = $testcat->fetchAll(PDO::FETCH_COLUMN,0);
 if (in_array($categ, $arr)){
     if (isset($_GET['pageno'])) {
         $pageno = $_GET['pageno'];
@@ -17,7 +19,7 @@ if (in_array($categ, $arr)){
         $pageno = 1;
     }
 
-    $no_of_records_per_page = 10;
+    $no_of_records_per_page = 8;
     $offset = ($pageno-1) * $no_of_records_per_page;
 
     $total_pages_sql = "SELECT COUNT(*) FROM produits where disponibilite=1 and categorie='$categ';";
