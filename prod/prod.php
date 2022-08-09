@@ -96,7 +96,7 @@ if (in_array($categ, $arr)){
                 <!-- Articles --> <!-- ID'S : img id | btn onclick ajt(id) | name id | price id |-->
                 <div class="row">
                     <?php
-                        $sql="SELECT * FROM produits where disponibilite=1 and categorie='$categ' LIMIT $offset, $no_of_records_per_page;";
+                        $sql="SELECT * FROM produits where disponibilite=1 and categorie='$categ' ORDER BY idproduits desc LIMIT $offset, $no_of_records_per_page;";
                         $produits = $db->query($sql);
 
                         foreach($produits as $prod){

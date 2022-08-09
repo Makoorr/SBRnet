@@ -37,7 +37,7 @@
             <li class="dropdown"><a class="hover-underline-anim" style="cursor: pointer;"><span>Nos Produits</span> <i class="bi bi-chevron-down" style="margin-top: 0.5em"></i></a>
                 <ul style="overflow-y: scroll;max-height: 50vh;overflow-x: none;">
                 <?php
-                $sql="SELECT distinct categorie,nom_categorie FROM produits where disponibilite=1;";
+                $sql="SELECT distinct categorie,nom_categorie FROM produits where disponibilite=1 ORDER BY idproduits desc;";
                 $produits = $db->query($sql);
 
                 foreach($produits as $prod){
