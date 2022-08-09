@@ -1,7 +1,25 @@
 /* Carousel */
 .carousel-item-next, .carousel-item-prev, .carousel-item.active {
   justify-content: center;
-  display: flex;
+  display: flex !important;
+}
+
+.simprod {
+  width: 40vh;
+}
+
+.simprod img{
+  height: 30vh;
+}
+
+@media (max-width: 992px){
+  .simprod {
+    width: 40vh;
+  }
+  
+  .simprod img{
+    height: 20vh;
+  }
 }
 
 /* Header text animation */

@@ -176,8 +176,10 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3 style="color: white;font-size:larger;font-weight: bold;">SBR Switchmed</h3>
             <p>
-              Tunisie, TN
-              <!-- <strong>Email:</strong> info@example.com<br> -->
+              Sousse, Tunisie
+            </p>
+            <p>
+              <strong>TEL:</strong> 54 475 861
             </p>
           </div>
 
