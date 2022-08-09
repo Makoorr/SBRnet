@@ -51,7 +51,7 @@
         .btn-success { background-color: #50cf80 !important;border-color: #56ae6c !important;}
     </style>
 </head>
-<body>
+<body onload="updatecookie()">
     <?php
         include('includes/header.php');
         $idprod = intval(htmlspecialchars($_GET['product']));
