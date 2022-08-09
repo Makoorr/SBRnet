@@ -46,20 +46,82 @@
     <!-- ====== Line Separator ====== -->
     <hr style="border-top: 3px solid #bbb">
 
-    <section>
-      <div class="container" style="text-align: center;">
-        <p>$Carousel items</p>
-      </div>
+    <!-- ======= Other Section ======= -->
+    <section id="about" style="padding:0 !important;" class="about">
+        <h1 class="h2" style="text-align: center;margin: 1em"><span>Notre Nouveautée</span></h1>
+        <div class="container">
+        <div class="row justify-content-center">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+        <?php
+        $sql="SELECT distinct idproduits,nom FROM produits ORDER BY idproduits desc LIMIT 9";
+
+        $produits = $db->query($sql);
+        $prel=0;
+        $prr=3;
+
+        foreach($produits as $prod){
+          if($prel==0) $size = $produits->rowCount();
+          if($prr==3){
+        ?>
+        <div class="carousel-item col-sm-3 <?php if($prel==0){echo("active");$prel++;} ?>"> <?php } ?>
+            <div class="card mb-4 product-wap rounded-0 cardutil simprod" style="border: none !important;box-shadow: none !important;">
+                <div class="card rounded-0">
+                    <a href="/sbrnet/singleprod.php?product=<?php echo($prod['idproduits']);?>"><img class="card-img rounded-0 img-fluid" id="img<?php echo($prod['idproduits']); ?>" src="assets/img/<?php echo($prod['idproduits']);?>.jpg"></a>
+                </div>
+                <div class="card-body" style="border: none !important;">
+                    <div class="w-100 list-unstyled d-flex justify-content-center mb-0">
+                        <a href="/sbrnet/singleprod.php?product=<?php echo($prod['idproduits']);?>" class="h3 text-decoration-none" id="name<?php echo($prod['idproduits']); ?>"><?php echo($prod['nom']); ?></a>
+                    </div>
+                </div>
+            </div>
+        <?php  
+          if($prr==3){
+          $prr=1;
+          }
+          else{
+            $prr++;
+          }
+          $size--;
+          if($prr==3 || $size == 0){
+        ?>
+          </div>
+        <?php
+          }
+        }
+        ?>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+        </div>
+        </div>
+        </div>
+        </div>
     </section>
+    <!-- End Other Section -->
 
     <!-- ====== Line Separator ====== -->
     <hr style="border-top: 3px solid #bbb">
 
     <!-- Texte -->
-    <div id="textc" class="wp-container-14 wp-block-group" style="padding-top:3vh;padding-bottom:3vh;text-align: center;">
-      <h2 class="has-text-align-center has-small-font-size" id="my-all-time-favourite-scent-it-smells-divine-and-lasts-all-day-a-true-and-beautiful-rose-fragrance" style="line-height:1.5;font-style: italic;"><em style="font-size:x-large;font-weight: 300;">“Notre gamme de produits biologiques s'appuie sur les propriétés naturelles des plantes et de l'ensemble du monde végétal.”</em></h2>
-      <p class="has-text-align-center has-small-font-size">SBR Switchmed</p>
-    </div>
+    <section class="simple-background blockquote-section-type-1 parallax-window default_overlay" style="background-image: url('assets/img/textbg.jpg');">
+        <div class="container blockquote-wrapper d-flex align-items-center justify-content-center">
+            <div class="row">
+                <div class="col blockquote-col d-flex justify-content-center">
+                    <blockquote>
+                        <h4>Notre gamme de produits biologiques s'appuie sur les propriétés naturelles des plantes et de l'ensemble du monde végétal.</h4>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Fin Texte-->
 
     <!-- ====== Line Separator ====== -->
@@ -179,7 +241,7 @@
               Sousse, Tunisie
             </p>
             <p>
-              <strong>TEL:</strong> 54 475 861
+            <i class="fa-solid fa-phone"></i> 54 475 861
             </p>
           </div>
 
@@ -207,17 +269,32 @@
       </div>
     </div>
 
-    <div class="container d-md-flex py-4">
-      <div class="me-md-auto text-center text-md-start">
+    <div class="container d-md-flex py-4 justify-content-between" style="text-align: center;">
+      <div class="mt-2">
         <div class="copyright">
           Copyright &copy;<script>document.write(new Date().getFullYear());</script> | <strong><span> SBRSwitchmed</span></strong>
         </div>
       </div>
-      <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <strong><span>Notre page facebook&nbsp;&nbsp;</span></strong>
-        <a href="https://www.facebook.com/Produits-Parapharmaceutiques-Cosm%C3%A9tiques-124308735628194" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
-        <!-- <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> -->
+      <div class="mt-2" style="padding-right:3em;">
+        <i class="fa-solid fa-phone"></i><strong> 54 475 861</strong>
+      </div>
+      <div class="navigation-panel-wrapper">
+          <ul class="social-list" style="list-style: none;padding-left: 0 !important;justify-content: center;">
+              <li>
+                  <a href="https://www.fb.com/sbrswitchmed">
+                      <i class="fab fa-facebook-f show-icon"></i>
+                      <i class="fab fa-facebook-f hide-icon"
+                          style="color: #3B5999;"></i>
+                  </a>
+              </li>
+              <li>
+                  <a href="https://www.instagram.com/sbrswitchmed">
+                      <i class="fab fa-instagram show-icon"></i>
+                      <i class="fab fa-instagram hide-icon"
+                          style="color: #E1306C;"></i>
+                  </a>
+              </li>
+          </ul>
       </div>
     </div>
   </footer><!-- End Footer -->

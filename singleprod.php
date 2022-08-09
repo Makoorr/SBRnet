@@ -183,7 +183,7 @@
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
         <?php
-        $sql="SELECT distinct idproduits,nom FROM produits WHERE idproduits <> $idprod ";
+        $sql="SELECT distinct idproduits,nom FROM produits WHERE idproduits <> $idprod AND categorie= '$categ';";
 
         $produits = $db->query($sql);
         $el=0;
