@@ -183,7 +183,7 @@
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
         <?php
-        $sql="SELECT distinct idproduits,nom FROM produits WHERE idproduits <> $idprod AND categorie= '$categ';";
+        $sql="SELECT distinct idproduits,nom FROM produits WHERE idproduits <> $idprod AND categorie= '$categ' ORDER BY idproduits desc LIMIT 12;";
 
         $produits = $db->query($sql);
         $el=0;
