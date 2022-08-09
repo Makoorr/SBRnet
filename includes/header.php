@@ -37,7 +37,7 @@
             <li class="dropdown"><a class="hover-underline-anim" style="cursor: pointer;"><span>Soins</span> <i class="bi bi-chevron-down" style="margin-top: 0.5em"></i></a>
                 <ul style="overflow-y: scroll;max-height: 50vh;overflow-x: hidden;">
                 <?php
-                $sql="SELECT distinct categorie,nom_categorie FROM produits where disponibilite=1 AND ( nom_categorie LIKE 'Soins%' OR nom_categorie LIKE '%vres%' ) ORDER BY idproduits desc;";
+                $sql="SELECT distinct categorie,nom_categorie FROM produits where disponibilite=1 AND ( nom_categorie LIKE 'Soins%' OR nom_categorie LIKE '%vres%' OR nom_categorie LIKE 'Savons' OR nom_categorie LIKE 'Argiles' OR nom_categorie LIKE '%Florales' ) ORDER BY idproduits desc;";
                 $produits = $db->query($sql);
 
                 foreach($produits as $prod){
@@ -65,7 +65,7 @@
             <li class="dropdown"><a class="hover-underline-anim" style="cursor: pointer;"><span>Autres Catégories</span> <i class="bi bi-chevron-down" style="margin-top: 0.5em"></i></a>
                 <ul style="overflow-y: scroll;max-height: 50vh;overflow-x: hidden;">
                 <?php
-                $sql="SELECT distinct categorie,nom_categorie FROM produits where nom_categorie NOT LIKE 'Soins%' AND nom_categorie NOT LIKE '%vres%' AND nom_categorie NOT LIKE 'Huiles%' AND disponibilite=1 ORDER BY idproduits desc;";
+                $sql="SELECT distinct categorie,nom_categorie FROM produits where NOT (nom_categorie LIKE 'Soins%' OR nom_categorie LIKE '%vres%' OR nom_categorie LIKE 'Savons' OR nom_categorie LIKE 'Argiles' OR nom_categorie LIKE '%Florales' OR nom_categorie LIKE 'Huiles%') AND disponibilite=1 ORDER BY idproduits desc;";
                 $produits = $db->query($sql);
 
                 foreach($produits as $prod){
