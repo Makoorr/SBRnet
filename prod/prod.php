@@ -19,7 +19,7 @@ if (in_array($categ, $arr)){
         $pageno = 1;
     }
 
-    $no_of_records_per_page = 8;
+    $no_of_records_per_page = 16;
     $offset = ($pageno-1) * $no_of_records_per_page;
 
     $total_pages_sql = "SELECT COUNT(*) FROM produits where disponibilite=1 and categorie='$categ';";
@@ -29,6 +29,7 @@ if (in_array($categ, $arr)){
     }
 ?>
 <body onload="updatecookie()">
+    <div class="headernoscroll">
     <?php
         if ($total_rows > 0){
             include ('includes/header.php');
@@ -38,28 +39,43 @@ if (in_array($categ, $arr)){
             if($pageno<1 || $pageno>$total_pages)
                 header("location:./prod.php?cat=$categ");
     ?>
+    </div>
+
+    <!-- ======= Hero Section ======= -->
+    <section class="d-flex justify-content-center align-items-center simple-background default_overlay" style="background-image: url('../assets/img/<?php echo($categ);?>hero.jpg');">
+      <div class="container position-relative" style="z-index: 100;" data-aos="zoom-in" data-aos-delay="100">
+        <!-- Title -->
+        <div class="row">
+            <div class="col-md">
+                <h1 style="text-align: center;color:white;font-family: Montserrat;">
+                    <?php
+                    $sql="SELECT nom_categorie FROM produits where categorie='$categ'";
+                    $produits = $db->query($sql);
+                    foreach($produits as $prod){
+                        $nomcateg=$prod[0];
+                    }
+                    echo($nomcateg);
+                    ?>
+                </h1>
+            </div>
+        </div>
+        <!-- Pages -->
+        <div class="row">
+            <div class="col-md" style="margin: 1rem;color: white;text-align: center;">
+                    <a class="pagel" href="../"><i class="fa fa-home" aria-hidden="true" style="color: white;"></i><span style="padding-right: 2em;padding-left: 1em;color: white;">Accueil</span></a> >
+                    <a class="pagel" href="../index.php#textc" style="padding-right: 2em;padding-left: 2em;color: white;">Produits</a> > 
+                    <a style="padding-left: 2em;color: white;"><?php echo($nomcateg); ?></a>
+            </div>
+        </div>
+        <!-- End Title -->
+      </div>
+    </section><!-- End Hero -->
 
     <!-- Start Content -->
     <div class="container py-5" style="margin-top: 5em;">
         <div class="row">
             <div class="col-sm">
-                <!-- Title -->
-                <div class="row">
-                    <div class="col-md">
-                    </div>
-                    <div class="col-md">
-                        <h4 style="text-align: center;">
-                            <?php
-                            $sql="SELECT nom_categorie FROM produits where categorie='$categ'";
-                            $produits = $db->query($sql);
-                            foreach($produits as $prod){
-                                $nomcateg=$prod[0];
-                            }
-                            echo($nomcateg);
-                            ?>
-                        </h4>
-                    </div>
-                    <div class="col-md">
+            <div class="col-md">
                         <div class="d-flex justify-content-end">
                             <div class="pagination">
                                 <?php
@@ -85,14 +101,6 @@ if (in_array($categ, $arr)){
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Pages -->
-                <div class="col-md-5" style="margin: 1rem;">
-                        <a class="pagel" href="../"><i class="fa fa-home" aria-hidden="true"></i><span style="padding-right: 2em;padding-left: 1em;">Accueil</span></a> >
-                        <a class="pagel" href="../index.php#textc" style="padding-right: 2em;padding-left: 2em;">Produits</a> > 
-                        <a style="padding-left: 2em;color: #b2b2b2;"><?php echo($nomcateg); ?></a>
-                </div>
-                <!-- End Title -->
                 <br>
 
                 <!-- Articles --> <!-- ID'S : img id | btn onclick ajt(id) | name id | price id |-->
@@ -183,6 +191,17 @@ if (in_array($categ, $arr)){
   <script src="../assets/vendor/php-email-form/validate.js"></script>
   <script src="../assets/js/main.js"></script>
   <script src="../assets/vendor/fancyapps/jquery.fancybox.min.js"></script>
+  <script type="text/javascript">
+    var nav = document.querySelector('.headernoscroll');
+
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset < 500) {
+        nav.classList.add('headernoscroll');
+      } else {
+        nav.classList.remove('headernoscroll');
+      }
+    });
+  </script>
 </body>
 </html>
 <?php

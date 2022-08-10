@@ -52,6 +52,7 @@
     </style>
 </head>
 <body onload="updatecookie()">
+    <div class="headernoscroll">
     <?php
         include('includes/header.php');
         $idprod = intval(htmlspecialchars($_GET['product']));
@@ -70,22 +71,40 @@
         }
         if (! empty($nom)){
     ?>
+    </div>
+
+    <!-- ======= Hero Section ======= -->
+    <section class="d-flex justify-content-center align-items-center simple-background default_overlay" style="background-image: url('assets/img/<?php echo($categ);?>hero.jpg');">
+      <div class="container position-relative" style="z-index: 100;" data-aos="zoom-in" data-aos-delay="100">
+        <!-- Title -->
+        <div class="row">
+            <div class="col-md">
+                <h1 style="text-align: center;color:white;font-family: Montserrat;">
+                    <?php
+                    echo($nomcateg);
+                    ?>
+                </h1>
+            </div>
+        </div>
+        <!-- Pages -->
+        <div class="row">
+            <div class="col-md" style="margin: 1rem;color: white;text-align: center;">
+                    <a class="pagel" href="/sbrnet/"><i class="fa fa-home" aria-hidden="true" style="color: white;"></i><span style="padding-right: 2em;padding-left: 1em;color: white;">Accueil</span></a> >
+                    <a class="pagel" href="/sbrnet/index.php#textc" style="padding-right: 2em;padding-left: 2em;color: white;">Produits</a> > 
+                    <a class="pagel" href="/sbrnet/prod/prod.php?cat=<?php echo($categ); ?>" style="padding-left: 2em;padding-right: 2em;color: white;"><?php echo($nomcateg); ?></a> >
+                    <a style="padding-left: 1em;color: white;"><?php echo($nom); ?></a>
+            </div>
+        </div>
+        <!-- End Title -->
+      </div>
+    </section><!-- End Hero -->
+
     <!-- Start Content -->
     <div class="container py-5" style="margin-top: 2em;">
     <!-- Open Content -->
     <section style="padding: 0px !important;">
         <div class="container">
             <div class="row">
-                <!-- Pages -->
-                <div style="margin: 1rem;margin-top: 3rem;">
-                    <a class="pagel" href="/sbrnet/"><i class="fa fa-home" aria-hidden="true"></i><span style="padding-right: 1em;padding-left: 1em;">Accueil</span></a> >
-                    <a class="pagel" href="/sbrnet/" style="padding-right: 1em;padding-left: 1em;">Produits</a> > 
-                    <a class="pagel" href="/sbrnet/prod/prod.php?cat=<?php echo($categ); ?>" style="padding-right: 1em;padding-left: 1em;"><?php echo($nomcateg); ?></a> > 
-                    <a style="padding-left: 1em;color: #b2b2b2;"><?php echo($nom); ?></a>
-                </div>
-
-                <!-- ====== Line Separator ====== -->
-                <hr style="border-top: 3px solid #bbb;display: block">
 
                 <div class="col-lg-5 mt-5">
                     <div class="card mb-3">
@@ -118,7 +137,7 @@
                             <br>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <h6>Prix :</h6>
+                                    <h6><strong>Prix :</strong></h6>
                                 </li>
                                 <li class="list-inline-item">
                                         <strong><span style='color:#50cf80;'><span id="price<?php echo($idprod); ?>"><?php echo($prix);?></span> DT</span></strong>
@@ -126,24 +145,16 @@
                             </ul>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <h6>Catégorie :</h6>
+                                    <h6><strong>Catégorie :</strong></h6>
                                 </li>
                                 <li class="list-inline-item">
                                     <strong><span style='color:#50cf80;'><?php echo($nomcateg); ?> <span></strong>
                                 </li>
                             </ul>
-                            <h6>Utilisation :</h6>
+                            <h6><strong>Utilisation :</strong></h6>
                             <p><?php echo($desc); ?></p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <h6>Disponibilité :</h6>
-                                </li>
-                                <li class="list-inline-item">
-                                    <p class="text-muted"><strong><?php if($prod['disponibilite']==1) echo("<span style='color:#50cf80;'>Oui</span>"); else echo("<span style='color:red;'>Non</span>"); ?></strong></p>
-                                </li>
-                            </ul>
 
-                            <h6>Description :</h6>
+                            <h6><strong>Description :</strong></h6>
                             <ul class="list-unstyled pb-3">
                                 <?php
                                     $specs = explode("|",$spec);
@@ -236,7 +247,17 @@
     </section>
     <!-- End Other Section -->
     </div>
+    <script type="text/javascript">
+    var nav = document.querySelector('.headernoscroll');
 
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset < 500) {
+        nav.classList.add('headernoscroll');
+      } else {
+        nav.classList.remove('headernoscroll');
+      }
+    });
+  </script>
     <?php
         include('includes/footer.php');
         include('includes/scripts.php');
