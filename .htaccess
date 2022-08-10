@@ -1,1 +1,4 @@
 ErrorDocument 404 http://localhost/sbrnet/404.php
+
+RewriteEngine  on
+RewriteRule    "^prod/$"  "http://localhost/sbrnet/"  [R]
