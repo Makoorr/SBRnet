@@ -51,7 +51,7 @@
         <h1 class="h2" style="text-align: center;margin: 1em;font-family: Montserrat;"><span>Notre Nouveauté</span></h1>
         <div class="container">
         <div class="row justify-content-center">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div id="NouveauteControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
         <?php
         $sql="SELECT distinct idproduits,nom FROM produits ORDER BY idproduits desc LIMIT 9";
@@ -91,11 +91,11 @@
         }
         ?>
         
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#NouveauteControls" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#NouveauteControls" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
