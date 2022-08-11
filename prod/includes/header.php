@@ -21,7 +21,7 @@
         <div id="pop">
             <button id="removeClass" class="popbtnclose" onclick="document.getElementById('pop').classList.remove('popup-box-on');document.getElementById('search').hidden=true;document.getElementById('removeClass').hidden=true;" type="button" hidden>x</button>
             <input type="text" id="search" onkeyup="searchfn('<?php echo(addslashes(implode(',',$tabid)) . '\',\'' . addslashes(implode(',',$tabnom)) . '\',\'' . addslashes(implode(',',$tabcateg)) ); ?>','0');" placeholder="Rechercher.." name="search">
-            <button id="searchbtn" onclick="$('#search').focus();"><i class="fa fa-search fa-xl" style="margin-top: 1.25rem;"></i></button>
+            <!-- <button id="searchbtn" onclick="$('#search').focus();"><i class="fa fa-search fa-xl" style="margin-top: 1.25rem;"></i></button> -->
             <button id="searchbtnmob"><i class="fa fa-search fa-xl" style="margin-top: 1.25rem;"></i></button>
             <div class="elements">
                 <ul id="elemsul">
@@ -62,10 +62,11 @@
                 ?>
                 </ul>
             </li>
+            <li><a class="hover-underline-anim" href="prod.php?cat=brumespar">Brumes Parfumées</a></li>
             <li class="dropdown"><a class="hover-underline-anim" style="cursor: pointer;"><span>Autres Catégories</span> <i class="bi bi-chevron-down" style="margin-top: 0.5em"></i></a>
                 <ul style="overflow-y: scroll;max-height: 50vh;overflow-x: hidden;">
                 <?php
-                $sql="SELECT distinct categorie,nom_categorie FROM produits where NOT (nom_categorie LIKE 'Soins%' OR nom_categorie LIKE '%vres%' OR nom_categorie LIKE 'Savons' OR nom_categorie LIKE 'Argiles' OR nom_categorie LIKE '%Florales' OR nom_categorie LIKE 'Huiles%') AND disponibilite=1 ORDER BY idproduits desc;";
+                $sql="SELECT distinct categorie,nom_categorie FROM produits where NOT (nom_categorie LIKE 'Brumes%' OR nom_categorie LIKE 'Soins%' OR nom_categorie LIKE '%vres%' OR nom_categorie LIKE 'Savons' OR nom_categorie LIKE 'Argiles' OR nom_categorie LIKE '%Florales' OR nom_categorie LIKE 'Huiles%') AND disponibilite=1 ORDER BY idproduits desc;";
                 $produits = $db->query($sql);
 
                 foreach($produits as $prod){
