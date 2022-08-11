@@ -57,8 +57,8 @@ function searchfn(id,nom,categ,pr){
       div2.classList.add("elemstext");
       a1.appendChild(div2);
       pr == '1'?
-        a1.setAttribute('href','prod/prod.php?cat='+confcateg[i]+'#img'+confid[i])
-        :a1.setAttribute('href','prod.php?cat='+confcateg[i]+'#img'+confid[i]);
+        a1.setAttribute('href','singleprod.php?product='+confid[i])
+        :a1.setAttribute('href','../singleprod.php?product='+confid[i]);
 
 
       li.appendChild(a1);
@@ -646,11 +646,11 @@ function validateForm() {
   var mw = window.matchMedia("(max-width: 992px)");
   if (mw.matches) { // If media query matches
     document.getElementById('search').hidden=true;
-    document.getElementById('searchbtn').hidden=true;
+    // document.getElementById('searchbtn').hidden=true;
     document.getElementById('searchbtnmob').hidden=false;
   } else {
     document.getElementById('search').hidden=false;
-    document.getElementById('searchbtn').hidden=false;
+    // document.getElementById('searchbtn').hidden=false;
     document.getElementById('searchbtnmob').hidden=true;
   }
   
@@ -658,12 +658,12 @@ function validateForm() {
     if (mw.matches) { // If media query matches
       if(! document.getElementById("pop").classList.contains('popup-box-on'))
         document.getElementById('search').hidden=true;
-      document.getElementById('searchbtn').hidden=true;
+      // document.getElementById('searchbtn').hidden=true;
       document.getElementById('searchbtnmob').hidden=false;
     } else {
       if(! document.getElementById("pop").classList.contains('popup-box-on'))
         document.getElementById('search').hidden=false;
-      document.getElementById('searchbtn').hidden=false;
+      // document.getElementById('searchbtn').hidden=false;
       document.getElementById('searchbtnmob').hidden=true;
     }
     let elems = document.querySelector('.elements');
