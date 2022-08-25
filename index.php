@@ -47,8 +47,11 @@
     <hr style="border-top: 3px solid #bbb">
 
     <!-- ======= Other Section ======= -->
-    <section id="about" style="padding:0 !important;" class="about">
-        <h1 class="h2" style="text-align: center;margin: 1em;font-family: Montserrat;"><span>Nos Nouveautés</span></h1>
+    <!-- <section id="about" style="padding:0 !important;" class="about">
+        <h2 class="section-title text-center title-divider aos-init aos-animate" style="margin-top: 1em;" data-aos="fade-up" data-aos-delay="100"
+            data-aos-anchor-placement="top-bottom" data-aos-easing="ease-in-out" data-aos-duration="700">
+            Nos Nouveautés
+        </h2>
         <div class="container">
         <div class="row justify-content-center">
         <div id="NouveauteControls" class="carousel slide" data-bs-ride="carousel">
@@ -104,8 +107,87 @@
         </div>
         </div>
         </div>
-    </section>
+    </section> -->
     <!-- End Other Section -->
+    
+    <!-- [6] Services Grid -->
+    <section class="services-grid">
+      <h2 class="section-title text-center title-divider aos-init aos-animate" style="margin-top: 1em;" data-aos="fade-up" data-aos-delay="100"
+          data-aos-anchor-placement="top-bottom" data-aos-easing="ease-in-out" data-aos-duration="700">
+          Nos Nouveautés
+      </h2>
+      <div class="container-fluid">
+          <div class="row">
+              <div onclick="window.location.href='prod/prod.php?cat=brumespar'" class="col-lg-6 image color_overlay bg_img"
+                    style="background-image: url('assets/img/brumesparhero.jpg')"
+                    data-aos="fade-right"
+                    data-aos-delay="100"
+                    data-aos-anchor-placement="top-bottom"
+                    data-aos-easing="ease-in-out"
+                    data-aos-duration="700"></div>
+              <div class="col-lg-6 content gray-section"
+                    data-aos="fade-left"
+                    data-aos-delay="200"
+                    data-aos-anchor-placement="top-bottom"
+                    data-aos-easing="ease-in-out"
+                    data-aos-duration="700">
+                  <div class="content-wrapper left-align-content">
+                      <h4>Brumes Parfumées</h4>
+                      <p>Brume parfumée naturelle sans Alcool avec Aloé Vera et Huile de Ricin, peut être vaporisée sur cheveux, corps et vêtements.<br>
+                        4 parfums disponibles :  Jasmin, Monoï, Fleur de Coton, Orientale.</p>
+                      <div class="btn-wrap d-flex">
+                          <a href="prod/prod.php?cat=brumespar" class="btnservice">Voir plus <i class="fa fa-angle-right"></i></a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-6 content gray-section resposive-content"
+                    data-aos="fade-right"
+                    data-aos-delay="200"
+                    data-aos-anchor-placement="top-bottom"
+                    data-aos-easing="ease-in-out"
+                    data-aos-duration="700">
+                  <div class="content-wrapper right-align-content">
+                      <h4>Huiles de Massage</h4>
+                      <p>Cette Huile de massage apaisante, favorise la détente et la relaxation du corps enrichie en huile de pépins de figues de barbarie Bio avec <br>
+                        4 extraits de parfums: Jasmin, Néroli, Lavande et Orientale.</p>
+                      <div class="btn-wrap d-flex">
+                          <a href="prod/prod.php?cat=huilesmas" class="btnservice">Voir plus <i class="fa fa-angle-right"></i></a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-6 image color_overlay resposive-image bg_img"
+                    style="background-image: url('assets/img/huilesmashero.jpg')"
+                    data-aos="fade-left"
+                    data-aos-delay="100"
+                    data-aos-anchor-placement="top-bottom"
+                    data-aos-easing="ease-in-out"
+                    data-aos-duration="700"></div>
+              <div class="col-lg-6 image color_overlay bg_img"
+                    style="background-image: url('assets/img/soinscohero.jpg')"
+                    data-aos="fade-right"
+                    data-aos-delay="100"
+                    data-aos-anchor-placement="top-bottom"
+                    data-aos-easing="ease-in-out"
+                    data-aos-duration="700"></div>
+              <div class="col-lg-6 content gray-section"
+                    data-aos="fade-left"
+                    data-aos-delay="200"
+                    data-aos-anchor-placement="top-bottom"
+                    data-aos-easing="ease-in-out"
+                    data-aos-duration="700">
+                  <div class="content-wrapper left-align-content">
+                      <h4>Soins Corps</h4>
+                      <p>Grâce aux divers soins du corps, la peau est nette, douce et bien hydratée.
+                        Des crèmes nourrissantes appliquées au quotidien, un gommage et une épilation réguliers,
+                        couplés à des exercices physiques et une alimentation saine aident à garder sa beauté tout au long de l'année.</p>
+                      <div class="btn-wrap d-flex">
+                          <a href="prod/prod.php?cat=soinsco" class="btnservice">Voir plus <i class="fa fa-angle-right"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </section>
 
     <!-- ====== Line Separator ====== -->
     <hr style="border-top: 3px solid #bbb">
@@ -134,7 +216,7 @@
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
         <?php
-        $sql="SELECT distinct categorie,nom_categorie FROM produits";
+        $sql="SELECT distinct categorie,nom_categorie FROM produits WHERE categorie <> 'bouchor' AND categorie <> 'testgross';";
 
         $produits = $db->query($sql);
         $el=0;
@@ -180,8 +262,23 @@
     </section>
     <!-- End About Section -->
 
+    
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v14.0" nonce="X9JPf6fe"></script>
+    <div style="background-image: url(assets/img/assets/absurdity.png);">
+      <!-- ====== Line Separator ====== -->
+      <hr style="border-top: 3px solid #bbb">
+    <div class="container" style="text-align: center;">
+        <h2 class="section-title text-center title-divider aos-init aos-animate" style="margin-top: 1em;" data-aos="fade-up" data-aos-delay="100"
+            data-aos-anchor-placement="top-bottom" data-aos-easing="ease-in-out" data-aos-duration="700">
+            Restez en contact avec nous
+        </h2>
+    <div class="fb-page" data-href="https://www.facebook.com/sbrswitchmed/" data-tabs="timeline,messages" data-width="" data-height="" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/sbrswitchmed/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/sbrswitchmed/">Produits Parapharmaceutiques &amp; Cosmétiques</a></blockquote></div>
+    </div>
     <!-- ====== Line Separator ====== -->
-    <hr style="border-top: 3px solid #bbb">
+    <hr>
+    </div>
+
 
     <!-- Tableau livraison -->
     <div class="container" style="text-align: center;">
