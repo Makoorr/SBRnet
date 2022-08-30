@@ -140,6 +140,7 @@ function checkoutajt(){
     let ordertable = document.getElementById("order-table");
     let subtotal = document.getElementById("subtotalprix");
     let total = document.getElementById("totalprix");
+    let frais = document.getElementById("fraisprix");
     var price;
     var name;
     var quantity;
@@ -169,7 +170,14 @@ function checkoutajt(){
       x++;
     }
     subtotal.innerHTML=tot;
-    total.innerHTML=parseInt(tot)+7; //Frais de Livraison 7dt
+    if (parseInt(tot) < 50) {
+      frais.innerHTML='+7';
+      total.innerHTML=parseInt(tot)+7; //Frais de Livraison 7dt
+    }
+    else {
+      frais.innerHTML='+0';
+      total.innerHTML=parseInt(tot);
+    }
   }
 }
 

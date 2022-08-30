@@ -65,7 +65,13 @@
 
         setcookie("post","1",time()+5,"/");
 
-        $total=intval($total)+$frais;
+        if (intval($total) < 50) {
+            $total=intval($total)+$frais;
+        }
+        else {
+            $frais=0;
+            $total = intval($total);
+        }
         echo("<h1>total apres frais: $total</h1>");
 
         $date=date("Y-m-d");
@@ -202,7 +208,7 @@
                                         $tab
                                     </tbody>
                                 </table>
-                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Prix Total(+Frais de Livraison(7DT)): $total DT</p>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Prix Total(+Frais de Livraison($frais DT)): $total DT</p>
                                 <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Adresse de livraison:</p>
                                 <table style='color: #ebebeb86;border: 1px solid;border-collapse: collapse;'>
                                     <tbody>
@@ -259,7 +265,7 @@
                                         $tab
                                     </tbody>
                                 </table>
-                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Prix Total(+Frais de Livraison(7DT)): $total DT</p>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Prix Total(+Frais de Livraison($frais DT)): $total DT</p>
                                 <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Adresse de livraison:</p>
                                 <table style='color: #ebebeb86;border: 1px solid;border-collapse: collapse;'>
                                     <tbody>
