@@ -63,10 +63,11 @@
                 </ul>
             </li>
             <li><a class="hover-underline-anim" href="prod/prod.php?cat=brumespar">Brumes Parfumées</a></li>
-            <li class="dropdown"><a class="hover-underline-anim" style="cursor: pointer;"><span>Autres Catégories</span> <i class="bi bi-chevron-down" style="margin-top: 0.5em"></i></a>
+            <li><a class="hover-underline-anim" href="prod/prod.php?cat=pack">Packs</a></li>
+            <li class="dropdown"><a class="hover-underline-anim" style="cursor: pointer;"><span>Autres</span> <i class="bi bi-chevron-down" style="margin-top: 0.5em"></i></a>
                 <ul style="overflow-y: scroll;max-height: 50vh;overflow-x: hidden;">
                 <?php
-                $sql="SELECT distinct categorie,nom_categorie FROM produits where NOT (nom_categorie LIKE 'Brumes%' OR nom_categorie LIKE 'Soins%' OR nom_categorie LIKE '%vres%' OR nom_categorie LIKE 'Savons' OR nom_categorie LIKE 'Argiles' OR nom_categorie LIKE '%Florales' OR nom_categorie LIKE 'Huiles%') AND disponibilite=1 ORDER BY idproduits desc;";
+                $sql="SELECT distinct categorie,nom_categorie FROM produits where NOT (nom_categorie LIKE 'Brumes%' OR nom_categorie LIKE 'Soins%' OR nom_categorie LIKE '%vres%' OR nom_categorie LIKE 'Savons' OR nom_categorie LIKE 'Argiles' OR nom_categorie LIKE '%Florales' OR nom_categorie LIKE 'Huiles%' OR nom_categorie LIKE 'Packs%') AND disponibilite=1 ORDER BY idproduits desc;";
                 $produits = $db->query($sql);
 
                 foreach($produits as $prod){
