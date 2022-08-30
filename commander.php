@@ -122,7 +122,8 @@
                                     <br>
                                     <div class="order-table">
                                         <li class="order-table total-price mb-1">Prix Panier <span style="color: #50cf80;"><a id="subtotalprix">0.00</a> DT</span></li>
-                                        <li class="order-table total-price mb-1">Frais de Livraison <span style="color: #50cf80;"><a id="fraisprix">+0</a> DT</span></li>
+                                        <li class="order-table total-price mb-1">Frais de Livraison <span style="color: #000;"><a id="fraisprix">+0</a> DT</span></li>
+                                        <li class="order-table total-price mb-1">Timbre <span style="color: #000;">+0,600 DT</span></li>
                                         <li class="order-table total-price">Prix Total <span style="color: #50cf80;"><a id="totalprix">0.00</a> DT</span></li>
                                     </div>
                                     <div class="order-btn">

@@ -172,11 +172,11 @@ function checkoutajt(){
     subtotal.innerHTML=tot;
     if (parseInt(tot) < 50) {
       frais.innerHTML='+7';
-      total.innerHTML=parseInt(tot)+7; //Frais de Livraison 7dt
+      total.innerHTML=parseInt(tot)+7+0.600; //Frais de Livraison 7dt
     }
     else {
       frais.innerHTML='+0';
-      total.innerHTML=parseInt(tot);
+      total.innerHTML=parseInt(tot)+0.600;
     }
   }
 }

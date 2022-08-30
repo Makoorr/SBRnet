@@ -66,11 +66,11 @@
         setcookie("post","1",time()+5,"/");
 
         if (intval($total) < 50) {
-            $total=intval($total)+$frais;
+            $total=intval($total)+$frais+0.600;
         }
         else {
             $frais=0;
-            $total = intval($total);
+            $total = intval($total)+0.600;
         }
         echo("<h1>total apres frais: $total</h1>");
 
@@ -208,7 +208,7 @@
                                         $tab
                                     </tbody>
                                 </table>
-                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Prix Total(+Frais de Livraison($frais DT)): $total DT</p>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Prix Total(+ Frais de Livraison($frais DT) et Timbre): $total DT</p>
                                 <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Adresse de livraison:</p>
                                 <table style='color: #ebebeb86;border: 1px solid;border-collapse: collapse;'>
                                     <tbody>
@@ -265,7 +265,7 @@
                                         $tab
                                     </tbody>
                                 </table>
-                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Prix Total(+Frais de Livraison($frais DT)): $total DT</p>
+                                <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Prix Total(+ Frais de Livraison($frais DT) et Timbre): $total DT</p>
                                 <p style='color: white;font-size:small;font-weight: 600;font-family: Montserrat, sans-serif;'>Adresse de livraison:</p>
                                 <table style='color: #ebebeb86;border: 1px solid;border-collapse: collapse;'>
                                     <tbody>
