@@ -22,10 +22,30 @@ if (in_array($categ, $arr)){
     $no_of_records_per_page = 16;
     $offset = ($pageno-1) * $no_of_records_per_page;
 
-    $total_pages_sql = "SELECT COUNT(*) FROM produits where disponibilite=1 and categorie='$categ';";
-    $result = $db->query($total_pages_sql);
-    foreach($result as $res){
-        $total_rows = $res[0];
+    $checked = [];
+    if (isset($_GET['ct'])){
+        $checked = $_GET['ct'];
+        // $checkedcount = str_repeat('?%,', count($checked) - 1) . '?';
+        $arg = '(';
+
+        foreach($checked as $ckc){
+            $arg .= " souscateg LIKE '%$ckc%' OR";
+        }
+        $arg .= " 1=0)";
+        $total_pages_sql = "SELECT COUNT(*) FROM produits where disponibilite=1 and categorie='$categ' AND $arg;";
+        $sth = $db->prepare($total_pages_sql);
+        $sth->execute();
+
+        foreach($sth->fetchAll() as $res){
+            $total_rows = $res[0];
+        }
+    }
+    else {
+        $total_pages_sql = "SELECT COUNT(*) FROM produits where disponibilite=1 and categorie='$categ';";
+        $result = $db->query($total_pages_sql);
+        foreach($result as $res){
+            $total_rows = $res[0];
+        }
     }
 ?>
 <body onload="updatecookie()">
@@ -72,10 +92,57 @@ if (in_array($categ, $arr)){
     </section><!-- End Hero -->
 
     <!-- Start Content -->
-    <div class="container py-5" style="margin-top: 5em;">
+    <div class="container py-5" style="margin-top: 1em;">
         <div class="row">
-            <div class="col-sm">
-            <div class="col-md">
+            <?php
+                $sqll = "SELECT distinct souscateg FROM produits where categorie=:categ AND souscateg <> '';";
+                $reql = $db->prepare($sqll);
+                $reql->execute([':categ'=>$categ]);
+
+                $countfilter = $reql->rowCount();
+                if($countfilter > 0){
+            ?>
+            <div class="col-sm"> <!-- Filters -->
+                <h3 style="font-family: Montserrat;">Filtrer</h3>
+                <form action="" method="GET">
+                    <input name="cat" value="<?= $categ ?>" hidden>
+                <p>
+                    <?php
+                        $checked = [];
+                        if (isset($_GET['ct']))
+                            $checked = $_GET['ct'];
+                        
+                        $sqll = "SELECT distinct souscateg FROM produits where categorie=:categ AND souscateg <> '';";
+                        $reql = $db->prepare($sqll);
+                        $reql->execute([':categ'=>$categ]);
+                        $ctsarr = [];
+                        foreach($reql->fetchAll() as $prodl){
+                            $ctts = $prodl['souscateg'];
+                            $ctsarg = explode("|",$ctts);
+                            foreach($ctsarg as $ctselem){
+                                $ctselem = trim($ctselem," ");
+                                if (! in_array($ctselem,$ctsarr) ){
+                                    array_push($ctsarr,$ctselem);
+                                }
+                            }
+                        }
+                        foreach($ctsarr as $cts){
+                    ?>
+                        <input type="checkbox" id="<?= $cts ?>" name="ct[]" value="<?= $cts ?>"
+                            <?php if(in_array($cts, $checked)) echo('checked'); ?>
+                        >
+                        <label for="<?= $cts ?>"> <?= $cts ?></label>
+                    <?php
+                        }
+                    ?>
+                    <button type="submit" class="get-started-btn">Filtrer</button>
+                </p>
+                </form>
+            </div>
+            <?php
+                }
+            ?>
+            <div class="col-md pb-3">
                         <div class="d-flex justify-content-end">
                             <div class="pagination">
                                 <?php
@@ -88,68 +155,108 @@ if (in_array($categ, $arr)){
                                         $nextpage=intval($pageno)+1;
                                     else
                                         $nextpage=$total_pages;
-                                    
-                                    echo("<a href='?cat=$categ&pageno=$prevpage'>&laquo;</a>");
+                                        
                                     for ($i=1;$i<=$total_pages;$i++){
                                         if(intval($i)===intval($pageno))
                                             echo("<a href='?cat=$categ&pageno=$i' class='active' value='$i'> $i </a>");
                                         else
                                             echo("<a href='?cat=$categ&pageno=$i' value='$i'> $i </a>");
                                     }
-                                    echo("<a href='?cat=$categ&pageno=$nextpage'>&raquo;</a>");
                                 ?>
                             </div>
                         </div>
                     </div>
                 <br>
+        </div>
 
-                <!-- Articles --> <!-- ID'S : img id | btn onclick ajt(id) | name id | price id |-->
-                <div class="row">
-                    <?php
-                        $sql="SELECT * FROM produits where disponibilite=1 and categorie='$categ' ORDER BY idproduits desc LIMIT $offset, $no_of_records_per_page;";
-                        $produits = $db->query($sql);
+        <!-- Articles --> <!-- ID'S : img id | btn onclick ajt(id) | name id | price id |-->
+        <div class="row">
+            <?php
+            if (isset($_GET['ct'])){ // ken fama filter
+                $argprod = "( ";
+                foreach($checked as $ckc){
+                    $argprod .= " souscateg LIKE '%$ckc%' OR";
+                }
+                $argprod .= " 1=0)";
+                $sql="SELECT * FROM produits WHERE disponibilite=1 AND categorie='$categ' AND $argprod ORDER BY idproduits desc LIMIT $offset, $no_of_records_per_page;";
+                $produits = $db->query($sql);
 
-                        foreach($produits as $prod){
-                    ?>
-                    <div class="col-lg-3 d-flex justify-content-center">
-                        <div class="card mb-4 product-wap rounded-0 cardutil" style="border: none !important;box-shadow: none !important;">
-                            <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" style="height: 15em;" id="img<?php echo($prod['idproduits']); ?>" src="../assets/img/<?php echo($prod['idproduits']);?>.jpg">
-                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                    <ul class="list-unstyled">
-                                        <!-- <li><a class="btn btn-success text-white" href="#"><i class="far fa-heart"></i></a></li> -->
-                                        <!-- <li><a class="btn btn-success text-white mt-2 fancylight popup-btn" href="../assets/img/.jpg" data-fancybox-group="light"><i class="far fa-eye"></i></a></li> -->
-                                        <!-- <li><a class="btn btn-success text-white mt-2 fancylight popup-btn" style="background-color: #24282D;border-color:#24282D" href="../assets/img/<?php echo($prod['idproduits']); ?>.jpg" data-fancybox="gallery"><i class="far fa-eye"></i></a></li> -->
-                                        <!-- <li><a class="btn btn-success text-white mt-2"  onclick="ajt(<?php echo($prod['idproduits']); ?>)"><i class="fas fa-cart-plus"></i></a></li> -->
-                                        <!-- <li><a class="btn btn-success text-white mt-2" href="../singleprod.php?product=<?php echo($prod['idproduits']); ?>" data-fancybox data-type="iframe" data-options='{ "iframe" : {"preload" : false, "css" : {"width" : "1000px"}} }'><i class="fas fa-eye"></i></a></li> -->
-                                        <li><a class="btn btn-success text-white mt-2" href="../singleprod.php?product=<?php echo($prod['idproduits']); ?>"><i class="fas fa-eye"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body" style="border: none !important;">
-                                <div class="w-100 list-unstyled d-flex justify-content-center mb-0">
-                                    <a  class="h3 text-decoration-none" id="name<?php echo($prod['idproduits']); ?>"><?php echo($prod['nom']); ?></a>
-                                </div>
-                                
-                                <div class="w-100 list-unstyled d-flex justify-content-center mb-0">
-                                    <div style="margin-top: 3px;">Prix: <a id="price<?php echo($prod['idproduits']); ?>"> <?php echo($prod['prix']); ?></a> DT</div>
-                                    <a style="margin-left:2em;">Quantité: <input style="text-align: center;width: 3em;" type="number" min="0" value=1 id="quantity<?php echo($prod['idproduits']); ?>" style="width: 3em;border-color: #000;"></a>
-                                </div>
-                                <div class="w-100 d-flex justify-content-center" style="margin-top: 0.5em;">
-                                    <a class="h3"><button class="get-started-btn" onclick="ajt(<?php echo($prod['idproduits']); ?>)" style="width:auto;">Ajouter dans le panier</button></a>
-                                </div>
-                            </div>
+                foreach($produits as $prod){
+            ?>
+            <div class="col-lg-3 d-flex justify-content-center">
+                <div class="card mb-4 product-wap rounded-0 cardutil" style="border: none !important;box-shadow: none !important;">
+                    <div class="card rounded-0">
+                        <img class="card-img rounded-0 img-fluid" style="height: 15em;" id="img<?php echo($prod['idproduits']); ?>" src="../assets/img/<?php echo($prod['idproduits']);?>.jpg">
+                        <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul class="list-unstyled">
+                                <!-- <li><a class="btn btn-success text-white" href="#"><i class="far fa-heart"></i></a></li> -->
+                                <!-- <li><a class="btn btn-success text-white mt-2 fancylight popup-btn" href="../assets/img/.jpg" data-fancybox-group="light"><i class="far fa-eye"></i></a></li> -->
+                                <!-- <li><a class="btn btn-success text-white mt-2 fancylight popup-btn" style="background-color: #24282D;border-color:#24282D" href="../assets/img/<?php echo($prod['idproduits']); ?>.jpg" data-fancybox="gallery"><i class="far fa-eye"></i></a></li> -->
+                                <!-- <li><a class="btn btn-success text-white mt-2"  onclick="ajt(<?php echo($prod['idproduits']); ?>)"><i class="fas fa-cart-plus"></i></a></li> -->
+                                <!-- <li><a class="btn btn-success text-white mt-2" href="../singleprod.php?product=<?php echo($prod['idproduits']); ?>" data-fancybox data-type="iframe" data-options='{ "iframe" : {"preload" : false, "css" : {"width" : "1000px"}} }'><i class="fas fa-eye"></i></a></li> -->
+                                <li><a class="btn btn-success text-white mt-2" href="../singleprod.php?product=<?php echo($prod['idproduits']); ?>"><i class="fas fa-eye"></i></a></li>
+                            </ul>
                         </div>
                     </div>
-                    <?php
-                        }
-                    ?>
+                    <div class="card-body" style="border: none !important;">
+                        <div class="w-100 list-unstyled d-flex justify-content-center mb-0">
+                            <a  class="h3 text-decoration-none" id="name<?php echo($prod['idproduits']); ?>"><?php echo($prod['nom']); ?></a>
+                        </div>
+                        
+                        <div class="w-100 list-unstyled d-flex justify-content-center mb-0">
+                            <div style="margin-top: 3px;">Prix: <a id="price<?php echo($prod['idproduits']); ?>"> <?php echo($prod['prix']); ?></a> DT</div>
+                            <a style="margin-left:2em;">Quantité: <input style="text-align: center;width: 3em;" type="number" min="0" value=1 id="quantity<?php echo($prod['idproduits']); ?>" style="width: 3em;border-color: #000;"></a>
+                        </div>
+                        <div class="w-100 d-flex justify-content-center" style="margin-top: 0.5em;">
+                            <a class="h3" href="../singleprod.php?product=<?php echo($prod['idproduits']); ?>"><button class="get-started-btn" style="width:auto;">Voir details</button></a>
+                            <a class="h3"><button class="get-started-btn" onclick="ajt(<?php echo($prod['idproduits']); ?>)" style="width:auto;">Ajouter dans le panier</button></a>
+                        </div>
+                    </div>
                 </div>
-                <!-- End Arcitcles-->
+            </div>
+            <?php
+                }
+            }
+            else { // ken famech filter
+                $sql="SELECT * FROM produits where disponibilite=1 and categorie='$categ' ORDER BY idproduits desc LIMIT $offset, $no_of_records_per_page;";
+                $produits = $db->query($sql);
+
+                foreach($produits as $prod){
+            ?>
+            <div class="col-lg-3 d-flex justify-content-center">
+                <div class="card mb-4 product-wap rounded-0 cardutil" style="border: none !important;box-shadow: none !important;">
+                    <div class="card rounded-0">
+                        <img class="card-img rounded-0 img-fluid" style="height: 15em;" id="img<?php echo($prod['idproduits']); ?>" src="../assets/img/<?php echo($prod['idproduits']);?>.jpg">
+                        <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul class="list-unstyled">
+                                <li><a class="btn btn-success text-white mt-2" href="../singleprod.php?product=<?php echo($prod['idproduits']); ?>"><i class="fas fa-eye"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body" style="border: none !important;">
+                        <div class="w-100 list-unstyled d-flex justify-content-center mb-0">
+                            <a  class="h3 text-decoration-none" id="name<?php echo($prod['idproduits']); ?>"><?php echo($prod['nom']); ?></a>
+                        </div>
+                        
+                        <div class="w-100 list-unstyled d-flex justify-content-center mb-0">
+                            <div style="margin-top: 3px;">Prix: <a id="price<?php echo($prod['idproduits']); ?>"> <?php echo($prod['prix']); ?></a> DT</div>
+                            <a style="margin-left:2em;">Quantité: <input style="text-align: center;width: 3em;" type="number" min="0" value=1 id="quantity<?php echo($prod['idproduits']); ?>" style="width: 3em;border-color: #000;"></a>
+                        </div>
+                        <div class="w-100 d-flex justify-content-center" style="margin-top: 0.5em;">
+                            <a class="h3" href="../singleprod.php?product=<?php echo($prod['idproduits']); ?>"><button class="get-started-btn" style="width:auto;">Voir details</button></a>
+                            <a class="h3"><button class="get-started-btn" onclick="ajt(<?php echo($prod['idproduits']); ?>)" style="width:auto;">Ajouter dans le panier</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php
+                }
+            }
+            ?>
         </div>
+        <!-- End Arcitcles-->
     </div>
     <!-- End Content -->
-    </div>
 
     <!-- ====== Line Separator ====== -->
     <hr style="border-top: 3px solid #bbb">
